@@ -3,9 +3,11 @@ package com.mulkearn.kevin.colorpicker;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,8 +28,11 @@ public class MainActivity extends AppCompatActivity {
         final int blue_value = blueSeeker.getProgress();
 
         final TextView redValue = (TextView) findViewById(R.id.redValue);
+        redValue.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "255")});
         final TextView greenValue = (TextView) findViewById(R.id.greenValue);
+        greenValue.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "255")});
         final TextView blueValue = (TextView) findViewById(R.id.blueValue);
+        blueValue.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "255")});
 
         //redValue.setText(Integer.toString(red_value));
         //greenValue.setText(Integer.toString(green_value));
@@ -75,6 +80,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public static String getBackColor(int red, int green, int blue){
+
+        int num = Color.rgb(red,green,blue);
+        String color = Integer.toString(num);
+
+        return color;
     }
 
 
