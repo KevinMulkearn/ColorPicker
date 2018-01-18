@@ -13,7 +13,8 @@
         android:layout_height="20dp"
         android:layout_above="@+id/greenSeeker"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:max="255"/>
 
     <SeekBar
         android:id="@+id/greenSeeker"
@@ -21,7 +22,8 @@
         android:layout_height="20dp"
         android:layout_above="@+id/blueSeeker"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:max="255"/>
 
     <SeekBar
         android:id="@+id/blueSeeker"
@@ -29,7 +31,8 @@
         android:layout_height="20dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp" />
+        android:layout_marginBottom="30dp"
+        android:max="255"/>
 
     <EditText
         android:id="@+id/redValue"

@@ -21,17 +21,62 @@ public class MainActivity extends AppCompatActivity {
         SeekBar greenSeeker = (SeekBar) findViewById(R.id.greenSeeker);
         SeekBar blueSeeker = (SeekBar) findViewById(R.id.blueSeeker);
 
-        int redMax = redSeeker.getMax();
-        int greenMax = greenSeeker.getMax();
-        int blueMax = blueSeeker.getMax();
+        final int red_value = redSeeker.getProgress();
+        final int green_value = greenSeeker.getProgress();
+        final int blue_value = blueSeeker.getProgress();
 
-        TextView redValue = (TextView) findViewById(R.id.redValue);
-        TextView greenValue = (TextView) findViewById(R.id.greenValue);
-        TextView blueValue = (TextView) findViewById(R.id.blueValue);
+        final TextView redValue = (TextView) findViewById(R.id.redValue);
+        final TextView greenValue = (TextView) findViewById(R.id.greenValue);
+        final TextView blueValue = (TextView) findViewById(R.id.blueValue);
 
-        redValue.setText(Integer.toString(redMax));
-        greenValue.setText(Integer.toString(greenMax));
-        blueValue.setText(Integer.toString(blueMax));
+        //redValue.setText(Integer.toString(red_value));
+        //greenValue.setText(Integer.toString(green_value));
+        //blueValue.setText(Integer.toString(blue_value));
+
+        redSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChangedValue = 0;
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChangedValue = progress;
+                redValue.setText(Integer.toString(progressChangedValue));
+            }
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                //redValue.setText(Integer.toString(progressChangedValue));
+            }
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //redValue.setText(Integer.toString(progressChangedValue));
+            }
+        });
+
+        greenSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChangedValue = 0;
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChangedValue = progress;
+                greenValue.setText(Integer.toString(progressChangedValue));
+            }
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                //redValue.setText(Integer.toString(progressChangedValue));
+            }
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //redValue.setText(Integer.toString(progressChangedValue));
+            }
+        });
+
+        blueSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChangedValue = 0;
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChangedValue = progress;
+                blueValue.setText(Integer.toString(progressChangedValue));
+            }
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                //redValue.setText(Integer.toString(progressChangedValue));
+            }
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                //redValue.setText(Integer.toString(progressChangedValue));
+            }
+        });
 
     }
+
+
+
 }
