@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mulkearn.kevin.colorpicker.MainActivity">
+
+
+    <SeekBar
+        android:id="@+id/redSeeker"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:layout_above="@+id/greenSeeker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
+
+    <SeekBar
+        android:id="@+id/greenSeeker"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:layout_above="@+id/blueSeeker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
+
+    <SeekBar
+        android:id="@+id/blueSeeker"
+        android:layout_width="300dp"
+        android:layout_height="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
+
+    <EditText
+        android:id="@+id/redValue"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignStart="@+id/redSeeker"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/greenValue"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/redValue"
+        android:layout_alignBottom="@+id/redValue"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/blueValue"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/greenValue"
+        android:layout_alignBottom="@+id/greenValue"
+        android:layout_alignEnd="@+id/redSeeker"
+        android:ems="10"
+        android:inputType="number" />
+</RelativeLayout>
