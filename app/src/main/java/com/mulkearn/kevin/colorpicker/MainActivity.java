@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         blueValue = (TextView) findViewById(R.id.blueValue);
         blueValue.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "255")});
 
-        
+
         redSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChangedValue = 0;
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
