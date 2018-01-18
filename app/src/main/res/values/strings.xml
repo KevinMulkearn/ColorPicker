@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ColorPicker</string>
+    <string name="red_initial_val">0</string>
+    <string name="green_initial_val">0</string>
+    <string name="blue_initial_val">0</string>
+    <string name="hex_value">#FFFFFF</string>
 </resources>

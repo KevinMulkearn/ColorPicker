@@ -9,69 +9,145 @@
 
     <SeekBar
         android:id="@+id/redSeeker"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="20dp"
         android:layout_above="@+id/greenSeeker"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:max="255"/>
+        android:layout_marginBottom="20dp"
+        android:background="#FF8c8c"
+        android:max="255" />
 
     <SeekBar
         android:id="@+id/greenSeeker"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="20dp"
         android:layout_above="@+id/blueSeeker"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:max="255"/>
+        android:layout_marginBottom="20dp"
+        android:background="#8CFF8C"
+        android:max="255" />
 
     <SeekBar
         android:id="@+id/blueSeeker"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="20dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:max="255"/>
+        android:layout_marginBottom="20dp"
+        android:background="#8C8CE1"
+        android:max="255" />
+
 
     <EditText
         android:id="@+id/redValue"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:layout_alignStart="@+id/redSeeker"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/redSeeker"
+        android:layout_marginBottom="20dp"
+        android:layout_toLeftOf="@+id/greenValue"
+        android:background="#FF8c8c"
         android:ems="10"
-        android:gravity="center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
         android:inputType="number"
-        android:maxLines="1"
         android:maxLength="3"
-        android:text="0"/>
+        android:maxLines="1"
+        android:text="@string/red_initial_val" />
 
     <EditText
         android:id="@+id/greenValue"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:layout_alignBaseline="@+id/redValue"
-        android:layout_alignBottom="@+id/redValue"
+        android:layout_above="@+id/redSeeker"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="#8CFF8C"
         android:ems="10"
-        android:gravity="center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
         android:inputType="number"
-        android:maxLines="1"
         android:maxLength="3"
-        android:text="0"/>
+        android:maxLines="1"
+        android:text="@string/green_initial_val" />
 
     <EditText
         android:id="@+id/blueValue"
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:layout_alignBaseline="@+id/greenValue"
-        android:layout_alignBottom="@+id/greenValue"
-        android:layout_alignEnd="@+id/redSeeker"
+        android:layout_above="@+id/redSeeker"
+        android:layout_marginBottom="20dp"
+        android:layout_toRightOf="@+id/greenValue"
+        android:background="#8C8CE1"
         android:ems="10"
-        android:gravity="center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
         android:inputType="number"
-        android:maxLines="1"
         android:maxLength="3"
-        android:text="0"/>
+        android:maxLines="1"
+        android:text="@string/blue_initial_val" />
+
+
+    <EditText
+        android:id="@+id/hexValue"
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/satValue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/hex_value" />
+
+
+    <TextView
+        android:id="@+id/hueValue"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/redValue"
+        android:layout_marginBottom="10dp"
+        android:layout_toLeftOf="@+id/satValue"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="number"
+        android:maxLength="4"
+        android:maxLines="1"
+        android:text="0\u00b0" />
+
+    <TextView
+        android:id="@+id/satValue"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/greenValue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="number"
+        android:maxLength="4"
+        android:maxLines="1"
+        android:text="0%" />
+
+    <TextView
+        android:id="@+id/valValue"
+        android:layout_width="match_parent"
+        android:layout_marginRight="10dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/blueValue"
+        android:layout_marginBottom="10dp"
+        android:layout_toRightOf="@+id/satValue"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:inputType="number"
+        android:maxLength="4"
+        android:maxLines="1"
+        android:text="0%" />
 </RelativeLayout>
