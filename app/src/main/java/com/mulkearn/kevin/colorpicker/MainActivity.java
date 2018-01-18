@@ -11,38 +11,41 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    RelativeLayout myLayout;
+    SeekBar redSeeker, greenSeeker, blueSeeker;
+    TextView redValue, greenValue,  blueValue;
+    private int red_value, green_value, blue_value;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RelativeLayout myLayout = (RelativeLayout) findViewById(R.id.mainView);
+        myLayout = (RelativeLayout) findViewById(R.id.mainView);
         myLayout.setBackgroundColor(Color.WHITE);
 
-        SeekBar redSeeker = (SeekBar) findViewById(R.id.redSeeker);
-        SeekBar greenSeeker = (SeekBar) findViewById(R.id.greenSeeker);
-        SeekBar blueSeeker = (SeekBar) findViewById(R.id.blueSeeker);
+        redSeeker = (SeekBar) findViewById(R.id.redSeeker);
+        greenSeeker = (SeekBar) findViewById(R.id.greenSeeker);
+        blueSeeker = (SeekBar) findViewById(R.id.blueSeeker);
 
-        final int red_value = redSeeker.getProgress();
-        final int green_value = greenSeeker.getProgress();
-        final int blue_value = blueSeeker.getProgress();
+        red_value = redSeeker.getProgress();
+        green_value = greenSeeker.getProgress();
+        blue_value = blueSeeker.getProgress();
 
-        final TextView redValue = (TextView) findViewById(R.id.redValue);
+        redValue = (TextView) findViewById(R.id.redValue);
         redValue.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "255")});
-        final TextView greenValue = (TextView) findViewById(R.id.greenValue);
+        greenValue = (TextView) findViewById(R.id.greenValue);
         greenValue.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "255")});
-        final TextView blueValue = (TextView) findViewById(R.id.blueValue);
+        blueValue = (TextView) findViewById(R.id.blueValue);
         blueValue.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "255")});
 
-        //redValue.setText(Integer.toString(red_value));
-        //greenValue.setText(Integer.toString(green_value));
-        //blueValue.setText(Integer.toString(blue_value));
-
+        
         redSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progressChangedValue = 0;
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChangedValue = progress;
                 redValue.setText(Integer.toString(progressChangedValue));
+                getBackColor();
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //redValue.setText(Integer.toString(progressChangedValue));
@@ -57,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChangedValue = progress;
                 greenValue.setText(Integer.toString(progressChangedValue));
+                getBackColor();
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //redValue.setText(Integer.toString(progressChangedValue));
@@ -71,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 progressChangedValue = progress;
                 blueValue.setText(Integer.toString(progressChangedValue));
+                getBackColor();
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //redValue.setText(Integer.toString(progressChangedValue));
@@ -82,12 +87,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public static String getBackColor(int red, int green, int blue){
+    public void getBackColor(){
 
-        int num = Color.rgb(red,green,blue);
-        String color = Integer.toString(num);
-
-        return color;
+        red_value = redSeeker.getProgress();
+        green_value = greenSeeker.getProgress();
+        blue_value = blueSeeker.getProgress();
+        myLayout.setBackgroundColor( 0xff000000 + red_value * 0x10000 + green_value * 0x100 + blue_value);
     }
 
 
