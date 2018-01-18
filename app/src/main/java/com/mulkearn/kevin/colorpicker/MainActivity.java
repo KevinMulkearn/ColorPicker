@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout myLayout;
     SeekBar redSeeker, greenSeeker, blueSeeker;
     TextView redValue, greenValue,  blueValue, hexValue, hueValue, satValue, valValue;
-    private int red_value, green_value, blue_value;
+    private int red_value, green_value, blue_value, inv_red_value, inv_green_value, inv_blue_value;
     private String hex;
     private float hue, sat, val;
     private float[] hsv;
@@ -55,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 progressChangedValue = progress;
                 redValue.setText(Integer.toString(progressChangedValue));
                 getBackColor();
+                getOppBackColor();
                 getHexValue();
                 getHSVValue();
-
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //redValue.setText(Integer.toString(progressChangedValue));
@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
                 progressChangedValue = progress;
                 greenValue.setText(Integer.toString(progressChangedValue));
                 getBackColor();
+                getOppBackColor();
                 getHexValue();
                 getHSVValue();
-
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //redValue.setText(Integer.toString(progressChangedValue));
@@ -91,9 +91,9 @@ public class MainActivity extends AppCompatActivity {
                 progressChangedValue = progress;
                 blueValue.setText(Integer.toString(progressChangedValue));
                 getBackColor();
+                getOppBackColor();
                 getHexValue();
                 getHSVValue();
-
             }
             public void onStartTrackingTouch(SeekBar seekBar) {
                 //redValue.setText(Integer.toString(progressChangedValue));
@@ -110,6 +110,17 @@ public class MainActivity extends AppCompatActivity {
         green_value = greenSeeker.getProgress();
         blue_value = blueSeeker.getProgress();
         myLayout.setBackgroundColor( 0xff000000 + red_value * 0x10000 + green_value * 0x100 + blue_value);
+
+    }
+
+    public void getOppBackColor(){
+        inv_red_value = 255 - redSeeker.getProgress();
+        inv_green_value = 255- greenSeeker.getProgress();
+        inv_blue_value = 255 - blueSeeker.getProgress();
+        hexValue.setBackgroundColor( 0xff000000 + inv_red_value * 0x10000 + inv_green_value * 0x100 + inv_blue_value);
+        hueValue.setBackgroundColor( 0xff000000 + inv_red_value * 0x10000 + inv_green_value * 0x100 + inv_blue_value);
+        satValue.setBackgroundColor( 0xff000000 + inv_red_value * 0x10000 + inv_green_value * 0x100 + inv_blue_value);
+        valValue.setBackgroundColor( 0xff000000 + inv_red_value * 0x10000 + inv_green_value * 0x100 + inv_blue_value);
 
     }
 

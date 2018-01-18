@@ -101,7 +101,11 @@
         android:layout_marginBottom="10dp"
         android:background="@android:color/white"
         android:gravity="center_vertical|center_horizontal"
-        android:text="@string/hex_value" />
+        android:text="@string/hex_value"
+        android:digits="0123456789ABCDEF#"
+        android:inputType="textCapCharacters"
+        android:maxLength="7"
+        android:maxLines="1"/>
 
 
     <TextView
