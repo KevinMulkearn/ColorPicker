@@ -4,6 +4,7 @@
     android:id="@+id/mainView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     tools:context="com.mulkearn.kevin.colorpicker.MainActivity">
 
 
@@ -56,15 +57,12 @@
         android:layout_height="50dp"
         android:layout_above="@+id/redSeeker"
         android:layout_marginBottom="20dp"
-        android:layout_toLeftOf="@+id/greenValue"
+        android:layout_toStartOf="@+id/greenValue"
         android:background="#FF0000"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:inputType="number"
-        android:maxLength="3"
-        android:maxLines="1"
         android:text="@string/red_initial_val"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/greenValue"
@@ -76,11 +74,8 @@
         android:background="#00FF00"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:inputType="number"
-        android:maxLength="3"
-        android:maxLines="1"
         android:text="@string/green_initial_val"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/blueValue"
@@ -88,15 +83,12 @@
         android:layout_height="50dp"
         android:layout_above="@+id/redSeeker"
         android:layout_marginBottom="20dp"
-        android:layout_toRightOf="@+id/greenValue"
+        android:layout_toEndOf="@+id/greenValue"
         android:background="#0000FF"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:inputType="number"
-        android:maxLength="3"
-        android:maxLines="1"
         android:text="@string/blue_initial_val"
-        android:textColor="#FFFFFF"/>
+        android:textColor="#FFFFFF" />
 
 
     <TextView
@@ -107,30 +99,25 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@android:color/white"
-        android:digits="0123456789ABCDEF#"
+        android:background="@android:color/black"
         android:gravity="center_vertical|center_horizontal"
-        android:inputType="textCapCharacters"
-        android:maxLength="7"
-        android:maxLines="1"
-        android:text="@string/hex_value" />
+        android:text="@string/hex_value"
+        android:textColor="#FFFFFF" />
 
 
     <TextView
         android:id="@+id/hueValue"
         android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
         android:layout_height="50dp"
         android:layout_above="@+id/redValue"
         android:layout_marginBottom="10dp"
-        android:layout_toLeftOf="@+id/satValue"
-        android:background="@android:color/white"
+        android:layout_marginStart="10dp"
+        android:layout_toStartOf="@+id/satValue"
+        android:background="@android:color/black"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:inputType="number"
-        android:maxLength="4"
-        android:maxLines="1"
-        android:text="0\u00b0" />
+        android:text="@string/hur_initial_val"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/satValue"
@@ -139,27 +126,23 @@
         android:layout_above="@+id/greenValue"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
-        android:background="@android:color/white"
+        android:background="@android:color/black"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:inputType="number"
-        android:maxLength="4"
-        android:maxLines="1"
-        android:text="0%" />
+        android:text="@string/sat_initial_val"
+        android:textColor="#FFFFFF" />
 
     <TextView
         android:id="@+id/valValue"
         android:layout_width="match_parent"
-        android:layout_marginRight="10dp"
         android:layout_height="50dp"
         android:layout_above="@+id/blueValue"
         android:layout_marginBottom="10dp"
-        android:layout_toRightOf="@+id/satValue"
-        android:background="@android:color/white"
+        android:layout_marginEnd="10dp"
+        android:layout_toEndOf="@+id/satValue"
+        android:background="@android:color/black"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:inputType="number"
-        android:maxLength="4"
-        android:maxLines="1"
-        android:text="0%" />
+        android:text="@string/val_initial_val"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>

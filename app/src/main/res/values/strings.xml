@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Color Picker</string>
-    <string name="red_initial_val">0</string>
-    <string name="green_initial_val">0</string>
-    <string name="blue_initial_val">0</string>
-    <string name="hex_value">#FFFFFF</string>
+    <string name="red_initial_val">R: 0</string>
+    <string name="green_initial_val">G: 0</string>
+    <string name="blue_initial_val">B: 0</string>
+    <string name="hex_value">Hex: #FFFFFF</string>
+    <string name="hur_initial_val">H: 0°</string>
+    <string name="sat_initial_val">S: 0%</string>
+    <string name="val_initial_val">V: 0%</string>
 </resources>
