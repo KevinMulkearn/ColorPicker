@@ -7,4 +7,5 @@
     <string name="hur_initial_val">H: 0°</string>
     <string name="sat_initial_val">S: 0%</string>
     <string name="val_initial_val">V: 0%</string>
+    <string name="random_text">Random</string>
 </resources>

@@ -3,9 +3,13 @@ package com.mulkearn.kevin.colorpicker;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView redValue, greenValue,  blueValue, hexValue, hueValue, satValue, valValue;
     private int red_value, green_value, blue_value;
     private String hex;
+    Button randButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         //Main view
         myLayout = (RelativeLayout) findViewById(R.id.mainView);
+
+        //Buttons
+        randButton = (Button) findViewById(R.id.randButton);
 
         //Seek Bars
         redSeeker = (SeekBar) findViewById(R.id.redSeeker);
@@ -38,6 +46,24 @@ public class MainActivity extends AppCompatActivity {
         hueValue = (TextView) findViewById(R.id.hueValue);
         satValue = (TextView) findViewById(R.id.satValue);
         valValue = (TextView) findViewById(R.id.valValue);
+
+        randButton.setOnClickListener(
+                new Button.OnClickListener(){
+                    public void onClick(View v){
+                        Random r_red = new Random();
+                        Random r_green = new Random();
+                        Random r_blue = new Random();
+
+                        int randRed = r_red.nextInt(255 - 0 + 1) + 0;
+                        int randGreen = r_green.nextInt(255 - 0 + 1) + 0;
+                        int randBlue = r_blue.nextInt(255 - 0 + 1) + 0;
+
+                        redSeeker.setProgress(randRed);
+                        greenSeeker.setProgress(randGreen);
+                        blueSeeker.setProgress(randBlue);
+                    }
+                }
+        );
 
 
         redSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
