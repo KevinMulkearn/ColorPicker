@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         blue_value = blueSeeker.getProgress();
 
         hex = String.format("%02X%02X%02X",red_value, green_value, blue_value);
-        hexValue.setText("Hex: " + hex);
+        hexValue.setText("Hex: #" + hex);
     }
 
     public void getHSVValue(){
@@ -149,7 +149,5 @@ public class MainActivity extends AppCompatActivity {
         satValue.setText("S: " + Integer.toString((int) sat) + "%");
         valValue.setText("V: " + Integer.toString((int) val) + "%");
     }
-
-
 
 }
