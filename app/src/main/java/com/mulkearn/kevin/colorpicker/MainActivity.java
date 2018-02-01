@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -26,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     TextView redValue, greenValue,  blueValue, hexValue, hueValue, satValue, valValue;
     private int red_value, green_value, blue_value;
     private String hex = "#000000";
-    Button randButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +42,7 @@ public class MainActivity extends AppCompatActivity {
         redValue = (TextView) findViewById(R.id.redValue);
         greenValue = (TextView) findViewById(R.id.greenValue);
         blueValue = (TextView) findViewById(R.id.blueValue);
-
         hexValue = (TextView) findViewById(R.id.hexValue);
-
         hueValue = (TextView) findViewById(R.id.hueValue);
         satValue = (TextView) findViewById(R.id.satValue);
         valValue = (TextView) findViewById(R.id.valValue);
