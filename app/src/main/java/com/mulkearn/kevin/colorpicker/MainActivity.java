@@ -1,13 +1,19 @@
 package com.mulkearn.kevin.colorpicker;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -17,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar redSeeker, greenSeeker, blueSeeker;
     TextView redValue, greenValue,  blueValue, hexValue, hueValue, satValue, valValue;
     private int red_value, green_value, blue_value;
-    private String hex;
-    Button randButton;
+    private String hex = "#000000";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Main view
         myLayout = (RelativeLayout) findViewById(R.id.mainView);
-
-        //Buttons
-        randButton = (Button) findViewById(R.id.randButton);
 
         //Seek Bars
         redSeeker = (SeekBar) findViewById(R.id.redSeeker);
@@ -40,30 +42,10 @@ public class MainActivity extends AppCompatActivity {
         redValue = (TextView) findViewById(R.id.redValue);
         greenValue = (TextView) findViewById(R.id.greenValue);
         blueValue = (TextView) findViewById(R.id.blueValue);
-
         hexValue = (TextView) findViewById(R.id.hexValue);
-
         hueValue = (TextView) findViewById(R.id.hueValue);
         satValue = (TextView) findViewById(R.id.satValue);
         valValue = (TextView) findViewById(R.id.valValue);
-
-        randButton.setOnClickListener(
-                new Button.OnClickListener(){
-                    public void onClick(View v){
-                        Random r_red = new Random();
-                        Random r_green = new Random();
-                        Random r_blue = new Random();
-
-                        int randRed = r_red.nextInt(255 - 0 + 1) + 0;
-                        int randGreen = r_green.nextInt(255 - 0 + 1) + 0;
-                        int randBlue = r_blue.nextInt(255 - 0 + 1) + 0;
-
-                        redSeeker.setProgress(randRed);
-                        greenSeeker.setProgress(randGreen);
-                        blueSeeker.setProgress(randBlue);
-                    }
-                }
-        );
 
 
         redSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -112,6 +94,42 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                Intent i = new Intent(this, AboutActivity.class);
+                startActivity(i);
+                return true;
+            case R.id.randomHex:
+                Random r_red = new Random();
+                Random r_green = new Random();
+                Random r_blue = new Random();
+                int randRed = r_red.nextInt(255 - 0 + 1) + 0;
+                int randGreen = r_green.nextInt(255 - 0 + 1) + 0;
+                int randBlue = r_blue.nextInt(255 - 0 + 1) + 0;
+                redSeeker.setProgress(randRed);
+                greenSeeker.setProgress(randGreen);
+                blueSeeker.setProgress(randBlue);
+                return true;
+            case R.id.saveHex:
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Hex Value","#" + hex);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(MainActivity.this, "#" + hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     public void getBackColor(){
         red_value = redSeeker.getProgress();
