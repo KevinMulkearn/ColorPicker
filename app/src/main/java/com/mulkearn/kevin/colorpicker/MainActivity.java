@@ -104,9 +104,13 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.hsv:
+                Intent i_hsv = new Intent(this, hsvActivity.class);
+                startActivity(i_hsv);
+                return true;
             case R.id.about:
-                Intent i = new Intent(this, AboutActivity.class);
-                startActivity(i);
+                Intent i_about = new Intent(this, AboutActivity.class);
+                startActivity(i_about);
                 return true;
             case R.id.randomHex:
                 Random r_red = new Random();

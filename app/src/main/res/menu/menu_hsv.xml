@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/hsv"
-        android:title="HSV Picker" />
+        android:id="@+id/rgb"
+        android:title="RGB Picker" />
     <item
         android:id="@+id/saveHex"
         android:title="Save" />
     <item
-        android:id="@+id/randomHex"
+        android:id="@+id/randomHSV"
         android:title="Random" />
     <item
         android:id="@+id/about"
