@@ -10,25 +10,25 @@
     <string name="random_text">Random</string>
     <string name="about_text">
         About:\n
-        Primary colors are any of a group of colors from\n
-        which all other colours can be obtained by mixing.\n
-        In real world applications the most common colors\n
-        chosen are red, blue, and yellow. When it come to\n
-        representing colors digitally, the RGB24 (red, green,\n
-        blue) model is most popular. This scheme restricts the\n
-        number of available values to 8 bits in three color\n
-        channels with values of 0–255. This means that any\n
-        given color can be one of 16,777,216 possible colors.\n
-        This App lets you play around with this model and lets\n
-        you generate your own \"unique\" colors.\n
-        The generated values are then converted into\n
+        Primary colors are any of a group of colors from
+        which all other colours can be obtained by mixing.
+        In real world applications the most common colors
+        chosen are red, blue, and yellow. When it come to
+        representing colors digitally, the RGB24 (red, green,
+        blue) model is most popular. This scheme restricts the
+        number of available values to 8 bits in three color
+        channels with values of 0–255. This means that any
+        given color can be one of 16,777,216 possible colors.
+        This App lets you play around with this model and lets
+        you generate your own \"unique\" colors.
+        The generated values are then converted into
         Hexadecimal and HSV representation.\n\n
         How to Use:\n
-        Move the slider to select a value from 0 to 255.\n
-        Do this for each primary color to get your desired\n
-        color. When a desired color is found you can copy the\n
-        hexadecimal value to your clipboard (via the save option\n
-        from the menu in the top right). You can also generate\n
+        Move the slider to select a value from 0 to 255.
+        Do this for each primary color to get your desired
+        color. When a desired color is found you can copy the
+        hexadecimal value to your clipboard (via the save option
+        from the menu in the top right). You can also generate
         random colors, if desired.
     </string>
 </resources>

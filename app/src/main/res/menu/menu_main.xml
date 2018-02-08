@@ -2,15 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/about"
-        android:title="About" />
-
+        android:id="@+id/saveHex"
+        android:title="Save" />
     <item
         android:id="@+id/randomHex"
         android:title="Random" />
-
     <item
-        android:id="@+id/saveHex"
-        android:title="Save" />
+        android:id="@+id/about"
+        android:title="About" />
 
 </menu>
