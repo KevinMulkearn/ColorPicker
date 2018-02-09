@@ -9,7 +9,7 @@
     <string name="val_initial_val">V: 0%</string>
     <string name="random_text">Random</string>
     <string name="about_text">
-        About:\n
+        RGB Picker:\n
         Primary colors are any of a group of colors from
         which all other colours can be obtained by mixing.
         In real world applications the most common colors
@@ -23,8 +23,18 @@
         you generate your own \"unique\" colors.
         The generated values are then converted into
         Hexadecimal and HSV representation.\n\n
+        HSV Picker:\n
+        Hue, Saturation, Value is an alternative representations
+        of the RGB color model. It more closely aligns with the
+        way human vision perceives color-making attributes.
+        The HSV representation models the way paints of different
+        colors mix together, with the saturation dimension resembling
+        various shades of brightly colored paint, and the value
+        dimension resembling the mixture of those paints with
+        varying amounts of black or white paint.\n\n
         How to Use:\n
-        Move the slider to select a value from 0 to 255.
+        Move the slider to select a value from 0 to 255
+        {0 to 360 for hue, 0 to 100 for sat and val}.
         Do this for each primary color to get your desired
         color. When a desired color is found you can copy the
         hexadecimal value to your clipboard (via the save option

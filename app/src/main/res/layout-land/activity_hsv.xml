@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/hexValue"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="30dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
@@ -20,49 +20,11 @@
         android:textColor="#FFFFFF" />
 
     <TextView
-        android:id="@+id/hueValue"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/hexValue"
-        android:layout_marginStart="10dp"
-        android:layout_toStartOf="@+id/satValue"
-        android:background="@android:color/black"
-        android:ems="10"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/hur_initial_val"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/satValue"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/hexValue"
-        android:layout_centerHorizontal="true"
-        android:background="@android:color/black"
-        android:ems="10"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/sat_initial_val"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/valValue"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/hexValue"
-        android:layout_marginEnd="10dp"
-        android:layout_toEndOf="@+id/satValue"
-        android:background="@android:color/black"
-        android:ems="10"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/val_initial_val"
-        android:textColor="#FFFFFF" />
-
-    <TextView
         android:id="@+id/redValue"
         android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/satValue"
-        android:layout_marginTop="10dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/hexValue"
+        android:layout_marginTop="5dp"
         android:layout_toStartOf="@+id/greenValue"
         android:background="#FF0000"
         android:ems="10"
@@ -73,9 +35,9 @@
     <TextView
         android:id="@+id/greenValue"
         android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/satValue"
-        android:layout_marginTop="10dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/hexValue"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
         android:background="#00FF00"
         android:ems="10"
@@ -86,9 +48,9 @@
     <TextView
         android:id="@+id/blueValue"
         android:layout_width="60dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/satValue"
-        android:layout_marginTop="10dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/hexValue"
+        android:layout_marginTop="5dp"
         android:layout_toEndOf="@+id/greenValue"
         android:background="#0000FF"
         android:ems="10"
@@ -96,13 +58,56 @@
         android:text="@string/blue_initial_val"
         android:textColor="#FFFFFF" />
 
+    <TextView
+        android:id="@+id/hueValue"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/satValue"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/black"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/hur_initial_val"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/satValue"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_above="@+id/valValue"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/black"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/sat_initial_val"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/valValue"
+        android:layout_width="60dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/black"
+        android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/val_initial_val"
+        android:textColor="#FFFFFF" />
+
     <SeekBar
         android:id="@+id/hueSeeker"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
         android:layout_above="@+id/satSeeker"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
+        android:layout_toStartOf="@+id/hueValue"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:max="360"
@@ -113,9 +118,10 @@
         android:id="@+id/satSeeker"
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:layout_alignParentLeft="true"
         android:layout_above="@+id/valSeeker"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
+        android:layout_toStartOf="@+id/satValue"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:max="100"
@@ -127,8 +133,9 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@+id/valValue"
+        android:layout_marginBottom="20dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:max="100"

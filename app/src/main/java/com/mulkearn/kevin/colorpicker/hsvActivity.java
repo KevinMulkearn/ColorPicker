@@ -5,6 +5,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -22,9 +23,12 @@ public class hsvActivity extends AppCompatActivity{
     RelativeLayout hsvLayout;
     SeekBar hueSeeker, satSeeker, valSeeker;
     TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue;
-    private int hue_value, sat_value, val_value;
+    int hue_value, sat_value, val_value;
     int red = 0, green = 0, blue = 0;
     String hex = "#000000";
+    float[] temp = {0, 0, 0};
+    float[] temp1 = {0, 0, 0};
+    float[] temp2 = {0, 0, 0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +36,6 @@ public class hsvActivity extends AppCompatActivity{
         setContentView(R.layout.activity_hsv);
 
         hsvLayout = (RelativeLayout) findViewById(R.id.hsvLayout);
-
-        hueSeeker = (SeekBar) findViewById(R.id.hueSeeker);
-        satSeeker = (SeekBar) findViewById(R.id.satSeeker);
-        valSeeker = (SeekBar) findViewById(R.id.valSeeker);
 
         hueValue = (TextView) findViewById(R.id.hueValue);
         satValue = (TextView) findViewById(R.id.satValue);
@@ -45,49 +45,46 @@ public class hsvActivity extends AppCompatActivity{
         greenValue = (TextView) findViewById(R.id.greenValue);
         blueValue = (TextView) findViewById(R.id.blueValue);
 
+        hueSeeker = (SeekBar) findViewById(R.id.hueSeeker);
+        satSeeker = (SeekBar) findViewById(R.id.satSeeker);
+        valSeeker = (SeekBar) findViewById(R.id.valSeeker);
+
+        setSliderGrads();
+
         hueSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                hueValue.setText("Hue: " + Integer.toString(progress) + "\u00b0");
+                hueValue.setText("H: " + Integer.toString(progress) + "\u00b0");
                 hsvToRGB();
                 hsvTohex();
                 getBackColor();
+                setSliderGrads();
             }
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         satSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                satValue.setText("Sat: " + Integer.toString(progress) + "%");
+                satValue.setText("S: " + Integer.toString(progress) + "%");
                 hsvToRGB();
                 hsvTohex();
                 getBackColor();
+                setSliderGrads();
             }
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         valSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                valValue.setText("Val: " + Integer.toString(progress) + "%");
+                valValue.setText("V: " + Integer.toString(progress) + "%");
                 hsvToRGB();
                 hsvTohex();
                 getBackColor();
+                setSliderGrads();
             }
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
     }
 
@@ -152,10 +149,48 @@ public class hsvActivity extends AppCompatActivity{
     }
 
     public void getBackColor(){
-        hsvLayout.setBackgroundColor( 0xff000000 + red * 0x10000 + green * 0x100 + blue);
+        hsvLayout.setBackgroundColor(0xff000000 + red * 0x10000 + green * 0x100 + blue);
         redValue.setBackgroundColor(0xff000000 + red * 0x10000);
         greenValue.setBackgroundColor(0xff000000 + green * 0x100);
         blueValue.setBackgroundColor(0xff000000 + blue);
     }
+
+    private int[] buildHueColorArray(){
+        int[] hueArr = new int[361];
+        int count = 0;
+        for (int i = hueArr.length - 1; i >= 0; i--, count++) {
+            hueArr[count] = Color.HSVToColor(new float[]{i, 1f, 1f});
+        }
+        return hueArr;
+    }
+
+    public void setSliderGrads(){
+        //Hue seeker
+        GradientDrawable hueGrad = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, buildHueColorArray());
+        hueGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        hueSeeker.setBackgroundDrawable(hueGrad);
+
+        //Sat seeker
+        temp[0] = (float) hueSeeker.getProgress();
+        temp[1] = (float) 1;
+        temp[2] = (float) 1;
+        int[] valGradValues = {Color.rgb(0,0,0), Color.HSVToColor(temp)};
+        GradientDrawable valGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, valGradValues);
+        valGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        valSeeker.setBackgroundDrawable(valGrad);
+
+        //Val seeker
+        temp1[0] = temp[0];
+        temp1[1] = (float) 1;
+        temp1[2] = (float) valSeeker.getProgress()/100;
+        temp2[0] = temp[0];
+        temp2[1] = (float) 0;
+        temp2[2] = (float) valSeeker.getProgress()/100;
+        int[] satGradValues = {Color.HSVToColor(temp2), Color.HSVToColor(temp1)};
+        GradientDrawable satGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, satGradValues);
+        satGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        satSeeker.setBackgroundDrawable(satGrad);
+    }
+
 
 }
