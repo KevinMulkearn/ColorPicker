@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar redSeeker, greenSeeker, blueSeeker;
     TextView redValue, greenValue,  blueValue, hexValue, hueValue, satValue, valValue;
 
-    float hue, sat, val;
+    float hue = 0, sat = 0, val = 0;
     int red_value, green_value, blue_value;
     String hex = "#000000";
 
@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.hsv:
                 Intent i_hsv = new Intent(this, hsvActivity.class);
+                //i_hsv.putExtra("hex", hex);
+                i_hsv.putExtra("hue", hue);
+                i_hsv.putExtra("sat", sat);
+                i_hsv.putExtra("val", val);
                 startActivity(i_hsv);
                 return true;
             case R.id.about:

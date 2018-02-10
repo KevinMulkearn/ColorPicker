@@ -47,7 +47,24 @@ public class hsvActivity extends AppCompatActivity{
         satSeeker = (SeekBar) findViewById(R.id.satSeeker);
         valSeeker = (SeekBar) findViewById(R.id.valSeeker);
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        //String mainActivityHex = getIntent().getStringExtra("hex");
+        float mainHue = getIntent().getFloatExtra("hue", 0);
+        float mainSat = getIntent().getFloatExtra("sat", 0);
+        float mainVal = getIntent().getFloatExtra("value", 0);
+        hue_value = Math.round(mainHue);
+        sat_value = Math.round(mainSat);
+        val_value = Math.round(mainVal);
+        hueValue.setText("H: " + hue_value + "\u00b0");
+        satValue.setText("S: " + sat_value + "%");
+        valValue.setText("V: " + val_value + "%");
+        hsvToRGB();
+        hsvTohex();
+        getBackColor();
         setSliderGrads();
+        /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //setSliderGrads();
 
         hueSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
