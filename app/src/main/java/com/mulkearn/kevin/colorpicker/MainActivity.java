@@ -22,8 +22,10 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout myLayout;
     SeekBar redSeeker, greenSeeker, blueSeeker;
     TextView redValue, greenValue,  blueValue, hexValue, hueValue, satValue, valValue;
-    private int red_value, green_value, blue_value;
-    private String hex = "#000000";
+
+    float hue, sat, val;
+    int red_value, green_value, blue_value;
+    String hex = "#000000";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,51 +52,47 @@ public class MainActivity extends AppCompatActivity {
 
         redSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                redValue.setText("R: " + Integer.toString(progress));
+                red_value = redSeeker.getProgress();
+                green_value = greenSeeker.getProgress();
+                blue_value = blueSeeker.getProgress();
+                redValue.setText("R: " + progress);
                 getBackColor();
                 getHexValue();
                 getHSVValue();
             }
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         greenSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                greenValue.setText("G: " + Integer.toString(progress));
+                red_value = redSeeker.getProgress();
+                green_value = greenSeeker.getProgress();
+                blue_value = blueSeeker.getProgress();
+                greenValue.setText("G: " + progress);
                 getBackColor();
                 getHexValue();
                 getHSVValue();
             }
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
         blueSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                blueValue.setText("B: " + Integer.toString(progress));
+                red_value = redSeeker.getProgress();
+                green_value = greenSeeker.getProgress();
+                blue_value = blueSeeker.getProgress();
+                blueValue.setText("B: " + progress);
                 getBackColor();
                 getHexValue();
                 getHSVValue();
             }
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //Empty
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
     }
-
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -136,10 +134,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void getBackColor(){
-        red_value = redSeeker.getProgress();
-        green_value = greenSeeker.getProgress();
-        blue_value = blueSeeker.getProgress();
-
         myLayout.setBackgroundColor( 0xff000000 + red_value * 0x10000 + green_value * 0x100 + blue_value);
         redValue.setBackgroundColor(0xff000000 + red_value * 0x10000);
         greenValue.setBackgroundColor(0xff000000 + green_value * 0x100);
@@ -147,29 +141,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void getHexValue(){
-        red_value = redSeeker.getProgress();
-        green_value = greenSeeker.getProgress();
-        blue_value = blueSeeker.getProgress();
-
         hex = String.format("%02X%02X%02X",red_value, green_value, blue_value);
         hexValue.setText("Hex: #" + hex);
     }
 
     public void getHSVValue(){
         float[] hsv = new float[3];
-        red_value = redSeeker.getProgress();
-        green_value = greenSeeker.getProgress();
-        blue_value = blueSeeker.getProgress();
-
         Color.RGBToHSV(red_value, green_value, blue_value, hsv);
-
-        float hue = hsv[0];
-        float sat = hsv[1] * 100;
-        float val = hsv[2] * 100;
-
-        hueValue.setText("H: " + Integer.toString((int) hue) + "\u00b0");
-        satValue.setText("S: " + Integer.toString((int) sat) + "%");
-        valValue.setText("V: " + Integer.toString((int) val) + "%");
+        hue = hsv[0];
+        sat = hsv[1] * 100;
+        val = hsv[2] * 100;
+        hueValue.setText("H: " + Math.round(hue) + "\u00b0");
+        satValue.setText("S: " + Math.round(sat)  + "%");
+        valValue.setText("V: " + Math.round(val)  + "%");
     }
 
 }

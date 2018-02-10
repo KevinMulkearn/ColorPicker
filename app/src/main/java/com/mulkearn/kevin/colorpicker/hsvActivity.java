@@ -23,12 +23,10 @@ public class hsvActivity extends AppCompatActivity{
     RelativeLayout hsvLayout;
     SeekBar hueSeeker, satSeeker, valSeeker;
     TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue;
+
     int hue_value, sat_value, val_value;
     int red = 0, green = 0, blue = 0;
     String hex = "#000000";
-    float[] temp = {0, 0, 0};
-    float[] temp1 = {0, 0, 0};
-    float[] temp2 = {0, 0, 0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +51,10 @@ public class hsvActivity extends AppCompatActivity{
 
         hueSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                hueValue.setText("H: " + Integer.toString(progress) + "\u00b0");
+                hue_value = hueSeeker.getProgress();
+                sat_value = satSeeker.getProgress();
+                val_value = valSeeker.getProgress();
+                hueValue.setText("H: " + progress + "\u00b0");
                 hsvToRGB();
                 hsvTohex();
                 getBackColor();
@@ -65,7 +66,10 @@ public class hsvActivity extends AppCompatActivity{
 
         satSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                satValue.setText("S: " + Integer.toString(progress) + "%");
+                hue_value = hueSeeker.getProgress();
+                sat_value = satSeeker.getProgress();
+                val_value = valSeeker.getProgress();
+                satValue.setText("S: " + progress + "%");
                 hsvToRGB();
                 hsvTohex();
                 getBackColor();
@@ -77,7 +81,10 @@ public class hsvActivity extends AppCompatActivity{
 
         valSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                valValue.setText("V: " + Integer.toString(progress) + "%");
+                hue_value = hueSeeker.getProgress();
+                sat_value = satSeeker.getProgress();
+                val_value = valSeeker.getProgress();
+                valValue.setText("V: " + progress + "%");
                 hsvToRGB();
                 hsvTohex();
                 getBackColor();
@@ -127,9 +134,6 @@ public class hsvActivity extends AppCompatActivity{
     }
 
     public void hsvToRGB(){
-        hue_value = hueSeeker.getProgress();
-        sat_value = satSeeker.getProgress();
-        val_value = valSeeker.getProgress();
         float[] hsv = new float[3];
         hsv[0] = (float) hue_value;
         hsv[1] = (float) sat_value/100;
@@ -165,6 +169,9 @@ public class hsvActivity extends AppCompatActivity{
     }
 
     public void setSliderGrads(){
+        float[] temp = {0, 0, 0};
+        float[] temp1 = {0, 0, 0};
+        float[] temp2 = {0, 0, 0};
         //Hue seeker
         GradientDrawable hueGrad = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, buildHueColorArray());
         hueGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
@@ -172,21 +179,21 @@ public class hsvActivity extends AppCompatActivity{
 
         //Sat seeker
         temp[0] = (float) hueSeeker.getProgress();
-        temp[1] = (float) 1;
-        temp[2] = (float) 1;
-        int[] valGradValues = {Color.rgb(0,0,0), Color.HSVToColor(temp)};
+        temp[1] = 1;
+        temp[2] = 1;
+        int[] valGradValues = {Color.rgb(0,0,0), Color.HSVToColor(temp)}; //start color to end color
         GradientDrawable valGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, valGradValues);
         valGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         valSeeker.setBackgroundDrawable(valGrad);
 
         //Val seeker
         temp1[0] = temp[0];
-        temp1[1] = (float) 1;
+        temp1[1] = 1;
         temp1[2] = (float) valSeeker.getProgress()/100;
         temp2[0] = temp[0];
-        temp2[1] = (float) 0;
+        temp2[1] = 0;
         temp2[2] = (float) valSeeker.getProgress()/100;
-        int[] satGradValues = {Color.HSVToColor(temp2), Color.HSVToColor(temp1)};
+        int[] satGradValues = {Color.HSVToColor(temp2), Color.HSVToColor(temp1)}; //start color to end color
         GradientDrawable satGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, satGradValues);
         satGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         satSeeker.setBackgroundDrawable(satGrad);
