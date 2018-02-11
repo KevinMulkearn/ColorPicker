@@ -102,8 +102,8 @@
         android:layout_height="30dp"
         android:layout_above="@+id/satSeeker"
         android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@+id/hue_h"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:max="360"
         android:thumb="@drawable/custom_val_thumb"
@@ -115,8 +115,8 @@
         android:layout_height="30dp"
         android:layout_above="@+id/valSeeker"
         android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@+id/sat_s"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:max="100"
         android:thumb="@drawable/custom_val_thumb"
@@ -128,11 +128,50 @@
         android:layout_height="30dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_toEndOf="@+id/val_v"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:max="100"
         android:thumb="@drawable/custom_val_thumb"
         android:progressDrawable="@drawable/custom_val_seekbar" />
+
+    <TextView
+        android:id="@+id/hue_h"
+        android:layout_width="15dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/sat_s"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical|end"
+        android:text="H"
+        android:background="#FF0000"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/sat_s"
+        android:layout_width="15dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/val_v"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical|end"
+        android:text="S"
+        android:background="#000000"
+        android:textColor="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/val_v"
+        android:layout_width="15dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical|end"
+        android:text="V"
+        android:background="#000000"
+        android:textColor="#FFFFFF"/>
 
 </RelativeLayout>

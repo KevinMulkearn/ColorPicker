@@ -49,6 +49,19 @@ public class MainActivity extends AppCompatActivity {
         satValue = (TextView) findViewById(R.id.satValue);
         valValue = (TextView) findViewById(R.id.valValue);
 
+        //Color data from hsv activity
+        red_value = getIntent().getIntExtra("red", 0);
+        green_value = getIntent().getIntExtra("green", 0);
+        blue_value = getIntent().getIntExtra("blue", 0);
+        redValue.setText("R: " + red_value);
+        greenValue.setText("G: " + green_value);
+        blueValue.setText("B: " + blue_value);
+        redSeeker.setProgress(red_value);
+        greenSeeker.setProgress(green_value);
+        blueSeeker.setProgress(blue_value);
+        getBackColor();
+        getHexValue();
+        getHSVValue();
 
         redSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -104,7 +117,6 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.hsv:
                 Intent i_hsv = new Intent(this, hsvActivity.class);
-                //i_hsv.putExtra("hex", hex);
                 i_hsv.putExtra("hue", hue);
                 i_hsv.putExtra("sat", sat);
                 i_hsv.putExtra("val", val);
@@ -135,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
     public void getBackColor(){
         myLayout.setBackgroundColor( 0xff000000 + red_value * 0x10000 + green_value * 0x100 + blue_value);

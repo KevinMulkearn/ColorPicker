@@ -4,6 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -22,9 +23,9 @@ public class hsvActivity extends AppCompatActivity{
 
     RelativeLayout hsvLayout;
     SeekBar hueSeeker, satSeeker, valSeeker;
-    TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue;
+    TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue, sat_s;
 
-    int hue_value, sat_value, val_value;
+    int hue_value = 0, sat_value = 0, val_value = 0;
     int red = 0, green = 0, blue = 0;
     String hex = "#000000";
 
@@ -42,29 +43,29 @@ public class hsvActivity extends AppCompatActivity{
         redValue = (TextView) findViewById(R.id.redValue);
         greenValue = (TextView) findViewById(R.id.greenValue);
         blueValue = (TextView) findViewById(R.id.blueValue);
+        sat_s = (TextView) findViewById(R.id.sat_s);
 
         hueSeeker = (SeekBar) findViewById(R.id.hueSeeker);
         satSeeker = (SeekBar) findViewById(R.id.satSeeker);
         valSeeker = (SeekBar) findViewById(R.id.valSeeker);
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////
-        //String mainActivityHex = getIntent().getStringExtra("hex");
+        //Color data from main activity
         float mainHue = getIntent().getFloatExtra("hue", 0);
         float mainSat = getIntent().getFloatExtra("sat", 0);
-        float mainVal = getIntent().getFloatExtra("value", 0);
+        float mainVal = getIntent().getFloatExtra("val", 0);
         hue_value = Math.round(mainHue);
         sat_value = Math.round(mainSat);
         val_value = Math.round(mainVal);
         hueValue.setText("H: " + hue_value + "\u00b0");
         satValue.setText("S: " + sat_value + "%");
         valValue.setText("V: " + val_value + "%");
+        hueSeeker.setProgress(hue_value);
+        satSeeker.setProgress(sat_value);
+        valSeeker.setProgress(val_value);
         hsvToRGB();
         hsvTohex();
         getBackColor();
         setSliderGrads();
-        /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //setSliderGrads();
 
         hueSeeker.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -122,6 +123,9 @@ public class hsvActivity extends AppCompatActivity{
         switch (item.getItemId()) {
             case R.id.rgb:
                 Intent i_rgb = new Intent(this, MainActivity.class);
+                i_rgb.putExtra("red", red);
+                i_rgb.putExtra("green", green);
+                i_rgb.putExtra("blue", blue);
                 startActivity(i_rgb);
                 return true;
             case R.id.about:
@@ -194,7 +198,7 @@ public class hsvActivity extends AppCompatActivity{
         hueGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         hueSeeker.setBackgroundDrawable(hueGrad);
 
-        //Sat seeker
+        //Val seeker
         temp[0] = (float) hueSeeker.getProgress();
         temp[1] = 1;
         temp[2] = 1;
@@ -203,7 +207,7 @@ public class hsvActivity extends AppCompatActivity{
         valGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         valSeeker.setBackgroundDrawable(valGrad);
 
-        //Val seeker
+        //Sat seeker
         temp1[0] = temp[0];
         temp1[1] = 1;
         temp1[2] = (float) valSeeker.getProgress()/100;
@@ -214,6 +218,12 @@ public class hsvActivity extends AppCompatActivity{
         GradientDrawable satGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, satGradValues);
         satGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         satSeeker.setBackgroundDrawable(satGrad);
+
+        int orientation = this.getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+            sat_s.setBackgroundColor(Color.HSVToColor(temp2));
+        }
+
     }
 
 
