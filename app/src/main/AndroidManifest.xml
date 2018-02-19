@@ -24,6 +24,10 @@
             android:name=".hsvActivity"
             android:label="HSV Picker">
         </activity>
+        <activity
+            android:name=".SavedColorActivity"
+            android:label="Saved Colors">
+        </activity>
     </application>
 
 </manifest>

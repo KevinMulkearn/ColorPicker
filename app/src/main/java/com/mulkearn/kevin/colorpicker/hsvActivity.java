@@ -24,6 +24,7 @@ public class hsvActivity extends AppCompatActivity{
     RelativeLayout hsvLayout;
     SeekBar hueSeeker, satSeeker, valSeeker;
     TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue, sat_s;
+    DBHandler dbHandler;
 
     int hue_value = 0, sat_value = 0, val_value = 0;
     int red = 0, green = 0, blue = 0;
@@ -48,6 +49,8 @@ public class hsvActivity extends AppCompatActivity{
         hueSeeker = (SeekBar) findViewById(R.id.hueSeeker);
         satSeeker = (SeekBar) findViewById(R.id.satSeeker);
         valSeeker = (SeekBar) findViewById(R.id.valSeeker);
+
+        dbHandler = new DBHandler(this, null, null, 1);
 
         //Color data from main activity
         float mainHue = getIntent().getFloatExtra("hue", 0);
@@ -128,9 +131,17 @@ public class hsvActivity extends AppCompatActivity{
                 i_rgb.putExtra("blue", blue);
                 startActivity(i_rgb);
                 return true;
-            case R.id.about:
-                Intent i_about = new Intent(this, AboutActivity.class);
-                startActivity(i_about);
+            case R.id.saveHex:
+                Colors color = new Colors(hex);
+                dbHandler.addColor(color);
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Hex Value", hex);
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(hsvActivity.this, hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.savedHex:
+                Intent i_saved = new Intent(this, SavedColorActivity.class);
+                startActivity(i_saved);
                 return true;
             case R.id.randomHSV:
                 Random r_hue = new Random();
@@ -143,11 +154,9 @@ public class hsvActivity extends AppCompatActivity{
                 satSeeker.setProgress(randSat);
                 valSeeker.setProgress(randVal);
                 return true;
-            case R.id.saveHex:
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("Hex Value","#" + hex);
-                clipboard.setPrimaryClip(clip);
-                Toast.makeText(hsvActivity.this, "#" + hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+            case R.id.about:
+                Intent i_about = new Intent(this, AboutActivity.class);
+                startActivity(i_about);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -169,8 +178,8 @@ public class hsvActivity extends AppCompatActivity{
     }
 
     public void hsvTohex(){
-        hex = String.format("%02X%02X%02X", red, green, blue);
-        hexValue.setText("Hex: #" + hex);
+        hex = String.format("#%02X%02X%02X", red, green, blue);
+        hexValue.setText("Hex: " + hex);
     }
 
     public void getBackColor(){
@@ -225,6 +234,5 @@ public class hsvActivity extends AppCompatActivity{
         }
 
     }
-
 
 }

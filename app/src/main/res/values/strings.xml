@@ -38,7 +38,11 @@
         Do this for each primary color to get your desired
         color. When a desired color is found you can copy the
         hexadecimal value to your clipboard (via the save option
-        from the menu in the top right). You can also generate
-        random colors, if desired.
+        from the menu in the top right). This will also save the
+        color in your Saved Colors menu.\n
+        To resave the hexadecimal value to your clipboard,
+        tap the desired color from your list of colors. If you
+        wish to delete a color from your Saved Colors menu,
+        press and hold.
     </string>
 </resources>
