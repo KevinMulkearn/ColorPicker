@@ -60,7 +60,6 @@ public class SavedColorActivity extends AppCompatActivity{
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = (String) savedColorsList.getItemAtPosition(position);
                 dbHandler.deleteColor(item);
-                System.out.println("position " + position);
                 Toast.makeText(SavedColorActivity.this, item + " Deleted", Toast.LENGTH_SHORT).show();
                 printDatabase();
 
@@ -117,7 +116,7 @@ public class SavedColorActivity extends AppCompatActivity{
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //your deleting code
                         dbHandler.clearColors();
-                        Colors color = new Colors("#FFFFFF");
+                        Colors color = new Colors("#000000");
                         dbHandler.addColor(color); //Add white list can't be empty
                         printDatabase();
                         dialog.dismiss();

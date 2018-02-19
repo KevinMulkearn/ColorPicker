@@ -8,13 +8,13 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_weight="1"
-        android:gravity="right|center_vertical"
+        android:gravity="center_horizontal|center_vertical"
         android:padding="15dp"
-        android:shadowColor="@android:color/white"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#000000"
         android:shadowDx="2"
         android:shadowDy="2"
         android:shadowRadius="2"
-        android:text="TextView"
         android:textSize="18sp" />
 
 </LinearLayout>
