@@ -5,6 +5,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -78,14 +80,6 @@ public class SavedColorActivity extends AppCompatActivity{
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.rgb:
-                Intent i_rgb = new Intent(this, MainActivity.class);
-                startActivity(i_rgb);
-                return true;
-            case R.id.hsv:
-                Intent i_hsv = new Intent(this, hsvActivity.class);
-                startActivity(i_hsv);
-                return true;
             case R.id.clear:
                 AlertDialog diaBox = AskOption();
                 diaBox.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(180,255,255,255)));
@@ -131,5 +125,14 @@ public class SavedColorActivity extends AppCompatActivity{
         return myQuittingDialogBox;
     }
 
+    public void rgbNavClick(View view) {
+        Intent i_rgb = new Intent(this, MainActivity.class);
+        startActivity(i_rgb);
+    }
+
+    public void hsvNavClick(View view) {
+        Intent i_hsv = new Intent(this, hsvActivity.class);
+        startActivity(i_hsv);
+    }
 }
 

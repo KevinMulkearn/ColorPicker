@@ -2,14 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/rgb"
-        android:title="RGB Picker" />
-    <item
         android:id="@+id/saveHex"
         android:title="Save" />
-    <item
-        android:id="@+id/savedHex"
-        android:title="Saved Colors" />
     <item
         android:id="@+id/randomHSV"
         android:title="Random" />

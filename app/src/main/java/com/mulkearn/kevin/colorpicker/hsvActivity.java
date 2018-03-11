@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -124,13 +125,6 @@ public class hsvActivity extends AppCompatActivity{
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.rgb:
-                Intent i_rgb = new Intent(this, MainActivity.class);
-                i_rgb.putExtra("red", red);
-                i_rgb.putExtra("green", green);
-                i_rgb.putExtra("blue", blue);
-                startActivity(i_rgb);
-                return true;
             case R.id.saveHex:
                 Colors color = new Colors(hex);
                 dbHandler.addColor(color);
@@ -138,10 +132,6 @@ public class hsvActivity extends AppCompatActivity{
                 ClipData clip = ClipData.newPlainText("Hex Value", hex);
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(hsvActivity.this, hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.savedHex:
-                Intent i_saved = new Intent(this, SavedColorActivity.class);
-                startActivity(i_saved);
                 return true;
             case R.id.randomHSV:
                 Random r_hue = new Random();
@@ -235,4 +225,16 @@ public class hsvActivity extends AppCompatActivity{
 
     }
 
+    public void rgbNavClick(View view) {
+        Intent i_rgb = new Intent(this, MainActivity.class);
+        i_rgb.putExtra("red", red);
+        i_rgb.putExtra("green", green);
+        i_rgb.putExtra("blue", blue);
+        startActivity(i_rgb);
+    }
+
+    public void savedNavClick(View view) {
+        Intent i_saved = new Intent(this, SavedColorActivity.class);
+        startActivity(i_saved);
+    }
 }

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -118,13 +119,6 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.hsv:
-                Intent i_hsv = new Intent(this, hsvActivity.class);
-                i_hsv.putExtra("hue", hue);
-                i_hsv.putExtra("sat", sat);
-                i_hsv.putExtra("val", val);
-                startActivity(i_hsv);
-                return true;
             case R.id.saveHex:
                 Colors color = new Colors(hex);
                 dbHandler.addColor(color);
@@ -132,10 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 ClipData clip = ClipData.newPlainText("Hex Value", hex);
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(MainActivity.this, hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
-                return true;
-            case R.id.savedHex:
-                Intent i_saved = new Intent(this, SavedColorActivity.class);
-                startActivity(i_saved);
                 return true;
             case R.id.randomHex:
                 Random r_red = new Random();
@@ -180,4 +170,16 @@ public class MainActivity extends AppCompatActivity {
         valValue.setText("V: " + Math.round(val)  + "%");
     }
 
+    public void hsvNavClick(View view) {
+        Intent i_hsv = new Intent(this, hsvActivity.class);
+        i_hsv.putExtra("hue", hue);
+        i_hsv.putExtra("sat", sat);
+        i_hsv.putExtra("val", val);
+        startActivity(i_hsv);
+    }
+
+    public void savedNavClick(View view) {
+        Intent i_saved = new Intent(this, SavedColorActivity.class);
+        startActivity(i_saved);
+    }
 }

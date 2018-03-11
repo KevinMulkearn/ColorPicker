@@ -7,12 +7,51 @@
     android:background="@android:color/black"
     tools:context="com.mulkearn.kevin.colorpicker.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/navButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="RGB"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#BB212121" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:text="HSV"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#FF212121"
+            android:onClick="hsvNavClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Saved"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#FF212121"
+            android:onClick="savedNavClick"/>
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/hexValue"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/navButtons"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
