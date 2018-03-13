@@ -95,7 +95,7 @@ public class SavedColorActivity extends AppCompatActivity{
             dbString = dbHandler.databaseToString();
             dbString = dbString.substring(0,dbString.length()-1); //Remove , at end
         } else {
-            dbString = "#FFFFFF";
+            dbString = "#000000"; ////Add Black list can't be empty
         }
         savedColorsArray = dbString.split(",");
         colorAdapter = new CustomAdapter(SavedColorActivity.this, savedColorsArray); //use my custom adapter
@@ -111,7 +111,7 @@ public class SavedColorActivity extends AppCompatActivity{
                         //your deleting code
                         dbHandler.clearColors();
                         Colors color = new Colors("#000000");
-                        dbHandler.addColor(color); //Add white list can't be empty
+                        dbHandler.addColor(color); //Add Black list can't be empty
                         printDatabase();
                         dialog.dismiss();
                         Toast.makeText(SavedColorActivity.this, "All Colors Deleted", Toast.LENGTH_SHORT).show();
@@ -133,6 +133,11 @@ public class SavedColorActivity extends AppCompatActivity{
     public void hsvNavClick(View view) {
         Intent i_hsv = new Intent(this, hsvActivity.class);
         startActivity(i_hsv);
+    }
+
+    public void hexNavClick(View view) {
+        Intent i_hex = new Intent(this, HexActivity.class);
+        startActivity(i_hex);
     }
 }
 

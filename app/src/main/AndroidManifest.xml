@@ -28,6 +28,10 @@
             android:name=".SavedColorActivity"
             android:label="Saved Colors">
         </activity>
+        <activity
+            android:name=".HexActivity"
+            android:label="Hex Picker">
+        </activity>
     </application>
 
 </manifest>

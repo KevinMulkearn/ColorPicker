@@ -119,7 +119,7 @@ public class hsvActivity extends AppCompatActivity{
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_hsv, menu);
+        inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -133,7 +133,7 @@ public class hsvActivity extends AppCompatActivity{
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(hsvActivity.this, hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.randomHSV:
+            case R.id.random:
                 Random r_hue = new Random();
                 Random r_sat = new Random();
                 Random r_val = new Random();
@@ -143,6 +143,10 @@ public class hsvActivity extends AppCompatActivity{
                 hueSeeker.setProgress(randHue);
                 satSeeker.setProgress(randSat);
                 valSeeker.setProgress(randVal);
+                return true;
+            case R.id.saved:
+                Intent i_saved = new Intent(this, SavedColorActivity.class);
+                startActivity(i_saved);
                 return true;
             case R.id.about:
                 Intent i_about = new Intent(this, AboutActivity.class);
@@ -233,8 +237,11 @@ public class hsvActivity extends AppCompatActivity{
         startActivity(i_rgb);
     }
 
-    public void savedNavClick(View view) {
-        Intent i_saved = new Intent(this, SavedColorActivity.class);
-        startActivity(i_saved);
+    public void hexNavClick(View view) {
+        Intent i_hex = new Intent(this, HexActivity.class);
+        i_hex.putExtra("red", red);
+        i_hex.putExtra("green", green);
+        i_hex.putExtra("blue", blue);
+        startActivity(i_hex);
     }
 }

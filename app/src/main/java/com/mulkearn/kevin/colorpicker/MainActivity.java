@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     DBHandler dbHandler;
 
     float hue = 0, sat = 0, val = 0;
-    int red_value, green_value, blue_value;
+    int red_value = 0 , green_value = 0, blue_value = 0;
     String hex = "#000000";
 
     @Override
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(MainActivity.this, hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.randomHex:
+            case R.id.random:
                 Random r_red = new Random();
                 Random r_green = new Random();
                 Random r_blue = new Random();
@@ -137,6 +137,10 @@ public class MainActivity extends AppCompatActivity {
                 redSeeker.setProgress(randRed);
                 greenSeeker.setProgress(randGreen);
                 blueSeeker.setProgress(randBlue);
+                return true;
+            case R.id.saved:
+                Intent i_saved = new Intent(this, SavedColorActivity.class);
+                startActivity(i_saved);
                 return true;
             case R.id.about:
                 Intent i_about = new Intent(this, AboutActivity.class);
@@ -178,8 +182,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i_hsv);
     }
 
-    public void savedNavClick(View view) {
-        Intent i_saved = new Intent(this, SavedColorActivity.class);
-        startActivity(i_saved);
+    public void hexNavClick(View view) {
+        Intent i_hex = new Intent(this, HexActivity.class);
+        i_hex.putExtra("red", red_value);
+        i_hex.putExtra("green", green_value);
+        i_hex.putExtra("blue", blue_value);
+        startActivity(i_hex);
     }
 }

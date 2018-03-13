@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mEntry_background">
+
+    <LinearLayout
+        android:id="@+id/navButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="RGB"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#FF212121"
+            android:onClick="rgbNavClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:text="HSV"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#FF212121"
+            android:onClick="hsvNavClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="Hex"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#BB212121" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hexSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/navButtons"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:background="#BB212121">
+
+        <TextView
+            android:id="@+id/hexPrompt"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Hex: #"
+            android:gravity="center_vertical|right"
+            android:textColor="#FFFFFF"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/hexValue"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="000000"
+            android:gravity="center_vertical|left"
+            android:textColor="#FFFFFF"
+            android:digits="0123456789ABCDEF"
+            android:inputType="textCapCharacters"
+            android:maxLength="6"
+            android:layout_weight="1"
+            android:background="#00000000"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hsvValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hexSection"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:background="#BB212121">
+
+        <TextView
+            android:id="@+id/hueValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/hur_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/satValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/sat_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/valValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/val_initial_val"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rgbValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hsvValues"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/redValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#FF0000"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/red_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/greenValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#00FF00"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/green_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/blueValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#0000FF"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/blue_initial_val"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
