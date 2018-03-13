@@ -133,10 +133,17 @@ public class HexActivity extends AppCompatActivity{
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Hex Value", hex);
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(HexActivity.this, hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HexActivity.this, "#" + hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.random:
-
+                Random r_red = new Random();
+                Random r_green = new Random();
+                Random r_blue = new Random();
+                red = r_red.nextInt(255 - 0 + 1) + 0;
+                green = r_green.nextInt(255 - 0 + 1) + 0;
+                blue = r_blue.nextInt(255 - 0 + 1) + 0;
+                getBackColor(red, green, blue);
+                setValues(red, green, blue);
                 return true;
             case R.id.saved:
                 Intent i_saved = new Intent(this, SavedColorActivity.class);
