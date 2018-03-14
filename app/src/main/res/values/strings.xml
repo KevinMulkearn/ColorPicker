@@ -9,21 +9,38 @@
     <string name="val_initial_val">V: 0%</string>
     <string name="random_text">Random</string>
     <string name="about_text">
-        RGB Picker:\n
+        Color Picker:\n
         Primary colors are any of a group of colors from
         which all other colours can be obtained by mixing.
         In real world applications the most common colors
         chosen are red, blue, and yellow. When it come to
         representing colors digitally, the RGB24 (red, green,
-        blue) model is most popular. This scheme restricts the
+        blue) model is most popular.
+        This App lets you play around with different model and lets
+        you generate your own colors.\n\n
+        How to Use:\n
+        RGB and HSV:\n
+        Move the slider to select a value from 0-255
+        (0-360 for hue, 0-100 for saturation and value).
+        Do this for each slider to get your desired color.\n
+        Hex:\n
+        Enter a valid hexadecimal color value (i.e. 0-9, A-F)
+        and hit enter on your keyboard.\n
+        When a desired color is found you can copy the
+        hexadecimal value to your clipboard (via the \"Save\" option
+        from the menu in the top right). This will also save the
+        color in your \"Saved Colors\" menu.\n
+        Saved Colors:\n
+        To resave the hexadecimal value to your clipboard,
+        tap the desired color from your list of colors. If you
+        wish to delete a color from your Saved Colors menu,
+        press and hold.\n\n
+        (RGB)\n
+        This scheme restricts the
         number of available values to 8 bits in three color
         channels with values of 0–255. This means that any
-        given color can be one of 16,777,216 possible colors.
-        This App lets you play around with this model and lets
-        you generate your own \"unique\" colors.
-        The generated values are then converted into
-        Hexadecimal and HSV representation.\n\n
-        HSV Picker:\n
+        given color can be one of 16,777,216 possible colors.\n\n
+        (HSV)\n
         Hue, Saturation, Value is an alternative representations
         of the RGB color model. It more closely aligns with the
         way human vision perceives color-making attributes.
@@ -32,17 +49,16 @@
         various shades of brightly colored paint, and the value
         dimension resembling the mixture of those paints with
         varying amounts of black or white paint.\n\n
-        How to Use:\n
-        Move the slider to select a value from 0 to 255
-        (0 to 360 for hue, 0 to 100 for sat and val).
-        Do this for each primary color to get your desired
-        color. When a desired color is found you can copy the
-        hexadecimal value to your clipboard (via the save option
-        from the menu in the top right). This will also save the
-        color in your Saved Colors menu.\n
-        To resave the hexadecimal value to your clipboard,
-        tap the desired color from your list of colors. If you
-        wish to delete a color from your Saved Colors menu,
-        press and hold.
+        (CMYK)\n
+        Cyan, Magenta, Yellow, Black is a subtractive color model,
+        used in color printing. The CMYK model works by partially or
+        entirely masking colors on a lighter, usually white, background.
+        The ink reduces the light that would otherwise be reflected.\n\n
+        (Hex)\n
+        A hex triplet is a six-digit, three-byte hexadecimal number used
+        to represent colors in computing applications. The bytes
+        represent the red, green and blue components of the color.
+        One byte represents a number in the range 00 to FF (in hexadecimal
+        notation), or 0 to 255 in decimal notation.\n\n
     </string>
 </resources>

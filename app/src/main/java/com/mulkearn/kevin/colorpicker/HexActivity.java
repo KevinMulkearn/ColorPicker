@@ -22,7 +22,7 @@ import java.util.Random;
 
 public class HexActivity extends AppCompatActivity{
 
-    RelativeLayout mEntry_background;
+    RelativeLayout hex_background;
     TextView redValue, greenValue, blueValue, hueValue, satValue,  valValue, cyanValue, magentaValue, yellowValue, blackValue;
     EditText hexValue;
     DBHandler dbHandler;
@@ -36,10 +36,8 @@ public class HexActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hex);
 
-        mEntry_background = (RelativeLayout) findViewById(R.id.mEntry_background);
-
+        hex_background = (RelativeLayout) findViewById(R.id.hex_background);
         hexValue = (EditText) findViewById(R.id.hexValue);
-
         hueValue = (TextView) findViewById(R.id.hueValue);
         satValue = (TextView) findViewById(R.id.satValue);
         valValue = (TextView) findViewById(R.id.valValue);
@@ -97,7 +95,7 @@ public class HexActivity extends AppCompatActivity{
     }
 
     public void getBackColor(){
-        mEntry_background.setBackgroundColor(0xff000000 + red * 0x10000 + green * 0x100 + blue);
+        hex_background.setBackgroundColor(0xff000000 + red * 0x10000 + green * 0x100 + blue);
     }
 
     public void setValues(){
@@ -106,14 +104,14 @@ public class HexActivity extends AppCompatActivity{
         hue = hsv[0];
         sat = hsv[1] * 100;
         val = hsv[2] * 100;
+        hex = String.format("%02X%02X%02X",red, green, blue);
+
         hueValue.setText("H: " + Math.round(hue) + "\u00b0");
         satValue.setText("S: " + Math.round(sat)  + "%");
         valValue.setText("V: " + Math.round(val)  + "%");
-        redValue.setText("R: " + Integer.toString(red));
-        greenValue.setText("G: " + Integer.toString(green));
-        blueValue.setText("B: " + Integer.toString(blue));
-
-        hex = String.format("%02X%02X%02X",red, green, blue);
+        redValue.setText("R: " + red);
+        greenValue.setText("G: " + green);
+        blueValue.setText("B: " + blue);
         hexValue.setText(hex);
     }
 
@@ -137,9 +135,9 @@ public class HexActivity extends AppCompatActivity{
                 Random r_red = new Random();
                 Random r_green = new Random();
                 Random r_blue = new Random();
-                red = r_red.nextInt(255 - 0 + 1) + 0;
-                green = r_green.nextInt(255 - 0 + 1) + 0;
-                blue = r_blue.nextInt(255 - 0 + 1) + 0;
+                red = r_red.nextInt(256);
+                green = r_green.nextInt(256);
+                blue = r_blue.nextInt(256);
                 getBackColor();
                 setValues();
                 rgbTocmyk();
@@ -156,7 +154,6 @@ public class HexActivity extends AppCompatActivity{
                 return super.onOptionsItemSelected(item);
         }
     }
-
 
     public void rgbNavClick(View view) {
         Intent i_rgb = new Intent(this, MainActivity.class);

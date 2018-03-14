@@ -37,7 +37,6 @@ public class hsvActivity extends AppCompatActivity{
         setContentView(R.layout.activity_hsv);
 
         hsvLayout = (RelativeLayout) findViewById(R.id.hsvLayout);
-
         hueValue = (TextView) findViewById(R.id.hueValue);
         satValue = (TextView) findViewById(R.id.satValue);
         valValue = (TextView) findViewById(R.id.valValue);
@@ -46,7 +45,6 @@ public class hsvActivity extends AppCompatActivity{
         greenValue = (TextView) findViewById(R.id.greenValue);
         blueValue = (TextView) findViewById(R.id.blueValue);
         sat_s = (TextView) findViewById(R.id.sat_s);
-
         hueSeeker = (SeekBar) findViewById(R.id.hueSeeker);
         satSeeker = (SeekBar) findViewById(R.id.satSeeker);
         valSeeker = (SeekBar) findViewById(R.id.valSeeker);
@@ -166,9 +164,9 @@ public class hsvActivity extends AppCompatActivity{
         red = Color.red(col);
         green = Color.green(col);
         blue = Color.blue(col);
-        redValue.setText("R: " + Integer.toString(red));
-        greenValue.setText("G: " + Integer.toString(green));
-        blueValue.setText("B: " + Integer.toString(blue));
+        redValue.setText("R: " + red);
+        greenValue.setText("G: " + green);
+        blueValue.setText("B: " + blue);
     }
 
     public void hsvTohex(){

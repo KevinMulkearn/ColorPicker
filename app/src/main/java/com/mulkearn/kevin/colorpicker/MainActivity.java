@@ -36,12 +36,10 @@ public class MainActivity extends AppCompatActivity {
 
         //Main view
         myLayout = (RelativeLayout) findViewById(R.id.mainView);
-
         //Seek Bars
         redSeeker = (SeekBar) findViewById(R.id.redSeeker);
         greenSeeker = (SeekBar) findViewById(R.id.greenSeeker);
         blueSeeker = (SeekBar) findViewById(R.id.blueSeeker);
-
         //Text Views
         redValue = (TextView) findViewById(R.id.redValue);
         greenValue = (TextView) findViewById(R.id.greenValue);
@@ -131,9 +129,9 @@ public class MainActivity extends AppCompatActivity {
                 Random r_red = new Random();
                 Random r_green = new Random();
                 Random r_blue = new Random();
-                int randRed = r_red.nextInt(255 - 0 + 1) + 0;
-                int randGreen = r_green.nextInt(255 - 0 + 1) + 0;
-                int randBlue = r_blue.nextInt(255 - 0 + 1) + 0;
+                int randRed = r_red.nextInt(256);
+                int randGreen = r_green.nextInt(256);
+                int randBlue = r_blue.nextInt(256);
                 redSeeker.setProgress(randRed);
                 greenSeeker.setProgress(randGreen);
                 blueSeeker.setProgress(randBlue);

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mEntry_background">
+    android:id="@+id/hex_background">
 
     <LinearLayout
         android:id="@+id/navButtons"
@@ -59,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Hex: #"
-            android:gravity="center_vertical|right"
+            android:gravity="center_vertical|end"
             android:textColor="#FFFFFF"
             android:layout_weight="1"/>
 
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="000000"
-            android:gravity="center_vertical|left"
+            android:gravity="center_vertical|start"
             android:textColor="#FFFFFF"
             android:digits="0123456789ABCDEF"
             android:inputType="textCapCharacters"
