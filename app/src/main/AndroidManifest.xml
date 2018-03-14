@@ -26,11 +26,13 @@
         </activity>
         <activity
             android:name=".SavedColorActivity"
-            android:label="Saved Colors">
+            android:label="Saved Colors"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".HexActivity"
-            android:label="Hex Picker">
+            android:label="Hex Picker"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

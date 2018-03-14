@@ -23,7 +23,7 @@ import java.util.Random;
 public class HexActivity extends AppCompatActivity{
 
     RelativeLayout mEntry_background;
-    TextView redValue, greenValue,  blueValue, hueValue, satValue,  valValue;;
+    TextView redValue, greenValue, blueValue, hueValue, satValue,  valValue, cyanValue, magentaValue, yellowValue, blackValue;
     EditText hexValue;
     DBHandler dbHandler;
 
@@ -46,20 +46,20 @@ public class HexActivity extends AppCompatActivity{
         redValue = (TextView) findViewById(R.id.redValue);
         greenValue = (TextView) findViewById(R.id.greenValue);
         blueValue = (TextView) findViewById(R.id.blueValue);
+        cyanValue = (TextView) findViewById(R.id.cyanValue);
+        magentaValue = (TextView) findViewById(R.id.magentaValue);
+        yellowValue = (TextView) findViewById(R.id.yellowValue);
+        blackValue = (TextView) findViewById(R.id.blackValue);
 
         dbHandler = new DBHandler(this, null, null, 1);
-
-        hexValue.setText(hex);
-        hueValue.setText("" + (int) hue);
-        satValue.setText("" + (int) sat);
-        valValue.setText("" + (int) val);
 
         red = getIntent().getIntExtra("red", 0);
         green = getIntent().getIntExtra("green", 0);
         blue = getIntent().getIntExtra("blue", 0);
 
-        getBackColor(red, green, blue);
-        setValues(red, green, blue);
+        getBackColor();
+        setValues();
+        rgbTocmyk();
 
         //On Keyboard Enter Click
         hexValue.setOnKeyListener(
@@ -76,8 +76,9 @@ public class HexActivity extends AppCompatActivity{
                                         red = Color.red(color);
                                         green = Color.green(color);
                                         blue = Color.blue(color);
-                                        getBackColor(red, green, blue);
-                                        setValues(red, green, blue);
+                                        getBackColor();
+                                        setValues();
+                                        rgbTocmyk();
                                         InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                                         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                                     } else {
@@ -95,14 +96,11 @@ public class HexActivity extends AppCompatActivity{
 
     }
 
-    public void getBackColor(int red, int green, int blue){
+    public void getBackColor(){
         mEntry_background.setBackgroundColor(0xff000000 + red * 0x10000 + green * 0x100 + blue);
-        redValue.setBackgroundColor(0xff000000 + red * 0x10000);
-        greenValue.setBackgroundColor(0xff000000 + green * 0x100);
-        blueValue.setBackgroundColor(0xff000000 + blue);
     }
 
-    public void setValues(int red, int green, int blue){
+    public void setValues(){
         float[] hsv = new float[3];
         Color.RGBToHSV(red, green, blue, hsv);
         hue = hsv[0];
@@ -142,8 +140,9 @@ public class HexActivity extends AppCompatActivity{
                 red = r_red.nextInt(255 - 0 + 1) + 0;
                 green = r_green.nextInt(255 - 0 + 1) + 0;
                 blue = r_blue.nextInt(255 - 0 + 1) + 0;
-                getBackColor(red, green, blue);
-                setValues(red, green, blue);
+                getBackColor();
+                setValues();
+                rgbTocmyk();
                 return true;
             case R.id.saved:
                 Intent i_saved = new Intent(this, SavedColorActivity.class);
@@ -174,4 +173,21 @@ public class HexActivity extends AppCompatActivity{
         i_hsv.putExtra("val", val);
         startActivity(i_hsv);
     }
+
+    public void rgbTocmyk() {
+        float r = (float)red/255;
+        float g = (float)green/255;
+        float b = (float)blue/255;
+
+        float k = 1 - (Math.max(r,Math.max(g,b)));
+        float c = (1-r-k)/(1-k);
+        float m = (1-g-k)/(1-k);
+        float y = (1-b-k)/(1-k);
+
+        cyanValue.setText("C: " + Math.round(c*100) + "%");
+        magentaValue.setText("M: " + Math.round(m*100)  + "%");
+        yellowValue.setText("Y: " + Math.round(y*100)  + "%");
+        blackValue.setText("K: " + Math.round(k*100)  + "%");
+    }
+
 }

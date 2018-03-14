@@ -124,14 +124,14 @@
         android:layout_below="@+id/hsvValues"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#BB212121">
 
         <TextView
             android:id="@+id/redValue"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="#FF0000"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/red_initial_val"
             android:textColor="#FFFFFF" />
@@ -141,7 +141,6 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="#00FF00"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/green_initial_val"
             android:textColor="#FFFFFF" />
@@ -151,12 +150,58 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="#0000FF"
             android:gravity="center_vertical|center_horizontal"
             android:text="@string/blue_initial_val"
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/cmykValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rgbValues"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:background="#BB212121">
+
+        <TextView
+            android:id="@+id/cyanValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="C: 0%"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/magentaValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="M: 0%"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/yellowValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Y: 0%"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/blackValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="K: 100%"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
 
 </RelativeLayout>
