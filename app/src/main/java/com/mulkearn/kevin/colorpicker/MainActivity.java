@@ -139,6 +139,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.saved:
                 Intent i_saved = new Intent(this, SavedColorActivity.class);
                 startActivity(i_saved);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
             case R.id.about:
                 Intent i_about = new Intent(this, AboutActivity.class);
@@ -178,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         i_hsv.putExtra("sat", sat);
         i_hsv.putExtra("val", val);
         startActivity(i_hsv);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     public void hexNavClick(View view) {
@@ -186,5 +188,6 @@ public class MainActivity extends AppCompatActivity {
         i_hex.putExtra("green", green_value);
         i_hex.putExtra("blue", blue_value);
         startActivity(i_hex);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 }

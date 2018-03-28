@@ -145,6 +145,7 @@ public class HexActivity extends AppCompatActivity{
             case R.id.saved:
                 Intent i_saved = new Intent(this, SavedColorActivity.class);
                 startActivity(i_saved);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
             case R.id.about:
                 Intent i_about = new Intent(this, AboutActivity.class);
@@ -161,6 +162,7 @@ public class HexActivity extends AppCompatActivity{
         i_rgb.putExtra("green", green);
         i_rgb.putExtra("blue", blue);
         startActivity(i_rgb);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     public void hsvNavClick(View view) {
@@ -169,6 +171,7 @@ public class HexActivity extends AppCompatActivity{
         i_hsv.putExtra("sat", sat);
         i_hsv.putExtra("val", val);
         startActivity(i_hsv);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
     public void rgbTocmyk() {
