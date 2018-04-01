@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -123,6 +124,10 @@ public class hsvActivity extends AppCompatActivity{
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                return true;
             case R.id.saveHex:
                 Colors color = new Colors(hex);
                 dbHandler.addColor(color);
@@ -141,15 +146,6 @@ public class hsvActivity extends AppCompatActivity{
                 hueSeeker.setProgress(randHue);
                 satSeeker.setProgress(randSat);
                 valSeeker.setProgress(randVal);
-                return true;
-            case R.id.saved:
-                Intent i_saved = new Intent(this, SavedColorActivity.class);
-                startActivity(i_saved);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                return true;
-            case R.id.about:
-                Intent i_about = new Intent(this, AboutActivity.class);
-                startActivity(i_about);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -229,7 +225,7 @@ public class hsvActivity extends AppCompatActivity{
     }
 
     public void rgbNavClick(View view) {
-        Intent i_rgb = new Intent(this, MainActivity.class);
+        Intent i_rgb = new Intent(this, RGBActivity.class);
         i_rgb.putExtra("red", red);
         i_rgb.putExtra("green", green);
         i_rgb.putExtra("blue", blue);

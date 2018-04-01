@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -78,6 +79,10 @@ public class SavedColorActivity extends AppCompatActivity{
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                return true;
             case R.id.clear:
                 AlertDialog diaBox = AskOption();
                 diaBox.getWindow().setBackgroundDrawable(new ColorDrawable(Color.argb(180,255,255,255)));
@@ -124,7 +129,7 @@ public class SavedColorActivity extends AppCompatActivity{
     }
 
     public void rgbNavClick(View view) {
-        Intent i_rgb = new Intent(this, MainActivity.class);
+        Intent i_rgb = new Intent(this, RGBActivity.class);
         startActivity(i_rgb);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }

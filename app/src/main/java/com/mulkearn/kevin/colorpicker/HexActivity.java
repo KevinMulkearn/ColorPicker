@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -123,13 +124,21 @@ public class HexActivity extends AppCompatActivity{
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                return true;
             case R.id.saveHex:
-                Colors color = new Colors("#" + hex);
-                dbHandler.addColor(color);
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("Hex Value", hex);
-                clipboard.setPrimaryClip(clip);
-                Toast.makeText(HexActivity.this, "#" + hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                if(hex.length() == 6){
+                    Colors color = new Colors("#" + hex);
+                    dbHandler.addColor(color);
+                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clip = ClipData.newPlainText("Hex Value", hex);
+                    clipboard.setPrimaryClip(clip);
+                    Toast.makeText(HexActivity.this, "#" + hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(HexActivity.this, "#" + hex + " Not Valid!", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             case R.id.random:
                 Random r_red = new Random();
@@ -142,22 +151,13 @@ public class HexActivity extends AppCompatActivity{
                 setValues();
                 rgbTocmyk();
                 return true;
-            case R.id.saved:
-                Intent i_saved = new Intent(this, SavedColorActivity.class);
-                startActivity(i_saved);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                return true;
-            case R.id.about:
-                Intent i_about = new Intent(this, AboutActivity.class);
-                startActivity(i_about);
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
     public void rgbNavClick(View view) {
-        Intent i_rgb = new Intent(this, MainActivity.class);
+        Intent i_rgb = new Intent(this, RGBActivity.class);
         i_rgb.putExtra("red", red);
         i_rgb.putExtra("green", green);
         i_rgb.putExtra("blue", blue);
