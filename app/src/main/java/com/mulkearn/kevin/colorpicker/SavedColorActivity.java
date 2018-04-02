@@ -51,7 +51,7 @@ public class SavedColorActivity extends AppCompatActivity{
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Hex Value", item);
                 clipboard.setPrimaryClip(clip);
-                t = Toast.makeText(SavedColorActivity.this, item + " Copied to Clipboard", Toast.LENGTH_SHORT);
+                t = Toast.makeText(SavedColorActivity.this, item + " " + getString(R.string.copied), Toast.LENGTH_SHORT);
                 t.show();
             }
         });
@@ -61,7 +61,7 @@ public class SavedColorActivity extends AppCompatActivity{
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = (String) savedColorsList.getItemAtPosition(position);
                 dbHandler.deleteColor(item);
-                Toast.makeText(SavedColorActivity.this, item + " Deleted", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SavedColorActivity.this, item + " " + getString(R.string.deleted), Toast.LENGTH_SHORT).show();
                 printDatabase();
 
                 return true;
@@ -107,9 +107,9 @@ public class SavedColorActivity extends AppCompatActivity{
 
     private AlertDialog AskOption() {
         AlertDialog myQuittingDialogBox = new AlertDialog.Builder(this)
-                .setTitle("Delete All")
-                .setMessage("Are you sure?")
-                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                .setTitle(getString(R.string.delete_all))
+                .setMessage(getString(R.string.are_you_sure))
+                .setPositiveButton(getString(R.string.delete), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //your deleting code
                         dbHandler.clearColors();
@@ -117,10 +117,10 @@ public class SavedColorActivity extends AppCompatActivity{
                         dbHandler.addColor(color); //Add Black list can't be empty
                         printDatabase();
                         dialog.dismiss();
-                        Toast.makeText(SavedColorActivity.this, "All Colors Deleted", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SavedColorActivity.this, getString(R.string.all_colors_deleted), Toast.LENGTH_SHORT).show();
                     }
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }

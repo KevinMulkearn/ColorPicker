@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pipette à Couleurs</string>
+    <string name="saved_colors">Couleurs Enregistrées</string>
+    <string name="about">Sur</string>
+    <string name="save">Sauvegarder</string>
+    <string name="random">Au Hasard</string>
+    <string name="clear_all">Tout Effacer</string>
+    <string name="rgb_picker">RGB Cueilleur</string>
+    <string name="hsv_picker">HSV Cueilleur</string>
+    <string name="hex_picker">Hex Cueilleur</string>
+    <string name="copied">Copié Dans Le Presse-Papier</string>
+    <string name="enter_valid">Entrez Un Nombre Valide</string>
+    <string name="not_valid">Pas valide!</string>
+
+    <string name="delete_all">Supprimer Tout</string>
+    <string name="are_you_sure">Êtes-vous sûr?</string>
+    <string name="delete">Effacer</string>
+    <string name="cancel">Annuler</string>
+    <string name="all_colors_deleted">Toutes Les Couleurs Sont Supprimées</string>
+    <string name="deleted">Supprimé</string>
+
+    <string name="red_initial_val">R: 0</string>
+    <string name="green_initial_val">G: 0</string>
+    <string name="blue_initial_val">B: 0</string>
+    <string name="hex_value">Hex: #000000</string>
+    <string name="hur_initial_val">H: 0°</string>
+    <string name="sat_initial_val">S: 0%</string>
+    <string name="val_initial_val">V: 0%</string>
+
+    <string name="overview_text">
+        Pipette à Couleurs:\n
+        Les couleurs primaires sont l\'un des groupes de couleurs de
+        que toutes les autres couleurs peuvent être obtenues en mélangeant.
+        Dans les applications du monde réel, les couleurs les plus courantes
+        choisis sont rouge, bleu et jaune. Quand il s'agit de
+        représentant les couleurs numériquement, le RGB24 (rouge, vert,
+        bleu) le modèle est le plus populaire.
+        Cette application vous permet de jouer avec différents modèles et permet
+        vous générez vos propres couleurs.
+    </string>
+    <string name="howToUse_text">
+        Comment Utiliser:\n
+        RGB and HSV:\n
+        Déplacez le curseur pour sélectionner une valeur comprise entre 0 et 255
+        (0-360 pour la teinte, 0-100 pour la saturation et la valeur).
+        Faites-le pour chaque curseur pour obtenir la couleur désirée.\n
+        Hex:\n
+        Entrez une valeur de couleur hexadécimale valide (c\'est-à-dire 0-9, A-F)
+        et appuyez sur Entrée sur votre clavier.\n
+        Quand une couleur désirée est trouvée, vous pouvez copier le
+        valeur hexadécimale à votre presse-papiers via le "Enregistrer"
+        option. Cela permettra également d'économiser
+        couleur dans le menu \"Couleurs sauvegardées \".\n
+        Couleurs enregistrées:\n
+        Pour réenregistrer la valeur hexadécimale dans votre presse-papiers,
+        appuyez sur la couleur désirée de votre liste de couleurs. Si vous
+        souhaitez supprimer une couleur de votre menu Couleurs sauvegardées,
+        appuyez et maintenez.
+    </string>
+    <string name="rgb_about_text">
+        (RGB)\n
+        Ce système restreint la
+        nombre de valeurs disponibles à 8 bits en trois couleurs
+        canaux avec des valeurs de 0-255. Cela signifie que tout
+        la couleur donnée peut être l'une des 16 777 216 couleurs possibles.
+    </string>
+    <string name="hsv_about_text">
+        (HSV)\n
+        Teinte, Saturation, Valeur est une représentation alternative
+        du modèle de couleur RGB. Il est plus proche de la
+        La vision humaine perçoit les attributs de la couleur.
+        La représentation HSV modélise la façon dont les peintures de différents
+        les couleurs se mélangent, avec la dimension de saturation ressemblant
+        diverses nuances de peinture aux couleurs vives, et la valeur
+        dimension ressemblant au mélange de ces peintures avec
+        des quantités variables de peinture noire ou blanche.
+    </string>
+    <string name="cymk_about_text">
+        (CMYK)\n
+        Cyan, Magenta, Jaune, Noir est un modèle de couleur soustractive,
+        utilisé en impression couleur. Le modèle CMJN fonctionne partiellement ou
+        couleurs entièrement masquantes sur un fond plus léger, généralement blanc.
+        L'encre réduit la lumière qui serait autrement réfléchie.
+    </string>
+    <string name="hex_about_text">
+        (Hex)\n
+        Un triplet hexadécimal est un nombre hexadécimal à six chiffres et trois octets utilisé
+        représenter les couleurs dans les applications informatiques. Les octets
+        représente les composantes rouges, vertes et bleues de la couleur.
+        Un octet représente un nombre compris entre 00 et FF (en hexadécimal
+        notation), ou de 0 à 255 en notation décimale.
+    </string>
+</resources>

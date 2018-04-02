@@ -5,10 +5,12 @@
     <item
         android:id="@+id/saveHex"
         android:icon="@android:drawable/ic_menu_save"
-        android:title="Save"
+        android:title="@string/save"
         app:showAsAction="always" />
     <item
         android:id="@+id/random"
-        android:title="Random" />
+        android:icon="@drawable/ic_action_random"
+        android:title="@string/random"
+        app:showAsAction="ifRoom" />
 
 </menu>

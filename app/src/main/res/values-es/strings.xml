@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Selector De Color</string>
+    <string name="saved_colors">Colores Guardados</string>
+    <string name="about">Acerca De</string>
+    <string name="save">Salvar</string>
+    <string name="random">Aleatorio</string>
+    <string name="clear_all">Limpiar Todo</string>
+    <string name="rgb_picker">RGB Recogedor</string>
+    <string name="hsv_picker">HSV Recogedor</string>
+    <string name="hex_picker">Hex Recogedor</string>
+    <string name="copied">Copiado Al Portapapeles</string>
+    <string name="enter_valid">Ingrese Un Número Válido</string>
+    <string name="not_valid">¡No Es Válido!</string>
+
+    <string name="delete_all">Eliminar Todos</string>
+    <string name="are_you_sure">¿Estás seguro?</string>
+    <string name="delete">Borrar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="all_colors_deleted">Todos Los Colores Eliminados</string>
+    <string name="deleted">Borrado</string>
+
+    <string name="red_initial_val">R: 0</string>
+    <string name="green_initial_val">G: 0</string>
+    <string name="blue_initial_val">B: 0</string>
+    <string name="hex_value">Hex: #000000</string>
+    <string name="hur_initial_val">H: 0°</string>
+    <string name="sat_initial_val">S: 0%</string>
+    <string name="val_initial_val">V: 0%</string>
+
+    <string name="overview_text">
+        Selector De Color:\n
+        Los colores primarios son cualquiera de un grupo de colores de
+        que todos los demás colores se pueden obtener mezclando.
+        En aplicaciones del mundo real, los colores más comunes
+        elegidos son rojo, azul y amarillo. Cuando se trata de
+        representando colores digitalmente, el RGB24 (rojo, verde,
+        azul) es el modelo más popular.
+        Esta aplicación te permite jugar con diferentes modelos y permite
+        generas tus propios colores
+    </string>
+    <string name="howToUse_text">
+        Cómo utilizar:\n
+        RGB and HSV:\n
+        Mueva el control deslizante para seleccionar un valor entre 0-255
+        (0-360 para tono, 0-100 para saturación y valor).
+        Haga esto para que cada control deslizante obtenga su color deseado.\n
+        Hex:\n
+        Ingrese un valor de color hexadecimal válido (es decir, 0-9, A-F)
+        y presiona enter en tu teclado.\n
+        Cuando se encuentra un color deseado, puede copiar
+        valor hexadecimal en su portapapeles a través de \"Guardar\"
+        opción. Esto también ahorrará
+        color en el menú \"Colores guardados\".\n
+        Colores guardados:\n
+        Para volver a guardar el valor hexadecimal en su portapapeles,
+        toca el color deseado de tu lista de colores. Si tu
+        desea eliminar un color de su menú Colores guardados,
+        presione y mantenga.
+    </string>
+    <string name="rgb_about_text">
+        (RGB)\n
+        Este esquema restringe la
+        número de valores disponibles a 8 bits en tres colores
+        canales con valores de 0-255. Esto significa que cualquier
+        el color dado puede ser uno de 16,777,216 colores posibles.
+    </string>
+    <string name="hsv_about_text">
+        (HSV)\n
+        Tono, Saturación, El valor es una representación alternativa
+        del modelo de color RGB. Se alinea más estrechamente con el
+        forma en que la visión humana percibe los atributos del color.
+        La representación de HSV modela la forma en que las pinturas de diferentes
+        los colores se mezclan, con la dimensión de saturación parecida
+        varios tonos de pintura de colores brillantes, y el valor
+        dimensión que se asemeja a la mezcla de esas pinturas con
+        cantidades variables de pintura negra o blanca.
+    </string>
+    <string name="cymk_about_text">
+        (CMYK)\n
+        Cian, Magenta, Amarillo, Negro es un modelo de color sustractivo,
+        utilizado en la impresión en color. El modelo CMYK funciona de forma parcial o
+        colores completamente enmascarados sobre un fondo más claro, usualmente blanco.
+        La tinta reduce la luz que de otro modo se reflejaría.
+    </string>
+    <string name="hex_about_text">
+        (Hex)\n
+        Un triplete hexagonal es un número hexadecimal de seis dígitos y tres bytes utilizado
+        para representar colores en aplicaciones informáticas. Los bytes
+        representan los componentes rojo, verde y azul del color.
+        Un byte representa un número en el rango de 00 a FF (en hexadecimal
+        notación), o de 0 a 255 en notación decimal.
+    </string>
+
+</resources>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Farbwähler</string>
+    <string name="saved_colors">Gespeicherte Farben</string>
+    <string name="about">Über</string>
+    <string name="save">Sparen</string>
+    <string name="random">Zufällig</string>
+    <string name="clear_all">Alles Löschen</string>
+    <string name="rgb_picker">RGB Pflücker</string>
+    <string name="hsv_picker">HSV Pflücker</string>
+    <string name="hex_picker">Hex Pflücker</string>
+    <string name="copied">In Die Zwischenablage Kopiert</string>
+    <string name="enter_valid">Geben Sie Die Gültige Nummer Ein</string>
+    <string name="not_valid">Ungültig!</string>
+
+    <string name="delete_all">Alles Löschen</string>
+    <string name="are_you_sure">Bist Du Sicher?</string>
+    <string name="delete">Löschen</string>
+    <string name="cancel">Stornieren</string>
+    <string name="all_colors_deleted">Alle Farben Gelöscht</string>
+    <string name="deleted">Gelöscht</string>
+
+    <string name="red_initial_val">R: 0</string>
+    <string name="green_initial_val">G: 0</string>
+    <string name="blue_initial_val">B: 0</string>
+    <string name="hex_value">Hex: #000000</string>
+    <string name="hur_initial_val">H: 0°</string>
+    <string name="sat_initial_val">S: 0%</string>
+    <string name="val_initial_val">V: 0%</string>
+
+    <string name="overview_text">
+        Farbwähler:\n
+        Primärfarben sind beliebige aus einer Gruppe von Farben aus
+        welche alle anderen Farben durch Mischen erhalten können.
+        In realen Anwendungen die häufigsten Farben
+        gewählt sind rot, blau und gelb. Wenn es dazu kommt
+        Farbdarstellung digital, der RGB24 (rot, grün,
+        blau) Modell ist am beliebtesten.
+        Mit dieser App können Sie mit verschiedenen Modellen spielen und spielen
+        Sie erzeugen Ihre eigenen Farben.
+    </string>
+    <string name="howToUse_text">
+        Wie benutzt man:\n
+        RGB and HSV:\n
+        Bewegen Sie den Schieberegler, um einen Wert zwischen 0 und 255 auszuwählen
+        (0-360 für Farbton, 0-100 für Sättigung und Wert).
+        Tun Sie dies für jeden Schieberegler, um die gewünschte Farbe zu erhalten.\n
+        Hex:\n
+        Geben Sie einen gültigen hexadezimalen Farbwert ein (d.H. 0-9, A-F)
+        und drücke Enter auf deiner Tastatur.\n
+        Wenn eine gewünschte Farbe gefunden wurde, können Sie das kopieren
+        Hexadezimalwert in die Zwischenablage über \"Speichern \"
+        Möglichkeit. Dies wird auch speichern
+        Farbe im Menü \"Gespeicherte Farben \".\n
+        Gespeicherte Farben: \n
+        Um den hexadezimalen Wert in Ihrer Zwischenablage zu speichern,
+        Tippen Sie auf die gewünschte Farbe in Ihrer Farbliste. Wenn du
+        Möchten Sie eine Farbe aus dem Menü Gespeicherte Farben löschen,
+        drücken und halten.
+    </string>
+    <string name="rgb_about_text">
+        (RGB)\n
+        Dieses Schema schränkt die
+        Anzahl der verfügbaren Werte zu 8 Bit in drei Farben
+        Kanäle mit Werten von 0-255. Dies bedeutet, dass alle
+        gegebene Farbe kann eine von 16.777.216 möglichen Farben sein.
+    </string>
+    <string name="hsv_about_text">
+        (HSV)\n
+        Farbton, Sättigung, Wert ist eine alternative Darstellung
+        des RGB-Farbmodells. Es entspricht mehr dem
+        So nimmt das menschliche Sehen farbbildende Eigenschaften wahr.
+        Die HSV-Repräsentation modelliert die Art von Farben unterschiedlich
+        Farben vermischen sich, wobei die Sättigungsdimension ähnlich ist
+        verschiedene Schattierungen von bunten Farben und der Wert
+        Dimension ähnlich der Mischung dieser Farben mit
+        unterschiedliche Mengen an schwarzer oder weißer Farbe.
+    </string>
+    <string name="cymk_about_text">
+        (CMYK)\n
+        Cyan, Magenta, Gelb, Schwarz ist ein subtraktives Farbmodell,
+        im Farbdruck verwendet. Das CMYK-Modell funktioniert teilweise oder
+        Maskierung von Farben auf einem helleren, meist weißen Hintergrund.
+        Die Tinte reduziert das Licht, das sonst reflektiert würde.
+    </string>
+    <string name="hex_about_text">
+        (Hex)\n
+        Ein Hex-Triplet ist eine sechsstellige Hexadezimalzahl mit drei Byte
+        Farben in Computeranwendungen darstellen. Die Bytes
+        repräsentieren die roten, grünen und blauen Komponenten der Farbe.
+        Ein Byte repräsentiert eine Zahl im Bereich von 00 bis FF (in Hexadezimalzahlen)
+        Notation) oder 0 bis 255 in Dezimalschreibweise.
+    </string>
+
+</resources>

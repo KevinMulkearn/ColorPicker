@@ -1,5 +1,24 @@
 <resources>
     <string name="app_name">Color Picker</string>
+    <string name="saved_colors">Saved Colors</string>
+    <string name="about">About</string>
+    <string name="save">Save</string>
+    <string name="random">Random</string>
+    <string name="clear_all">Clear All</string>
+    <string name="rgb_picker">RGB Picker</string>
+    <string name="hsv_picker">HSV Picker</string>
+    <string name="hex_picker">Hex Picker</string>
+    <string name="copied">Copied to Clipboard</string>
+    <string name="enter_valid">Enter Valid Number</string>
+    <string name="not_valid">Not Valid!</string>
+
+    <string name="delete_all">Delete All</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="all_colors_deleted">All Colors Deleted</string>
+    <string name="deleted">Deleted</string>
+
     <string name="red_initial_val">R: 0</string>
     <string name="green_initial_val">G: 0</string>
     <string name="blue_initial_val">B: 0</string>
@@ -7,7 +26,6 @@
     <string name="hur_initial_val">H: 0°</string>
     <string name="sat_initial_val">S: 0%</string>
     <string name="val_initial_val">V: 0%</string>
-    <string name="random_text">Random</string>
 
     <string name="overview_text">
         Color Picker:\n

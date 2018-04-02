@@ -60,6 +60,8 @@ public class HexActivity extends AppCompatActivity{
         setValues();
         rgbTocmyk();
 
+        hexValue.setSelection(hexValue.getText().length()); //Set cursor position to end
+
         //On Keyboard Enter Click
         hexValue.setOnKeyListener(
                 new View.OnKeyListener() {
@@ -81,7 +83,7 @@ public class HexActivity extends AppCompatActivity{
                                         InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
                                         imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                                     } else {
-                                        Toast.makeText(HexActivity.this, "Enter Valid Number", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(HexActivity.this, getString(R.string.enter_valid), Toast.LENGTH_SHORT).show();
                                     }
                                     return true;
                                 default:
@@ -135,9 +137,9 @@ public class HexActivity extends AppCompatActivity{
                     ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newPlainText("Hex Value", hex);
                     clipboard.setPrimaryClip(clip);
-                    Toast.makeText(HexActivity.this, "#" + hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HexActivity.this, "#" + hex + " " + getString(R.string.copied), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(HexActivity.this, "#" + hex + " Not Valid!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HexActivity.this, "#" + hex + " " + getString(R.string.not_valid), Toast.LENGTH_SHORT).show();
                 }
                 return true;
             case R.id.random:

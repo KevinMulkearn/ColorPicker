@@ -134,7 +134,7 @@ public class hsvActivity extends AppCompatActivity{
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Hex Value", hex);
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(hsvActivity.this, hex + " Copied to Clipboard", Toast.LENGTH_SHORT).show();
+                Toast.makeText(hsvActivity.this, hex + " " + getString(R.string.copied), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.random:
                 Random r_hue = new Random();
