@@ -41,13 +41,19 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
     int red = 0, green = 0, blue = 0;
     float hue = 0, sat = 0, val = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hex);
 
         testLayout = (RelativeLayout) findViewById(R.id.testLayout);
+        hueValue = (TextView) findViewById(R.id.hueValue);
+        satValue = (TextView) findViewById(R.id.satValue);
+        valValue = (TextView) findViewById(R.id.valValue);
+        redValue = (TextView) findViewById(R.id.redValue);
+        greenValue = (TextView) findViewById(R.id.greenValue);
+        blueValue = (TextView) findViewById(R.id.blueValue);
+
         Button button_0 = (Button) findViewById(R.id.button_0);
         Button button_1 = (Button) findViewById(R.id.button_1);
         Button button_2 = (Button) findViewById(R.id.button_2);
@@ -71,13 +77,6 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
         hex_digit_3 = (TextSwitcher) findViewById(R.id.hex_digit_3);
         hex_digit_4 = (TextSwitcher) findViewById(R.id.hex_digit_4);
         hex_digit_5 = (TextSwitcher) findViewById(R.id.hex_digit_5);
-
-        hueValue = (TextView) findViewById(R.id.hueValue);
-        satValue = (TextView) findViewById(R.id.satValue);
-        valValue = (TextView) findViewById(R.id.valValue);
-        redValue = (TextView) findViewById(R.id.redValue);
-        greenValue = (TextView) findViewById(R.id.greenValue);
-        blueValue = (TextView) findViewById(R.id.blueValue);
 
         dbHandler = new DBHandler(this, null, null, 1);
 
@@ -252,7 +251,6 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
         textView.setGravity(Gravity.CENTER_HORIZONTAL);
         return textView;
     }
-
 
     public void digit0Clicked(View view) {
         digitIndex = 0;

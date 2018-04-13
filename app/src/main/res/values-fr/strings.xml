@@ -46,8 +46,8 @@
         (0-360 pour la teinte, 0-100 pour la saturation et la valeur).
         Faites-le pour chaque curseur pour obtenir la couleur désirée.\n
         Hex:\n
-        Entrez une valeur de couleur hexadécimale valide (c\'est-à-dire 0-9, A-F)
-        et appuyez sur Entrée sur votre clavier.\n
+        Appuyez sur le chiffre que vous souhaitez modifier dans la vue hexadécimale
+        puis entrez votre valeur souhaitée sur le clavier.\n
         Quand une couleur désirée est trouvée, vous pouvez copier le
         valeur hexadécimale à votre presse-papiers via le "Enregistrer"
         option. Cela permettra également d'économiser

@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class CustomAdapter extends ArrayAdapter<String>{
 
     String singleColor;
-    TextView hexText;
+    TextView hexText, rgbText, hsvText;
 
     CustomAdapter(Context context, String[] cols) {
         super(context,R.layout.custom_row , cols);
@@ -24,9 +24,29 @@ public class CustomAdapter extends ArrayAdapter<String>{
 
         singleColor = getItem(position);
         hexText = (TextView) customView.findViewById(R.id.hexText);
+        rgbText = (TextView) customView.findViewById(R.id.rgbText);
+        hsvText = (TextView) customView.findViewById(R.id.hsvText);
+
+        int color = Color.parseColor(singleColor);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+        String rgb = "RGB (" + red + ", " + green + ", " + blue + ")";
+
+        float[] hsv = new float[3];
+        Color.RGBToHSV(red, green, blue, hsv);
+        float hue = hsv[0];
+        float sat = hsv[1] * 100;
+        float val = hsv[2] * 100;
+        String hsvString = "HSV (" + Math.round(hue) + "\u00b0, " + Math.round(sat) + "%, " + Math.round(val) + "%)";
 
         hexText.setText(singleColor);
+        rgbText.setText(rgb);
+        hsvText.setText(hsvString);
+
         hexText.setBackgroundColor(Color.parseColor(singleColor));
+        rgbText.setBackgroundColor(Color.parseColor(singleColor));
+        hsvText.setBackgroundColor(Color.parseColor(singleColor));
 
         return customView;
 

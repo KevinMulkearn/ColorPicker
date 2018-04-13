@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,15 +56,6 @@
                 android:value=".MainActivity" />
         </activity>
 
-        <activity
-            android:name=".TestActivity"
-            android:label="Test"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
     </application>
 
 </manifest>

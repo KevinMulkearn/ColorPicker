@@ -47,8 +47,8 @@
         (0-360 für Farbton, 0-100 für Sättigung und Wert).
         Tun Sie dies für jeden Schieberegler, um die gewünschte Farbe zu erhalten.\n
         Hex:\n
-        Geben Sie einen gültigen hexadezimalen Farbwert ein (d.H. 0-9, A-F)
-        und drücke Enter auf deiner Tastatur.\n
+        Tippen Sie in der Hex-Ansicht auf die Ziffer, die Sie bearbeiten möchten
+        und geben Sie dann Ihren gewünschten Wert über die Tastatur ein.\n
         Wenn eine gewünschte Farbe gefunden wurde, können Sie das kopieren
         Hexadezimalwert in die Zwischenablage über \"Speichern \"
         Möglichkeit. Dies wird auch speichern

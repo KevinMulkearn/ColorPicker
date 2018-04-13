@@ -45,8 +45,8 @@
         (0-360 for hue, 0-100 for saturation and value).
         Do this for each slider to get your desired color.\n
         Hex:\n
-        Enter a valid hexadecimal color value (i.e. 0-9, A-F)
-        and hit enter on your keyboard.\n
+        Tap on the digit you wish to edit in the hex view
+        and then enter your desired value from the keyboard.\n
         When a desired color is found you can copy the
         hexadecimal value to your clipboard via the \"Save\"
         option. This will also save the

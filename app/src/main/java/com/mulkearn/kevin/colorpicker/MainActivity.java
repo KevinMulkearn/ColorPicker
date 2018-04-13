@@ -42,8 +42,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i_about);
     }
 
-    public void aboutActivityTest(View view) {
-        Intent i_test = new Intent(this, TestActivity.class);
-        startActivity(i_test);
-    }
 }

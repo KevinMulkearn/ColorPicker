@@ -46,8 +46,8 @@
         (0-360 para tono, 0-100 para saturación y valor).
         Haga esto para que cada control deslizante obtenga su color deseado.\n
         Hex:\n
-        Ingrese un valor de color hexadecimal válido (es decir, 0-9, A-F)
-        y presiona enter en tu teclado.\n
+        Toca el dígito que deseas editar en la vista hexadecimal
+        y luego ingrese su valor deseado desde el teclado.\n
         Cuando se encuentra un color deseado, puede copiar
         valor hexadecimal en su portapapeles a través de \"Guardar\"
         opción. Esto también ahorrará
