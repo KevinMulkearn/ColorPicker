@@ -85,4 +85,17 @@
         android:layout_weight="1"
         android:onClick="aboutActivityStart"/>
 
+    <TextView
+        android:id="@+id/testActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Test"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal|center_vertical"
+        android:background="#BB5D9499"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:onClick="aboutActivityTest"/>
+
 </LinearLayout>
