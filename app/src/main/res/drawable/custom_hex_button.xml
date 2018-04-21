@@ -6,13 +6,11 @@
         android:width="1dp"
         android:color="#FFFFFF"
         android:dashWidth="0dp"
-        android:dashGap="0dp" />
+        android:dashGap="0dp"/>
     <size
         android:width="40dp"
-        android:height="40dp"
-        />
+        android:height="40dp"/>
     <solid
-        android:color="#BB212121"
-        />
+        android:color="#BB212121"/>
 
 </shape>

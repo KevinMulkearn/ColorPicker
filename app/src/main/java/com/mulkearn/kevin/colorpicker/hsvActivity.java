@@ -220,12 +220,13 @@ public class hsvActivity extends AppCompatActivity{
         satGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         satSeeker.setBackground(satGrad);
 
+        sat_minus.setBackgroundColor(Color.HSVToColor(temp2));
+        sat_plus.setBackgroundColor(Color.HSVToColor(temp1));
+        val_plus.setBackgroundColor(Color.HSVToColor(temp));
+
         int orientation = this.getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             sat_s.setBackgroundColor(Color.HSVToColor(temp2));
-            sat_minus.setBackgroundColor(Color.HSVToColor(temp2));
-            sat_plus.setBackgroundColor(Color.HSVToColor(temp1));
-            val_plus.setBackgroundColor(Color.HSVToColor(temp));
         }
 
     }

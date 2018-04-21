@@ -70,7 +70,6 @@
         android:layout_marginStart="10dp"
         android:layout_toStartOf="@+id/satValue"
         android:background="#BB212121"
-        android:ems="10"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/hur_initial_val"
         android:textColor="#FFFFFF" />
@@ -82,7 +81,6 @@
         android:layout_below="@+id/hexValue"
         android:layout_centerHorizontal="true"
         android:background="#BB212121"
-        android:ems="10"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/sat_initial_val"
         android:textColor="#FFFFFF" />
@@ -95,7 +93,6 @@
         android:layout_marginEnd="10dp"
         android:layout_toEndOf="@+id/satValue"
         android:background="#BB212121"
-        android:ems="10"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/val_initial_val"
         android:textColor="#FFFFFF" />
@@ -109,7 +106,6 @@
         android:layout_marginTop="10dp"
         android:layout_toStartOf="@+id/greenValue"
         android:background="#FF0000"
-        android:ems="10"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/red_initial_val"
         android:textColor="#FFFFFF" />
@@ -122,7 +118,6 @@
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
         android:background="#00FF00"
-        android:ems="10"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/green_initial_val"
         android:textColor="#FFFFFF" />
@@ -135,52 +130,125 @@
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/greenValue"
         android:background="#0000FF"
-        android:ems="10"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/blue_initial_val"
         android:textColor="#FFFFFF" />
 
-
-    <SeekBar
-        android:id="@+id/redSeeker"
+    <LinearLayout
+        android:id="@+id/red_stuff"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_above="@+id/greenSeeker"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/green_stuff"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:max="255"
-        android:progressBackgroundTint="#FFFFFF"
-        android:progressTint="#000000"
-        android:thumbTint="#FF0000" />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal">
 
-    <SeekBar
-        android:id="@+id/greenSeeker"
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="-"
+            android:background="#000000"
+            android:textColor="#FFFFFF"
+            android:onClick="redMinus"/>
+        <SeekBar
+            android:id="@+id/redSeeker"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:max="255"
+            android:progressDrawable="@drawable/custom_val_seekbar"
+            android:thumb="@drawable/custom_thumb"/>
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="+"
+            android:background="#FF0000"
+            android:textColor="#FFFFFF"
+            android:onClick="redPlus"/>
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/green_stuff"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_above="@+id/blueSeeker"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/blue_stuff"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:max="255"
-        android:progressBackgroundTint="#FFFFFF"
-        android:progressTint="#000000"
-        android:thumbTint="#00FF00" />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal">
 
-    <SeekBar
-        android:id="@+id/blueSeeker"
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="-"
+            android:background="#000000"
+            android:textColor="#FFFFFF"
+            android:onClick="greenMinus"/>
+        <SeekBar
+            android:id="@+id/greenSeeker"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:max="255"
+            android:progressDrawable="@drawable/custom_val_seekbar"
+            android:thumb="@drawable/custom_thumb"/>
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="+"
+            android:background="#00FF00"
+            android:textColor="#FFFFFF"
+            android:onClick="greenPlus"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/blue_stuff"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:max="255"
-        android:progressBackgroundTint="#FFFFFF"
-        android:progressTint="#000000"
-        android:thumbTint="#0000FF" />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="-"
+            android:background="#000000"
+            android:textColor="#FFFFFF"
+            android:onClick="blueMinus"/>
+        <SeekBar
+            android:id="@+id/blueSeeker"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:max="255"
+            android:progressDrawable="@drawable/custom_val_seekbar"
+            android:thumb="@drawable/custom_thumb" />
+        <TextView
+            android:layout_width="15dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="+"
+            android:background="#0000FF"
+            android:textColor="#FFFFFF"
+            android:onClick="bluePlus"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

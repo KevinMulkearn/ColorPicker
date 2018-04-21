@@ -5,6 +5,7 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,6 +52,20 @@ public class RGBActivity extends AppCompatActivity {
         valValue = (TextView) findViewById(R.id.valValue);
 
         dbHandler = new DBHandler(this, null, null, 1);
+
+        //Set seeker background
+        int[] redGradValues = {Color.rgb(0,0,0), Color.rgb(255,0,0)}; //start color to end color
+        GradientDrawable redGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, redGradValues);
+        redGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        redSeeker.setBackground(redGrad);
+        int[] greenGradValues = {Color.rgb(0,0,0), Color.rgb(0,255,0)}; //start color to end color
+        GradientDrawable greenGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, greenGradValues);
+        greenGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        greenSeeker.setBackground(greenGrad);
+        int[] blueGradValues = {Color.rgb(0,0,0), Color.rgb(0,0,255)}; //start color to end color
+        GradientDrawable blueGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, blueGradValues);
+        blueGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        blueSeeker.setBackground(blueGrad);
 
         //Color data from hsv activity
         red_value = getIntent().getIntExtra("red", 0);
@@ -185,5 +200,29 @@ public class RGBActivity extends AppCompatActivity {
         i_hex.putExtra("blue", blue_value);
         startActivity(i_hex);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    public void redMinus(View view) {
+        redSeeker.setProgress(red_value-1);
+    }
+
+    public void redPlus(View view) {
+        redSeeker.setProgress(red_value+1);
+    }
+
+    public void greenMinus(View view) {
+        greenSeeker.setProgress(green_value-1);
+    }
+
+    public void greenPlus(View view) {
+        greenSeeker.setProgress(green_value+1);
+    }
+
+    public void blueMinus(View view) {
+        blueSeeker.setProgress(blue_value-1);
+    }
+
+    public void bluePlus(View view) {
+        blueSeeker.setProgress(blue_value+1);
     }
 }
