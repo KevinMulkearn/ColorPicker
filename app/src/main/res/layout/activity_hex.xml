@@ -207,8 +207,8 @@
         android:id="@+id/keyboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
@@ -222,16 +222,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="0"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF" />
 
             <Button
                 android:id="@+id/button_1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="1"
                 android:textColor="#FFFFFF"/>
 
@@ -240,7 +240,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="2"
                 android:textColor="#FFFFFF"/>
 
@@ -249,7 +249,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="3"
                 android:textColor="#FFFFFF"/>
 
@@ -265,7 +265,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="4"
                 android:textColor="#FFFFFF"/>
 
@@ -274,7 +274,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="5"
                 android:textColor="#FFFFFF"/>
 
@@ -283,7 +283,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="6"
                 android:textColor="#FFFFFF"/>
 
@@ -292,7 +292,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="7"
                 android:textColor="#FFFFFF"/>
 
@@ -308,7 +308,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="8"
                 android:textColor="#FFFFFF"/>
 
@@ -317,7 +317,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="9"
                 android:textColor="#FFFFFF"/>
 
@@ -326,7 +326,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="A"
                 android:textColor="#FFFFFF"/>
 
@@ -335,7 +335,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="B"
                 android:textColor="#FFFFFF"/>
 
@@ -344,6 +344,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
             android:orientation="horizontal">
 
             <Button
@@ -351,7 +352,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="C"
                 android:textColor="#FFFFFF"/>
 
@@ -360,7 +361,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="D"
                 android:textColor="#FFFFFF"/>
 
@@ -369,7 +370,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="E"
                 android:textColor="#FFFFFF"/>
 
@@ -378,7 +379,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:backgroundTint="#BB212121"
+                android:background="@drawable/custom_hex_button"
                 android:text="F"
                 android:textColor="#FFFFFF"/>
 

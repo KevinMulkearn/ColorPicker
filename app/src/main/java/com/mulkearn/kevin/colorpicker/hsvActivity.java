@@ -194,7 +194,7 @@ public class hsvActivity extends AppCompatActivity{
         //Hue seeker
         GradientDrawable hueGrad = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, buildHueColorArray());
         hueGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-        hueSeeker.setBackgroundDrawable(hueGrad);
+        hueSeeker.setBackground(hueGrad);
 
         //Val seeker
         temp[0] = (float) hueSeeker.getProgress();
@@ -203,7 +203,7 @@ public class hsvActivity extends AppCompatActivity{
         int[] valGradValues = {Color.rgb(0,0,0), Color.HSVToColor(temp)}; //start color to end color
         GradientDrawable valGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, valGradValues);
         valGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-        valSeeker.setBackgroundDrawable(valGrad);
+        valSeeker.setBackground(valGrad);
 
         //Sat seeker
         temp1[0] = temp[0];
@@ -215,7 +215,7 @@ public class hsvActivity extends AppCompatActivity{
         int[] satGradValues = {Color.HSVToColor(temp2), Color.HSVToColor(temp1)}; //start color to end color
         GradientDrawable satGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, satGradValues);
         satGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
-        satSeeker.setBackgroundDrawable(satGrad);
+        satSeeker.setBackground(satGrad);
 
         int orientation = this.getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
