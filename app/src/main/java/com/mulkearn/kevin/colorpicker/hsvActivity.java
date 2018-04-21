@@ -25,7 +25,7 @@ public class hsvActivity extends AppCompatActivity{
 
     RelativeLayout hsvLayout;
     SeekBar hueSeeker, satSeeker, valSeeker;
-    TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue, sat_s;
+    TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue, sat_s, sat_minus, sat_plus, val_plus;
     DBHandler dbHandler;
 
     int hue_value = 0, sat_value = 0, val_value = 0;
@@ -49,6 +49,9 @@ public class hsvActivity extends AppCompatActivity{
         hueSeeker = (SeekBar) findViewById(R.id.hueSeeker);
         satSeeker = (SeekBar) findViewById(R.id.satSeeker);
         valSeeker = (SeekBar) findViewById(R.id.valSeeker);
+        sat_minus = (TextView) findViewById(R.id.sat_minus);
+        sat_plus = (TextView) findViewById(R.id.sat_plus);
+        val_plus = (TextView) findViewById(R.id.val_plus);
 
         dbHandler = new DBHandler(this, null, null, 1);
 
@@ -220,6 +223,9 @@ public class hsvActivity extends AppCompatActivity{
         int orientation = this.getResources().getConfiguration().orientation;
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             sat_s.setBackgroundColor(Color.HSVToColor(temp2));
+            sat_minus.setBackgroundColor(Color.HSVToColor(temp2));
+            sat_plus.setBackgroundColor(Color.HSVToColor(temp1));
+            val_plus.setBackgroundColor(Color.HSVToColor(temp));
         }
 
     }
@@ -240,5 +246,29 @@ public class hsvActivity extends AppCompatActivity{
         i_hex.putExtra("blue", blue);
         startActivity(i_hex);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    public void hueMinus(View view) {
+        hueSeeker.setProgress(hue_value-1);
+    }
+
+    public void huePlus(View view) {
+        hueSeeker.setProgress(hue_value+1);
+    }
+
+    public void satMinus(View view) {
+        satSeeker.setProgress(sat_value-1);
+    }
+
+    public void satPlus(View view) {
+        satSeeker.setProgress(sat_value+1);
+    }
+
+    public void valMinus(View view) {
+        valSeeker.setProgress(val_value-1);
+    }
+
+    public void valPlus(View view) {
+        valSeeker.setProgress(val_value+1);
     }
 }
