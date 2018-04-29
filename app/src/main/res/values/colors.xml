@@ -5,4 +5,8 @@
     <color name="colorAccent">#BB39EAB8</color>
     <color name="about_background">#DD000000</color>
     <color name="hexAccent">#BB39EAB8</color>
+    <color name="imagePrimary">#ffbb33</color>
+    <color name="imagePrimaryDark">#9e741f</color>
+    <color name="imageAccent">#409131</color>
+
 </resources>

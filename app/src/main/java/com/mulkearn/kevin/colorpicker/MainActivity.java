@@ -42,4 +42,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i_about);
     }
 
+    public void imageActivityStart(View view) {
+        Intent i_image = new Intent(this, ImageActivity.class);
+        startActivity(i_image);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 }

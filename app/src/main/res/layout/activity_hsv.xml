@@ -153,7 +153,7 @@
             android:background="#FF0000"
             android:textColor="#FFFFFF"/>
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="-"
@@ -171,7 +171,7 @@
             android:thumb="@drawable/custom_thumb"
             android:progressDrawable="@drawable/custom_val_seekbar"/>
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="+"
@@ -203,7 +203,7 @@
             android:textColor="#FFFFFF"/>
         <TextView
             android:id="@+id/sat_minus"
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="-"
@@ -224,7 +224,7 @@
             android:progressDrawable="@drawable/custom_val_seekbar"/>
         <TextView
             android:id="@+id/sat_plus"
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="+"
@@ -253,7 +253,7 @@
             android:background="#000000"
             android:textColor="#FFFFFF"/>
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="-"
@@ -272,7 +272,7 @@
             android:progressDrawable="@drawable/custom_val_seekbar"/>
         <TextView
             android:id="@+id/val_plus"
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="+"

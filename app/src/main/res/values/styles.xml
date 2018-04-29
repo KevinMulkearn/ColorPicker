@@ -17,4 +17,10 @@
         <item name="android:windowBackground">@color/about_background</item>
     </style>
 
+    <style name="ImageActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/imagePrimary</item>
+        <item name="colorPrimaryDark">@color/imagePrimaryDark</item>
+        <item name="colorAccent">@color/imageAccent</item>
+    </style>
+
 </resources>

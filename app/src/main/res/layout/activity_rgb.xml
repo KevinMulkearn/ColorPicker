@@ -145,7 +145,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="-"
@@ -163,7 +163,7 @@
             android:progressDrawable="@drawable/custom_val_seekbar"
             android:thumb="@drawable/custom_thumb"/>
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="+"
@@ -184,7 +184,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="-"
@@ -202,7 +202,7 @@
             android:progressDrawable="@drawable/custom_val_seekbar"
             android:thumb="@drawable/custom_thumb"/>
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="+"
@@ -223,7 +223,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="-"
@@ -241,7 +241,7 @@
             android:progressDrawable="@drawable/custom_val_seekbar"
             android:thumb="@drawable/custom_thumb" />
         <TextView
-            android:layout_width="15dp"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
             android:text="+"
