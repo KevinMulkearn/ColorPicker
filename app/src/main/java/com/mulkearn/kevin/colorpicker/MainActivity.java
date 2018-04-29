@@ -47,4 +47,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i_image);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
+
+    public void searchActivityStart(View view) {
+        Intent i_search = new Intent(this, SearchActivity.class);
+        startActivity(i_search);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
 }

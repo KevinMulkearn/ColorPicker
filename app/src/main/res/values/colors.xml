@@ -5,8 +5,14 @@
     <color name="colorAccent">#BB39EAB8</color>
     <color name="about_background">#DD000000</color>
     <color name="hexAccent">#BB39EAB8</color>
-    <color name="imagePrimary">#ffbb33</color>
+    <color name="imagePrimary">#FFBB33</color>
     <color name="imagePrimaryDark">#9e741f</color>
     <color name="imageAccent">#409131</color>
+    <color name="savedColorPrimary">#2CB7DE</color>
+    <color name="savedColorPrimaryDark">#18657A</color>
+    <color name="savedColorAccent">#691B1B</color>
+    <color name="webPrimary">#33BD76</color>
+    <color name="webPrimaryDark">#1D6B43</color>
+    <color name="webAccent">#BA9B00</color>
 
 </resources>

@@ -23,4 +23,16 @@
         <item name="colorAccent">@color/imageAccent</item>
     </style>
 
+    <style name="SavedColorActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/savedColorPrimary</item>
+        <item name="colorPrimaryDark">@color/savedColorPrimaryDark</item>
+        <item name="colorAccent">@color/savedColorAccent</item>
+    </style>
+
+    <style name="WebActivityTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/webPrimary</item>
+        <item name="colorPrimaryDark">@color/webPrimaryDark</item>
+        <item name="colorAccent">@color/webAccent</item>
+    </style>
+
 </resources>

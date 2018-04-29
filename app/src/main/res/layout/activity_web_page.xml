@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#BAE0CC">
+
+    <ProgressBar
+        android:id="@+id/loadingCircle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:indeterminate="true"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/infoPanel"
+        app:srcCompat="@android:color/white"
+        android:layout_margin="5dp"/>
+
+    <ScrollView
+        android:id="@+id/pageScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/infoPanel"
+        android:layout_margin="5dp">
+
+        <WebView
+            android:id="@+id/websiteView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"/>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/infoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/colorDisplay"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="#000000"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/hexText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hex:#000000"
+                android:textSize="15sp"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/rgbText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RGB (0, 0, 0)"
+                android:textSize="15sp"
+                android:textColor="#000000" />
+            <TextView
+                android:id="@+id/hsvText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HSV (0°, 0%, 0%)"
+                android:textSize="15sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+        <ToggleButton
+            android:id="@+id/toggleScrollView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/toggle_button"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

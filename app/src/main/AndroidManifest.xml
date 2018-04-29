@@ -6,6 +6,8 @@
         android:required="true"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA"  />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -58,6 +60,7 @@
             android:name=".SavedColorActivity"
             android:label="@string/saved_colors"
             android:screenOrientation="portrait"
+            android:theme="@style/SavedColorActivityTheme"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -81,6 +84,26 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".SearchActivity"
+            android:label="Source Code Check"
+            android:screenOrientation="portrait"
+            android:theme="@style/WebActivityTheme"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <activity
+            android:name=".WebPageActivity"
+            android:label="Page View"
+            android:screenOrientation="portrait"
+            android:theme="@style/WebActivityTheme"
+            android:parentActivityName=".SearchActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SearchActivity"/>
         </activity>
 
     </application>

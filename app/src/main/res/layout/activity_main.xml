@@ -4,7 +4,7 @@
     android:id="@+id/homeView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
+    android:background="#000000"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context="com.mulkearn.kevin.colorpicker.MainActivity">
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="@string/app_name"
-        android:textColor="#BB39EAB8"
+        android:textColor="#2CB7DE"
         android:textSize="40sp"
         android:textStyle="bold"
         android:gravity="center_horizontal|center_vertical"
@@ -29,7 +29,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center_horizontal|center_vertical"
-        android:background="#2CB7DE"
+        android:background="#393939"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
         android:onClick="rgbActivityStart"/>
@@ -43,7 +43,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center_horizontal|center_vertical"
-        android:background="#2CB7DE"
+        android:background="#393939"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
         android:onClick="hsvActivityStart"/>
@@ -57,7 +57,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center_horizontal|center_vertical"
-        android:background="#2CB7DE"
+        android:background="#393939"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
         android:onClick="hexActivityStart"/>
@@ -71,10 +71,24 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center_horizontal|center_vertical"
-        android:background="#FFBB33"
+        android:background="#BBFFBB33"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
         android:onClick="imageActivityStart"/>
+
+    <TextView
+        android:id="@+id/SearchActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Webpage Checker"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal|center_vertical"
+        android:background="#BB33BD76"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:onClick="searchActivityStart"/>
 
     <TextView
         android:id="@+id/savedActivity"
@@ -85,7 +99,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center_horizontal|center_vertical"
-        android:background="#BB39EAB8"
+        android:background="#BB2CB7DE"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
         android:onClick="savedActivityStart"/>
@@ -99,7 +113,7 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:gravity="center_horizontal|center_vertical"
-        android:background="#BB39EAB8"
+        android:background="#BB2CB7DE"
         android:layout_marginBottom="5dp"
         android:layout_weight="1"
         android:onClick="aboutActivityStart"/>
