@@ -28,6 +28,21 @@
     <string name="sat_initial_val">S: 0%</string>
     <string name="val_initial_val">V: 0%</string>
 
+    <string name="saved">Enregistré</string>
+    <string name="enter_valid_url">Entrez une URL valide</string>
+    <string name="no_colors_found">Aucune couleur trouvée</string>
+    <string name="colors_found">Couleurs trouvées</string>
+    <string name="please_wait">S\'il vous plaît, attendez…</string>
+    <string name="loading">Chargement…</string>
+    <string name="finished_loading">Chargement terminé</string>
+    <string name="error_saving">Erreur lors de l\'enregistrement</string>
+    <string name="enable_permissions">Veuillez activer les autorisations</string>
+    <string name="image_checker">Vérificateur d\'image</string>
+    <string name="source_code_check">Vérification du code source</string>
+    <string name="page_view">Vue de la page</string>
+    <string name="rotate">Tourner</string>
+    <string name="reload">Recharger</string>
+
     <string name="overview_text">
         Pipette à Couleurs:\n
         Les couleurs primaires sont l\'un des groupes de couleurs de
@@ -50,13 +65,33 @@
         puis entrez votre valeur souhaitée sur le clavier.\n
         Quand une couleur désirée est trouvée, vous pouvez copier le
         valeur hexadécimale à votre presse-papiers via le "Enregistrer"
-        option. Cela permettra également d'économiser
+        option. Cela permettra également d\'économiser
         couleur dans le menu \"Couleurs sauvegardées \".\n
         Couleurs enregistrées:\n
         Pour réenregistrer la valeur hexadécimale dans votre presse-papiers,
         appuyez sur la couleur désirée de votre liste de couleurs. Si vous
         souhaitez supprimer une couleur de votre menu Couleurs sauvegardées,
-        appuyez et maintenez.
+        appuyez et maintenez. \n
+        Vérificateur d\'image:\n
+        1. Entrez votre URL souhaitée. Appuyez sur le bouton de recherche pour confirmer.
+        Lorsque la liste des couleurs est renvoyée, appuyez simplement
+        sur n\'importe quelle couleur pour l\'enregistrer dans votre application. \n
+        2. Si la couleur que vous recherchez n\'est pas disponible, sélectionnez
+        Option Visionneuse de page pour le menu des options. Attendez la page
+        pour charger complètement. Une fois la page entièrement chargée, vous pouvez faire défiler
+        à travers son contenu. Pour enregistrer une couleur, vous devez d\'abord
+        verrouiller la vue, puis simplement
+        Appuyez n\'importe où sur la page Web pour choisir votre couleur.
+        Si vous êtes satisfait de la couleur, appuyez sur l\'icône Enregistrer
+        dans le coin supérieur droit pour l\'enregistrer. \n
+        3. Pour afficher toutes les couleurs enregistrées, sélectionnez les couleurs enregistrées,
+        option à partir de l\'écran d'accueil. Pour enregistrer la valeur hexadécimale
+        dans votre presse-papiers, appuyez sur la couleur désirée. Si vous le souhaitez
+        Pour supprimer une couleur de votre menu Couleurs enregistrées, appuyez et maintenez enfoncé. \n\n
+        (Note: s\'il vous plaît assurez-vous que vous avez une écurie
+        connexion Internet. Si un message d\'URL non valide est
+        affiché, s\'il vous plaît assurez-vous que vous avez entré le bon
+        protocole, domaine et ressource.
     </string>
     <string name="rgb_about_text">
         (RGB)\n

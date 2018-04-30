@@ -120,7 +120,7 @@ public class SearchActivity extends AppCompatActivity {
                 String item = (String) colorList.getItemAtPosition(position);
                 Colors color = new Colors(item);
                 dbHandler.addColor(color);
-                t2 = Toast.makeText(SearchActivity.this, item + " Saved", Toast.LENGTH_SHORT);
+                t2 = Toast.makeText(SearchActivity.this, item + " " + getString(R.string.saved), Toast.LENGTH_SHORT);
                 t2.show();
             }
         });
@@ -154,7 +154,7 @@ public class SearchActivity extends AppCompatActivity {
                     startActivity(i_pageView);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 } else {
-                    Toast.makeText(SearchActivity.this, "Enter Valid URL", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SearchActivity.this, getString(R.string.enter_valid_url), Toast.LENGTH_LONG).show();
                 }
                 return true;
             default:
@@ -178,15 +178,15 @@ public class SearchActivity extends AppCompatActivity {
                     String colors = getWebsite(formattedUrl);
                     colorArray = colors.split(", ");
                     if (colorArray.length == 1){
-                        message = "No Colors Found";
+                        message = getString(R.string.no_colors_found);//"No Colors Found";
                     } else{
-                        message = "Colors Found";
+                        message = getString(R.string.colors_found);//"Colors Found";
                     }
 
                 } else {
                     urlColor = Color.parseColor("#FF0000");
                     colorArray = defaultColor;
-                    message = "Invalid URL";
+                    message = getString(R.string.enter_valid_url);//"Invalid URL";
                 }
                 handler.sendEmptyMessage(0);
             }
@@ -194,7 +194,7 @@ public class SearchActivity extends AppCompatActivity {
 
         InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        t1 = Toast.makeText(SearchActivity.this, "Please wait...", Toast.LENGTH_LONG);
+        t1 = Toast.makeText(SearchActivity.this, getString(R.string.please_wait), Toast.LENGTH_LONG);
         t1.show();
 
         Thread myThread = new Thread(r);

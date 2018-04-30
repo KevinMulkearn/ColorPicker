@@ -59,7 +59,7 @@ public class WebPageActivity extends AppCompatActivity {
 
         dbHandler = new DBHandler(this, null, null, 1);
 
-        t1 = Toast.makeText(WebPageActivity.this, "Loading...", Toast.LENGTH_LONG);
+        t1 = Toast.makeText(WebPageActivity.this, getString(R.string.loading), Toast.LENGTH_LONG);
         t1.show();
 
         address = getIntent().getStringExtra("url");
@@ -90,7 +90,7 @@ public class WebPageActivity extends AppCompatActivity {
                 if (t1 != null){
                     t1.cancel();
                 }
-                Toast.makeText(WebPageActivity.this, "Finished Loading", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WebPageActivity.this, getString(R.string.finished_loading), Toast.LENGTH_SHORT).show();
                 loaded = true;
                 invalidateOptionsMenu();//Recall menu create function
                 toggleScrollView.setVisibility(View.VISIBLE);
@@ -155,7 +155,7 @@ public class WebPageActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_web_page, menu);
-        if (loaded == false){
+        if (!loaded){
             menu.getItem(0).setVisible(false);
             menu.getItem(1).setVisible(false);
         } else {
@@ -177,7 +177,7 @@ public class WebPageActivity extends AppCompatActivity {
                 saveColor = saveColor.substring(saveColor.indexOf("#"),saveColor.length());
                 Colors color = new Colors(saveColor);
                 dbHandler.addColor(color);
-                Toast.makeText(WebPageActivity.this, saveColor + " Saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WebPageActivity.this, saveColor + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.reload:
                 Intent i_reload = new Intent(this, WebPageActivity.class);

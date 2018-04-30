@@ -112,7 +112,7 @@ public class ImageActivity extends AppCompatActivity {
                 saveValue = saveValue.substring(saveValue.indexOf("#"),saveValue.length());
                 Colors color = new Colors(saveValue);
                 dbHandler.addColor(color);
-                Toast.makeText(ImageActivity.this, saveValue + " Saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ImageActivity.this, saveValue + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -129,7 +129,7 @@ public class ImageActivity extends AppCompatActivity {
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
-                Toast.makeText(ImageActivity.this, "Error Saving", Toast.LENGTH_LONG).show();
+                Toast.makeText(ImageActivity.this, getString(R.string.error_saving), Toast.LENGTH_LONG).show();
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
@@ -253,7 +253,7 @@ public class ImageActivity extends AppCompatActivity {
         {
             captureButton.setVisibility(View.INVISIBLE);
             searchButton.setVisibility(View.INVISIBLE);
-            Toast.makeText(ImageActivity.this,"Please Enable Permissions", Toast.LENGTH_LONG).show();
+            Toast.makeText(ImageActivity.this,getString(R.string.enable_permissions), Toast.LENGTH_LONG).show();
         } else {
             // Requesting Permission
             ActivityCompat.requestPermissions(ImageActivity.this, new String[]{

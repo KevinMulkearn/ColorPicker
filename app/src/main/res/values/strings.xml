@@ -27,6 +27,21 @@
     <string name="sat_initial_val">S: 0%</string>
     <string name="val_initial_val">V: 0%</string>
 
+    <string name="saved">Saved</string>
+    <string name="enter_valid_url">Enter Valid URL</string>
+    <string name="no_colors_found">No Colors Found</string>
+    <string name="colors_found">Colors Found</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="loading">Loading…</string>
+    <string name="finished_loading">Finished Loading</string>
+    <string name="error_saving">Error Saving</string>
+    <string name="enable_permissions">Please Enable Permissions</string>
+    <string name="image_checker">Image Checker</string>
+    <string name="source_code_check">Source Code Check</string>
+    <string name="page_view">Page View</string>
+    <string name="rotate">Rotate</string>
+    <string name="reload">Reload</string>
+
     <string name="overview_text">
         Color Picker:\n
         Primary colors are any of a group of colors from
@@ -55,7 +70,27 @@
         To resave the hexadecimal value to your clipboard,
         tap the desired color from your list of colors. If you
         wish to delete a color from your Saved Colors menu,
-        press and hold.
+        press and hold.\n
+        Image Checker:\n
+        1. Enter your desired URL. Press the search button to confirm.
+        When the list of colors is returned, simple tap
+        on any color to save it in your app.\n
+        2. If the color you are looking for is not here, select the
+        Page Viewer option for the options menu. Wait for the page
+        to fully load. Once the page has fully loaded, you can scroll
+        down through its content. To save a color you must first
+        lock the the view, then simply
+        tap anywhere on the web page to choose your color.
+        If you are happy with the color, tap on the save icon
+        in the top right corner to save it.\n
+        3. To view all your saved colors, select the Saved Colors,
+        option from the home screen. To save the hexadecimal value
+        to your clipboard, tap on the desired color. If you wish
+        to delete a color from your Saved Colors menu, press and hold.\n\n
+        (Note: Please make sure you have a stable
+        internet connection. If an Invalid URL message is
+        displayed, please make sure you have entered the correct
+        protocol, domain and resource.
     </string>
     <string name="rgb_about_text">
         (RGB)\n

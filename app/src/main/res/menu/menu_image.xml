@@ -5,13 +5,13 @@
     <item
         android:id="@+id/save"
         android:icon="@android:drawable/ic_menu_save"
-        android:title="Save Color"
+        android:title="@string/save"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/rotate"
         android:icon="@android:drawable/ic_menu_rotate"
-        android:title="Rotate Image"
+        android:title="@string/rotate"
         app:showAsAction="ifRoom" />
 
 </menu>

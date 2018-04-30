@@ -77,7 +77,7 @@
         </activity>
         <activity
             android:name=".ImageActivity"
-            android:label="Image Checker"
+            android:label="@string/image_checker"
             android:screenOrientation="portrait"
             android:theme="@style/ImageActivityTheme"
             android:parentActivityName=".MainActivity" >
@@ -87,7 +87,7 @@
         </activity>
         <activity
             android:name=".SearchActivity"
-            android:label="Source Code Check"
+            android:label="@string/source_code_check"
             android:screenOrientation="portrait"
             android:theme="@style/WebActivityTheme"
             android:parentActivityName=".MainActivity">
@@ -97,7 +97,7 @@
         </activity>
         <activity
             android:name=".WebPageActivity"
-            android:label="Page View"
+            android:label="@string/page_view"
             android:screenOrientation="portrait"
             android:theme="@style/WebActivityTheme"
             android:parentActivityName=".SearchActivity">

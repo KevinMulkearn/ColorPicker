@@ -28,6 +28,21 @@
     <string name="sat_initial_val">S: 0%</string>
     <string name="val_initial_val">V: 0%</string>
 
+    <string name="saved">Salvado</string>
+    <string name="enter_valid_url">Ingrese la URL válida</string>
+    <string name="no_colors_found">No se encontraron colores</string>
+    <string name="colors_found">Colores encontrados</string>
+    <string name="please_wait">Por favor espera…</string>
+    <string name="loading">Cargando…</string>
+    <string name="finished_loading">Terminado Cargando</string>
+    <string name="error_saving">Ahorro de error</string>
+    <string name="enable_permissions">Por favor habilite permisos</string>
+    <string name="image_checker">Image Checker</string>
+    <string name="source_code_check">Verificación del código fuente</string>
+    <string name="page_view">Vista de pagina</string>
+    <string name="rotate">Girar</string>
+    <string name="reload">Recargar</string>
+
     <string name="overview_text">
         Selector De Color:\n
         Los colores primarios son cualquiera de un grupo de colores de
@@ -56,7 +71,27 @@
         Para volver a guardar el valor hexadecimal en su portapapeles,
         toca el color deseado de tu lista de colores. Si tu
         desea eliminar un color de su menú Colores guardados,
-        presione y mantenga.
+        presione y mantenga.\n
+        Image Checker:\n
+        1. Ingrese su URL deseada. Presione el botón de búsqueda para confirmar.
+        Cuando se devuelva la lista de colores, toque simple
+        en cualquier color para guardarlo en tu aplicación. \ n
+        2. Si el color que está buscando no está aquí, seleccione
+        Visor de página opción para el menú de opciones. Espera la página
+        para cargar por completo Una vez que la página se haya cargado por completo, puede desplazarse
+        a través de su contenido. Para guardar un color debes primero
+        bloquear la vista, luego simplemente
+        toque en cualquier lugar de la página web para elegir su color.
+        Si está satisfecho con el color, toque el ícono de guardar
+        en la esquina superior derecha para guardarlo. \ n
+        3. Para ver todos sus colores guardados, seleccione los Colores guardados,
+        opción desde la pantalla de inicio. Para guardar el valor hexadecimal
+        a su portapapeles, toque el color deseado. Si lo desea
+        para eliminar un color del menú Colores guardados, mantenga presionado. \ n \ n
+        (Nota: asegúrese de tener un establo
+        conexión a Internet. Si un mensaje URL inválido es
+        mostrado, asegúrese de haber ingresado el
+        protocolo, dominio y recurso.
     </string>
     <string name="rgb_about_text">
         (RGB)\n

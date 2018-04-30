@@ -164,10 +164,7 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
                 if(hex.length() == 6){
                     Colors color = new Colors("#" + hex);
                     dbHandler.addColor(color);
-                    ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                    ClipData clip = ClipData.newPlainText("Hex Value", "#" + hex);
-                    clipboard.setPrimaryClip(clip);
-                    Toast.makeText(HexActivity.this, "#" + hex + " " + getString(R.string.copied), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HexActivity.this, "#" + hex + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(HexActivity.this, "#" + hex + " " + getString(R.string.not_valid), Toast.LENGTH_SHORT).show();
                 }

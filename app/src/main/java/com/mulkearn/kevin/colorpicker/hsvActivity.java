@@ -134,10 +134,7 @@ public class hsvActivity extends AppCompatActivity{
             case R.id.saveHex:
                 Colors color = new Colors(hex);
                 dbHandler.addColor(color);
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("Hex Value", hex);
-                clipboard.setPrimaryClip(clip);
-                Toast.makeText(hsvActivity.this, hex + " " + getString(R.string.copied), Toast.LENGTH_SHORT).show();
+                Toast.makeText(hsvActivity.this, hex + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.random:
                 Random r_hue = new Random();

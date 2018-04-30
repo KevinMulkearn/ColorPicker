@@ -5,7 +5,7 @@
     <item
         android:id="@+id/pageView"
         android:icon="@android:drawable/ic_menu_view"
-        android:title="Page Viewer"
+        android:title="@string/page_view"
         app:showAsAction="always" />
 
 </menu>
