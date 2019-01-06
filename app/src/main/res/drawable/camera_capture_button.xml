@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"
+        android:drawable="@android:drawable/ic_menu_camera">
+    </item>
+    <item android:state_focused="true"
+        android:drawable="@android:drawable/ic_menu_camera">
+    </item>
+    <item>
+        <bitmap
+            android:src="@android:drawable/ic_menu_camera"
+            android:tint="@color/colorPrimary">
+        </bitmap>
+    </item>
+
+</selector>

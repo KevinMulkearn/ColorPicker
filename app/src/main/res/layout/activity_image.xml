@@ -64,17 +64,15 @@
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
-            android:background="@android:drawable/ic_menu_camera"
-            android:backgroundTint="#FFBB33"
-            android:onClick="onCaptureClick" />
+            android:background="@drawable/camera_capture_button"
+            android:onClick="onCaptureClick"/>
 
         <Button
             android:id="@+id/searchButton"
             android:layout_width="60dp"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
-            android:background="@android:drawable/ic_menu_gallery"
-            android:backgroundTint="#FFBB33"
+            android:background="@drawable/menu_gallery_button"
             android:onClick="onOpenClick" />
 
     </LinearLayout>
