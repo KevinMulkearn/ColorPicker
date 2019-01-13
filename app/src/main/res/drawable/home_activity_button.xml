@@ -4,8 +4,8 @@
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <stroke
-                android:width="4dp"
-                android:color="#9e9e9e"
+                android:width="5dp"
+                android:color="#BB212121"
                 android:dashWidth="0dp"
                 android:dashGap="0dp"/>
             <corners
@@ -17,8 +17,8 @@
     <item android:state_focused="true">
         <shape android:shape="rectangle">
             <stroke
-                android:width="4dp"
-                android:color="#FF9E9E9E"
+                android:width="5dp"
+                android:color="#BB212121"
                 android:dashWidth="0dp"
                 android:dashGap="0dp"/>
             <corners
@@ -36,8 +36,11 @@
                 android:dashGap="0dp"/>
             <corners
                 android:radius="5dp" />
-            <solid
-                android:color="#2187A3"/>
+            <gradient
+                android:startColor="#176175"
+                android:centerColor="#2CB7DE"
+                android:endColor="#176175"
+                android:angle="0" />
         </shape>
     </item>
 

@@ -128,22 +128,5 @@ public class SavedColorActivity extends AppCompatActivity{
         return myQuittingDialogBox;
     }
 
-    public void rgbNavClick(View view) {
-        Intent i_rgb = new Intent(this, RGBActivity.class);
-        startActivity(i_rgb);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-    }
-
-    public void hsvNavClick(View view) {
-        Intent i_hsv = new Intent(this, hsvActivity.class);
-        startActivity(i_hsv);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-    }
-
-    public void hexNavClick(View view) {
-        Intent i_hex = new Intent(this, HexActivity.class);
-        startActivity(i_hex);
-        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-    }
 }
 
