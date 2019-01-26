@@ -44,6 +44,7 @@ public class ImageActivity extends AppCompatActivity {
     Uri uri = null, photoURI = null;
     Bitmap imageBitmap = null, touchBitmap = null;
     String mCurrentPhotoPath;
+    boolean imageOpened = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -95,6 +96,13 @@ public class ImageActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_image, menu);
+        if (!imageOpened){
+            menu.getItem(0).setVisible(false);
+            menu.getItem(1).setVisible(false);
+        } else {
+            menu.getItem(0).setVisible(true);
+            menu.getItem(1).setVisible(true);
+        }
         return true;
     }
 
@@ -120,6 +128,7 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     public void onCaptureClick(View view) {
+        imageOpened = true;
         REQUEST_CODE = 2;
         Intent i_capture = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
@@ -143,6 +152,7 @@ public class ImageActivity extends AppCompatActivity {
     }
 
     public void onOpenClick(View view) {
+        imageOpened = true;
         REQUEST_CODE = 1;
         Intent i_open = new Intent();
         i_open.setType("image/*");
@@ -168,6 +178,7 @@ public class ImageActivity extends AppCompatActivity {
             touchBitmap = imageView.getDrawingCache();
             galleryAddPic();
         }
+        invalidateOptionsMenu();//Recall menu create function
     }
 
     private File createImageFile() throws IOException {
