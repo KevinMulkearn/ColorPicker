@@ -1,8 +1,5 @@
 package com.mulkearn.kevin.colorpicker;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -32,7 +29,7 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
     TextSwitcher hex_digit_0, hex_digit_1, hex_digit_2, hex_digit_3, hex_digit_4, hex_digit_5;
     TextView textView, redValue, greenValue, blueValue, hueValue, satValue,  valValue;
     Animation animation;
-    DBHandler dbHandler;
+    DatabaseHelper mDatabaseHelper;
 
     SparseArray<String> keyValues = new SparseArray<>();
     String val0 = "0", val1 = "0", val2 = "0", val3 = "0", val4 = "0", val5 = "0";
@@ -46,41 +43,41 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hex);
 
-        testLayout = (RelativeLayout) findViewById(R.id.testLayout);
-        hueValue = (TextView) findViewById(R.id.hueValue);
-        satValue = (TextView) findViewById(R.id.satValue);
-        valValue = (TextView) findViewById(R.id.valValue);
-        redValue = (TextView) findViewById(R.id.redValue);
-        greenValue = (TextView) findViewById(R.id.greenValue);
-        blueValue = (TextView) findViewById(R.id.blueValue);
+        testLayout = findViewById(R.id.testLayout);
+        hueValue = findViewById(R.id.hueValue);
+        valValue = findViewById(R.id.valValue);
+        satValue = findViewById(R.id.satValue);
+        redValue = findViewById(R.id.redValue);
+        greenValue = findViewById(R.id.greenValue);
+        blueValue = findViewById(R.id.blueValue);
 
-        Button button_0 = (Button) findViewById(R.id.button_0);
-        Button button_1 = (Button) findViewById(R.id.button_1);
-        Button button_2 = (Button) findViewById(R.id.button_2);
-        Button button_3 = (Button) findViewById(R.id.button_3);
-        Button button_4 = (Button) findViewById(R.id.button_4);
-        Button button_5 = (Button) findViewById(R.id.button_5);
-        Button button_6 = (Button) findViewById(R.id.button_6);
-        Button button_7 = (Button) findViewById(R.id.button_7);
-        Button button_8 = (Button) findViewById(R.id.button_8);
-        Button button_9 = (Button) findViewById(R.id.button_9);
-        Button button_A = (Button) findViewById(R.id.button_A);
-        Button button_B = (Button) findViewById(R.id.button_B);
-        Button button_C = (Button) findViewById(R.id.button_C);
-        Button button_D = (Button) findViewById(R.id.button_D);
-        Button button_E = (Button) findViewById(R.id.button_E);
-        Button button_F = (Button) findViewById(R.id.button_F);
+        Button button_0 = findViewById(R.id.button_0);
+        Button button_2 = findViewById(R.id.button_2);
+        Button button_1 = findViewById(R.id.button_1);
+        Button button_3 = findViewById(R.id.button_3);
+        Button button_4 = findViewById(R.id.button_4);
+        Button button_5 = findViewById(R.id.button_5);
+        Button button_6 = findViewById(R.id.button_6);
+        Button button_7 = findViewById(R.id.button_7);
+        Button button_8 = findViewById(R.id.button_8);
+        Button button_9 = findViewById(R.id.button_9);
+        Button button_A = findViewById(R.id.button_A);
+        Button button_B = findViewById(R.id.button_B);
+        Button button_C = findViewById(R.id.button_C);
+        Button button_D = findViewById(R.id.button_D);
+        Button button_E = findViewById(R.id.button_E);
+        Button button_F = findViewById(R.id.button_F);
 
-        hex_digit_0 = (TextSwitcher) findViewById(R.id.hex_digit_0);
-        hex_digit_1 = (TextSwitcher) findViewById(R.id.hex_digit_1);
-        hex_digit_2 = (TextSwitcher) findViewById(R.id.hex_digit_2);
-        hex_digit_3 = (TextSwitcher) findViewById(R.id.hex_digit_3);
-        hex_digit_4 = (TextSwitcher) findViewById(R.id.hex_digit_4);
-        hex_digit_5 = (TextSwitcher) findViewById(R.id.hex_digit_5);
+        hex_digit_0 = findViewById(R.id.hex_digit_0);
+        hex_digit_1 = findViewById(R.id.hex_digit_1);
+        hex_digit_2 = findViewById(R.id.hex_digit_2);
+        hex_digit_3 = findViewById(R.id.hex_digit_3);
+        hex_digit_4 = findViewById(R.id.hex_digit_4);
+        hex_digit_5 = findViewById(R.id.hex_digit_5);
 
-        dbHandler = new DBHandler(this, null, null, 1);
+        mDatabaseHelper = new DatabaseHelper(this);
 
-        // map buttons IDs to input strings
+        // Map buttons IDs to input strings
         keyValues.put(R.id.button_0, "0");
         keyValues.put(R.id.button_1, "1");
         keyValues.put(R.id.button_2, "2");
@@ -162,9 +159,7 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
                 return true;
             case R.id.saveHex:
                 if(hex.length() == 6){
-                    Colors color = new Colors("#" + hex);
-                    dbHandler.addColor(color);
-                    Toast.makeText(HexActivity.this, "#" + hex + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+                    AddData("#" + hex);
                 } else {
                     Toast.makeText(HexActivity.this, "#" + hex + " " + getString(R.string.not_valid), Toast.LENGTH_SHORT).show();
                 }
@@ -194,6 +189,14 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void AddData(String newEntry) {
+        boolean insertData = mDatabaseHelper.addColor(newEntry);
+        if (insertData) {
+            Toast.makeText(HexActivity.this, newEntry + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(HexActivity.this, "Error Saving Data!", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void onClick(View v) {
         String value = keyValues.get(v.getId());

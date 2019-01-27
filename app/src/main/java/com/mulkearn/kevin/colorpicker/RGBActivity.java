@@ -22,7 +22,7 @@ public class RGBActivity extends AppCompatActivity {
     RelativeLayout myLayout;
     SeekBar redSeeker, greenSeeker, blueSeeker;
     TextView redValue, greenValue,  blueValue, hexValue, hueValue, satValue, valValue;
-    DBHandler dbHandler;
+    DatabaseHelper mDatabaseHelper;
 
     float hue = 0, sat = 0, val = 0;
     int red_value = 0 , green_value = 0, blue_value = 0;
@@ -33,38 +33,35 @@ public class RGBActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rgb);
 
-        //Main view
-        myLayout = (RelativeLayout) findViewById(R.id.mainView);
-        //Seek Bars
-        redSeeker = (SeekBar) findViewById(R.id.redSeeker);
-        greenSeeker = (SeekBar) findViewById(R.id.greenSeeker);
-        blueSeeker = (SeekBar) findViewById(R.id.blueSeeker);
-        //Text Views
-        redValue = (TextView) findViewById(R.id.redValue);
-        greenValue = (TextView) findViewById(R.id.greenValue);
-        blueValue = (TextView) findViewById(R.id.blueValue);
-        hexValue = (TextView) findViewById(R.id.hexValue);
-        hueValue = (TextView) findViewById(R.id.hueValue);
-        satValue = (TextView) findViewById(R.id.satValue);
-        valValue = (TextView) findViewById(R.id.valValue);
+        myLayout = findViewById(R.id.mainView);
+        redSeeker = findViewById(R.id.redSeeker);
+        greenSeeker = findViewById(R.id.greenSeeker);
+        blueSeeker = findViewById(R.id.blueSeeker);
+        redValue = findViewById(R.id.redValue);
+        greenValue = findViewById(R.id.greenValue);
+        blueValue = findViewById(R.id.blueValue);
+        hexValue = findViewById(R.id.hexValue);
+        hueValue = findViewById(R.id.hueValue);
+        satValue = findViewById(R.id.satValue);
+        valValue = findViewById(R.id.valValue);
 
-        dbHandler = new DBHandler(this, null, null, 1);
+        mDatabaseHelper = new DatabaseHelper(this);
 
-        //Set seeker background
-        int[] redGradValues = {Color.rgb(0,0,0), Color.rgb(255,0,0)}; //start color to end color
+        // Set SeekBar background
+        int[] redGradValues = {Color.rgb(0,0,0), Color.rgb(255,0,0)};  // Start color to end color
         GradientDrawable redGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, redGradValues);
         redGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         redSeeker.setBackground(redGrad);
-        int[] greenGradValues = {Color.rgb(0,0,0), Color.rgb(0,255,0)}; //start color to end color
+        int[] greenGradValues = {Color.rgb(0,0,0), Color.rgb(0,255,0)}; // Start color to end color
         GradientDrawable greenGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, greenGradValues);
         greenGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         greenSeeker.setBackground(greenGrad);
-        int[] blueGradValues = {Color.rgb(0,0,0), Color.rgb(0,0,255)}; //start color to end color
+        int[] blueGradValues = {Color.rgb(0,0,0), Color.rgb(0,0,255)}; // Start color to end color
         GradientDrawable blueGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, blueGradValues);
         blueGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         blueSeeker.setBackground(blueGrad);
 
-        //Color data from hsv activity
+        // Color data from hsv activity
         red_value = getIntent().getIntExtra("red", 0);
         green_value = getIntent().getIntExtra("green", 0);
         blue_value = getIntent().getIntExtra("blue", 0);
@@ -135,9 +132,7 @@ public class RGBActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
             case R.id.saveHex:
-                Colors color = new Colors(hex);
-                dbHandler.addColor(color);
-                Toast.makeText(RGBActivity.this, hex + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+                AddData(hex);
                 return true;
             case R.id.random:
                 Random r_red = new Random();
@@ -152,6 +147,15 @@ public class RGBActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void AddData(String newEntry) {
+        boolean insertData = mDatabaseHelper.addColor(newEntry);
+        if (insertData) {
+            Toast.makeText(RGBActivity.this, newEntry + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(RGBActivity.this, "Error Saving Data!", Toast.LENGTH_SHORT).show();
         }
     }
 

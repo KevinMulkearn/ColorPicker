@@ -4,7 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -16,59 +16,66 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class SavedColorActivity extends AppCompatActivity{
 
-    DBHandler dbHandler;
+    DatabaseHelper mDatabaseHelper;
     ListView savedColorsList;
-    ListAdapter colorAdapter;
     Toast t;
-
-    String dbString;
-    String[] savedColorsArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_color);
+        savedColorsList = findViewById(R.id.savedColorsList);
 
-        savedColorsList = (ListView) findViewById(R.id.savedColorsList);
+        mDatabaseHelper = new DatabaseHelper(this);
 
-        dbHandler = new DBHandler(this, null, null, 1);
-
-        savedColorsList.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
+        // Copy hex value to clipboard
+        savedColorsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 if(t != null){
                     t.cancel();
                 }
-                String item = (String) savedColorsList.getItemAtPosition(position);
+                String hex_value = adapterView.getItemAtPosition(position).toString();
 
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-                ClipData clip = ClipData.newPlainText("Hex Value", item);
+                ClipData clip = ClipData.newPlainText("Hex Value", hex_value);
                 clipboard.setPrimaryClip(clip);
-                t = Toast.makeText(SavedColorActivity.this, item + " " + getString(R.string.copied), Toast.LENGTH_SHORT);
+                t = Toast.makeText(SavedColorActivity.this, hex_value + " " + getString(R.string.copied), Toast.LENGTH_SHORT);
                 t.show();
             }
         });
 
+        // Remove color from list
         savedColorsList.setOnItemLongClickListener(new android.widget.AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                String item = (String) savedColorsList.getItemAtPosition(position);
-                dbHandler.deleteColor(item);
-                Toast.makeText(SavedColorActivity.this, item + " " + getString(R.string.deleted), Toast.LENGTH_SHORT).show();
-                printDatabase();
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+                String hex_value = adapterView.getItemAtPosition(position).toString();
+                Cursor data = mDatabaseHelper.getItemID(hex_value);  // Get the id associated with that name
 
+                int itemID = -1;
+                while(data.moveToNext()){
+                    itemID = data.getInt(0);
+                }
+                if(itemID > -1){
+                    mDatabaseHelper.deleteColor(itemID, hex_value);
+                    Toast.makeText(SavedColorActivity.this, hex_value + " " + getString(R.string.deleted), Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(SavedColorActivity.this, "Already Deleted", Toast.LENGTH_SHORT).show();
+                }
+                populateListView();
                 return true;
             }
         });
 
-        printDatabase();
+        populateListView();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,16 +100,18 @@ public class SavedColorActivity extends AppCompatActivity{
         }
     }
 
-    public void printDatabase(){
-        if(dbHandler.databaseToString().length() > 4){ //At least one color
-            dbString = dbHandler.databaseToString();
-            dbString = dbString.substring(0,dbString.length()-1); //Remove , at end
-        } else {
-            dbString = "#000000"; ////Add Black list can't be empty
+    private void populateListView() {
+        // Get the data and append to a list
+        Cursor data = mDatabaseHelper.getColors();
+        ArrayList<String> listData = new ArrayList<>();
+        while(data.moveToNext()){
+            // Get the value from the database in column 1, then add it to the ArrayList
+            listData.add(data.getString(1));
         }
-        savedColorsArray = dbString.split(",");
-        colorAdapter = new CustomAdapter(SavedColorActivity.this, savedColorsArray); //use my custom adapter
-        savedColorsList.setAdapter(colorAdapter); //set list colors
+        String[] savedColorsArray  = listData.toArray(new String[0]);
+        // Create the list adapter and set the adapter
+        CustomAdapter colorAdapter = new CustomAdapter(SavedColorActivity.this, savedColorsArray);
+        savedColorsList.setAdapter(colorAdapter);  // Set list colors
     }
 
     private AlertDialog AskOption() {
@@ -111,11 +120,9 @@ public class SavedColorActivity extends AppCompatActivity{
                 .setMessage(getString(R.string.are_you_sure))
                 .setPositiveButton(getString(R.string.delete), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                        //your deleting code
-                        dbHandler.clearColors();
-                        Colors color = new Colors("#000000");
-                        dbHandler.addColor(color); //Add Black list can't be empty
-                        printDatabase();
+                        // (your deleting code here)
+                        mDatabaseHelper.clearColors();
+                        populateListView();
                         dialog.dismiss();
                         Toast.makeText(SavedColorActivity.this, getString(R.string.all_colors_deleted), Toast.LENGTH_SHORT).show();
                     }

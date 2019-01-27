@@ -1,8 +1,5 @@
 package com.mulkearn.kevin.colorpicker;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -26,7 +23,7 @@ public class hsvActivity extends AppCompatActivity{
     RelativeLayout hsvLayout;
     SeekBar hueSeeker, satSeeker, valSeeker;
     TextView hueValue, satValue,  valValue, hexValue, redValue, greenValue, blueValue, sat_s, sat_minus, sat_plus, val_plus;
-    DBHandler dbHandler;
+    DatabaseHelper mDatabaseHelper;
 
     int hue_value = 0, sat_value = 0, val_value = 0;
     int red = 0, green = 0, blue = 0;
@@ -37,25 +34,24 @@ public class hsvActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hsv);
 
-        hsvLayout = (RelativeLayout) findViewById(R.id.hsvLayout);
-        hueValue = (TextView) findViewById(R.id.hueValue);
-        satValue = (TextView) findViewById(R.id.satValue);
-        valValue = (TextView) findViewById(R.id.valValue);
-        hexValue = (TextView) findViewById(R.id.hexValue);
-        redValue = (TextView) findViewById(R.id.redValue);
-        greenValue = (TextView) findViewById(R.id.greenValue);
-        blueValue = (TextView) findViewById(R.id.blueValue);
-        sat_s = (TextView) findViewById(R.id.sat_s);
-        hueSeeker = (SeekBar) findViewById(R.id.hueSeeker);
-        satSeeker = (SeekBar) findViewById(R.id.satSeeker);
-        valSeeker = (SeekBar) findViewById(R.id.valSeeker);
-        sat_minus = (TextView) findViewById(R.id.sat_minus);
-        sat_plus = (TextView) findViewById(R.id.sat_plus);
-        val_plus = (TextView) findViewById(R.id.val_plus);
+        hsvLayout = findViewById(R.id.hsvLayout);
+        hueValue = findViewById(R.id.hueValue);
+        satValue = findViewById(R.id.satValue);
+        valValue = findViewById(R.id.valValue);
+        hexValue = findViewById(R.id.hexValue);
+        redValue = findViewById(R.id.redValue);
+        greenValue = findViewById(R.id.greenValue);
+        blueValue = findViewById(R.id.blueValue);
+        sat_s = findViewById(R.id.sat_s);
+        hueSeeker = findViewById(R.id.hueSeeker);
+        satSeeker = findViewById(R.id.satSeeker);
+        valSeeker = findViewById(R.id.valSeeker);
+        sat_minus = findViewById(R.id.sat_minus);
+        sat_plus = findViewById(R.id.sat_plus);
+        val_plus = findViewById(R.id.val_plus);
 
-        dbHandler = new DBHandler(this, null, null, 1);
+        mDatabaseHelper = new DatabaseHelper(this);
 
-        //Color data from main activity
         float mainHue = getIntent().getFloatExtra("hue", 0);
         float mainSat = getIntent().getFloatExtra("sat", 0);
         float mainVal = getIntent().getFloatExtra("val", 0);
@@ -69,7 +65,7 @@ public class hsvActivity extends AppCompatActivity{
         satSeeker.setProgress(sat_value);
         valSeeker.setProgress(val_value);
         hsvToRGB();
-        hsvTohex();
+        hsvToHex();
         getBackColor();
         setSliderGrads();
 
@@ -80,7 +76,7 @@ public class hsvActivity extends AppCompatActivity{
                 val_value = valSeeker.getProgress();
                 hueValue.setText("H: " + progress + "\u00b0");
                 hsvToRGB();
-                hsvTohex();
+                hsvToHex();
                 getBackColor();
                 setSliderGrads();
             }
@@ -95,7 +91,7 @@ public class hsvActivity extends AppCompatActivity{
                 val_value = valSeeker.getProgress();
                 satValue.setText("S: " + progress + "%");
                 hsvToRGB();
-                hsvTohex();
+                hsvToHex();
                 getBackColor();
                 setSliderGrads();
             }
@@ -110,7 +106,7 @@ public class hsvActivity extends AppCompatActivity{
                 val_value = valSeeker.getProgress();
                 valValue.setText("V: " + progress + "%");
                 hsvToRGB();
-                hsvTohex();
+                hsvToHex();
                 getBackColor();
                 setSliderGrads();
             }
@@ -132,9 +128,7 @@ public class hsvActivity extends AppCompatActivity{
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 return true;
             case R.id.saveHex:
-                Colors color = new Colors(hex);
-                dbHandler.addColor(color);
-                Toast.makeText(hsvActivity.this, hex + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+                AddData(hex);
                 return true;
             case R.id.random:
                 Random r_hue = new Random();
@@ -152,6 +146,15 @@ public class hsvActivity extends AppCompatActivity{
         }
     }
 
+    public void AddData(String newEntry) {
+        boolean insertData = mDatabaseHelper.addColor(newEntry);
+        if (insertData) {
+            Toast.makeText(hsvActivity.this, newEntry + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(hsvActivity.this, "Error Saving Data!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
     public void hsvToRGB(){
         float[] hsv = new float[3];
         hsv[0] = (float) hue_value;
@@ -166,7 +169,7 @@ public class hsvActivity extends AppCompatActivity{
         blueValue.setText("B: " + blue);
     }
 
-    public void hsvTohex(){
+    public void hsvToHex(){
         hex = String.format("#%02X%02X%02X", red, green, blue);
         hexValue.setText("Hex: " + hex);
     }
@@ -191,28 +194,28 @@ public class hsvActivity extends AppCompatActivity{
         float[] temp = {0, 0, 0};
         float[] temp1 = {0, 0, 0};
         float[] temp2 = {0, 0, 0};
-        //Hue seeker
+        // Hue SeekBar
         GradientDrawable hueGrad = new GradientDrawable(GradientDrawable.Orientation.RIGHT_LEFT, buildHueColorArray());
         hueGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         hueSeeker.setBackground(hueGrad);
 
-        //Val seeker
+        // Val SeekBar
         temp[0] = (float) hueSeeker.getProgress();
         temp[1] = 1;
         temp[2] = 1;
-        int[] valGradValues = {Color.rgb(0,0,0), Color.HSVToColor(temp)}; //start color to end color
+        int[] valGradValues = {Color.rgb(0,0,0), Color.HSVToColor(temp)};  // Start color to end color
         GradientDrawable valGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, valGradValues);
         valGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         valSeeker.setBackground(valGrad);
 
-        //Sat seeker
+        // Sat SeekBar
         temp1[0] = temp[0];
         temp1[1] = 1;
         temp1[2] = (float) valSeeker.getProgress()/100;
         temp2[0] = temp[0];
         temp2[1] = 0;
         temp2[2] = (float) valSeeker.getProgress()/100;
-        int[] satGradValues = {Color.HSVToColor(temp2), Color.HSVToColor(temp1)}; //start color to end color
+        int[] satGradValues = {Color.HSVToColor(temp2), Color.HSVToColor(temp1)};  // Start color to end color
         GradientDrawable satGrad = new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, satGradValues);
         satGrad.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         satSeeker.setBackground(satGrad);

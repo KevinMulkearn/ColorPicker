@@ -30,7 +30,7 @@ public class WebPageActivity extends AppCompatActivity {
     TextView hexText, rgbText, hsvText, colorDisplay;
     Toast t1;
 
-    DBHandler dbHandler;
+    DatabaseHelper mDatabaseHelper;
 
     String address;
     Bitmap bitmap;
@@ -57,7 +57,7 @@ public class WebPageActivity extends AppCompatActivity {
         toggleScrollView.setTextOff(null);
         toggleScrollView.setVisibility(View.INVISIBLE);
 
-        dbHandler = new DBHandler(this, null, null, 1);
+        mDatabaseHelper = new DatabaseHelper(this);
 
         t1 = Toast.makeText(WebPageActivity.this, getString(R.string.loading), Toast.LENGTH_LONG);
         t1.show();
@@ -175,8 +175,7 @@ public class WebPageActivity extends AppCompatActivity {
             case R.id.save:
                 String saveColor = hexText.getText().toString();
                 saveColor = saveColor.substring(saveColor.indexOf("#"),saveColor.length());
-                Colors color = new Colors(saveColor);
-                dbHandler.addColor(color);
+                mDatabaseHelper.addColor(saveColor);
                 Toast.makeText(WebPageActivity.this, saveColor + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.reload:

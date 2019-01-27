@@ -49,10 +49,10 @@ public class SearchActivity extends AppCompatActivity {
     TextView addressName;
     Toast t1, t2;
     ProgressBar loadingBar;
-    DBHandler dbHandler;
+    DatabaseHelper mDatabaseHelper;
 
     String[] defaultColor  = {"#FFFFFF"};
-    String[] colorArray; //Default Colours
+    String[] colorArray;  // Default Colours
     String siteAddress;
     String message;
     int urlColor;
@@ -63,13 +63,13 @@ public class SearchActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             addressName.setText(siteAddress);
             addressName.setTextColor(urlColor);
-            colorAdapter = new CustomAdapter(SearchActivity.this, colorArray); //use my custom adapter
+            colorAdapter = new CustomAdapter(SearchActivity.this, colorArray);
             colorList.setAdapter(colorAdapter);
 
             loadingBar.setVisibility(View.INVISIBLE);
             t1.cancel();
             Toast.makeText(SearchActivity.this, message, Toast.LENGTH_SHORT).show();
-            invalidateOptionsMenu();//Recall menu create function
+            invalidateOptionsMenu();  // Recall menu create function
         }
     };
 
@@ -78,13 +78,13 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        addressBar = (EditText) findViewById(R.id.addressBar);
-        searchButton = (Button) findViewById(R.id.searchButton);
-        colorList = (ListView) findViewById(R.id.listView);
-        addressName = (TextView) findViewById(R.id.addressName);
-        loadingBar = (ProgressBar) findViewById(R.id.loadingBar);
+        addressBar = findViewById(R.id.addressBar);
+        searchButton = findViewById(R.id.searchButton);
+        colorList = findViewById(R.id.listView);
+        addressName = findViewById(R.id.addressName);
+        loadingBar = findViewById(R.id.loadingBar);
 
-        dbHandler = new DBHandler(this, null, null, 1);//check constructor for more info
+        mDatabaseHelper = new DatabaseHelper(this);
 
         addressBar.setSelection(addressBar.getText().length()); //Set cursor position to end
 
@@ -113,13 +113,12 @@ public class SearchActivity extends AppCompatActivity {
 
         colorList.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 if(t2 != null){
                     t2.cancel();
                 }
-                String item = (String) colorList.getItemAtPosition(position);
-                Colors color = new Colors(item);
-                dbHandler.addColor(color);
+                String item = colorList.getItemAtPosition(position).toString();
+                mDatabaseHelper.addColor(item);
                 t2 = Toast.makeText(SearchActivity.this, item + " " + getString(R.string.saved), Toast.LENGTH_SHORT);
                 t2.show();
             }

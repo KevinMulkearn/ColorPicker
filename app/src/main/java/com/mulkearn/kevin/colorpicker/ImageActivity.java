@@ -37,7 +37,7 @@ public class ImageActivity extends AppCompatActivity {
     TextView hexText, rgbText, hsvText, colorDisplay;
     Button captureButton, searchButton;
 
-    DBHandler dbHandler;
+    DatabaseHelper mDatabaseHelper;
 
     public static final int RequestPermissionCode = 1;
     private int REQUEST_CODE = 0;
@@ -60,7 +60,7 @@ public class ImageActivity extends AppCompatActivity {
         captureButton = (Button) findViewById(R.id.captureButton);
         searchButton = (Button) findViewById(R.id.searchButton);
 
-        dbHandler = new DBHandler(this, null, null, 1);
+        mDatabaseHelper = new DatabaseHelper(this);
 
         imageView.setDrawingCacheEnabled(true);
         imageView.buildDrawingCache();
@@ -118,8 +118,7 @@ public class ImageActivity extends AppCompatActivity {
             case R.id.save:
                 String saveValue = hexText.getText().toString();
                 saveValue = saveValue.substring(saveValue.indexOf("#"),saveValue.length());
-                Colors color = new Colors(saveValue);
-                dbHandler.addColor(color);
+                mDatabaseHelper.addColor(saveValue);
                 Toast.makeText(ImageActivity.this, saveValue + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 return true;
             default:
