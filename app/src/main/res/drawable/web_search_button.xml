@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@android:drawable/ic_search_category_default"
+        android:state_pressed="true">
+    </item>
+    <item android:state_focused="true"
+        android:drawable="@android:drawable/ic_search_category_default">
+    </item>
+    <item>
+        <bitmap
+            android:src="@android:drawable/ic_search_category_default"
+            android:tint="@color/colorPrimary">
+        </bitmap>
+    </item>
+
+</selector>

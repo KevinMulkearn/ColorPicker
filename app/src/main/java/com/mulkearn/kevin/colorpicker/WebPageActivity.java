@@ -42,16 +42,16 @@ public class WebPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_page);
 
-        pageScrollView = (ScrollView) findViewById(R.id.pageScrollView);
-        websiteView = (WebView) findViewById(R.id.websiteView);
-        imageView = (ImageView) findViewById(R.id.imageView);
-        hexText = (TextView) findViewById(R.id.hexText);
-        rgbText = (TextView) findViewById(R.id.rgbText);
-        hsvText = (TextView) findViewById(R.id.hsvText);
-        colorDisplay = (TextView) findViewById(R.id.colorDisplay);
-        toggleScrollView = (ToggleButton) findViewById(R.id.toggleScrollView);
+        pageScrollView = findViewById(R.id.pageScrollView);
+        websiteView = findViewById(R.id.websiteView);
+        imageView = findViewById(R.id.imageView);
+        hexText = findViewById(R.id.hexText);
+        rgbText = findViewById(R.id.rgbText);
+        hsvText = findViewById(R.id.hsvText);
+        colorDisplay = findViewById(R.id.colorDisplay);
+        toggleScrollView = findViewById(R.id.toggleScrollView);
 
-        //Hide toggle button text
+        // Hide toggle button text
         toggleScrollView.setText(null);
         toggleScrollView.setTextOn(null);
         toggleScrollView.setTextOff(null);

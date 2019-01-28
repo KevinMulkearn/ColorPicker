@@ -11,8 +11,8 @@
     <color name="savedColorPrimary">#2CB7DE</color>
     <color name="savedColorPrimaryDark">#18657A</color>
     <color name="savedColorAccent">#691B1B</color>
-    <color name="webPrimary">#33BD76</color>
-    <color name="webPrimaryDark">#1D6B43</color>
-    <color name="webAccent">#BA9B00</color>
+    <color name="webPrimary">#2CB7DE</color>
+    <color name="webPrimaryDark">#18657A</color>
+    <color name="webAccent">#691B1B</color>
 
 </resources>

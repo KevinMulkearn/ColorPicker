@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BAE0CC">
+    android:background="#FFE8E8">
 
     <EditText
         android:id="@+id/addressBar"
@@ -24,8 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="10dp"
         android:layout_marginTop="10dp"
-        android:background="@android:drawable/ic_search_category_default"
-        android:backgroundTint="#33BD76"
+        android:background="@drawable/web_search_button"
         android:onClick="onSearch"
          />
 

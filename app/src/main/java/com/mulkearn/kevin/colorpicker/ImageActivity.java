@@ -118,11 +118,19 @@ public class ImageActivity extends AppCompatActivity {
             case R.id.save:
                 String saveValue = hexText.getText().toString();
                 saveValue = saveValue.substring(saveValue.indexOf("#"),saveValue.length());
-                mDatabaseHelper.addColor(saveValue);
-                Toast.makeText(ImageActivity.this, saveValue + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+                AddData(saveValue);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void AddData(String newEntry) {
+        boolean insertData = mDatabaseHelper.addColor(newEntry);
+        if (insertData) {
+            Toast.makeText(ImageActivity.this, newEntry + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(ImageActivity.this, "Error Saving Data!", Toast.LENGTH_SHORT).show();
         }
     }
 

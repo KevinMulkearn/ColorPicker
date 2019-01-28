@@ -16,7 +16,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -45,14 +44,12 @@ public class SearchActivity extends AppCompatActivity {
     EditText addressBar;
     Button searchButton;
     ListView colorList;
-    ListAdapter colorAdapter;
     TextView addressName;
     Toast t1, t2;
     ProgressBar loadingBar;
     DatabaseHelper mDatabaseHelper;
 
-    String[] defaultColor  = {"#FFFFFF"};
-    String[] colorArray;  // Default Colours
+    String[] colorArray;
     String siteAddress;
     String message;
     int urlColor;
@@ -63,8 +60,10 @@ public class SearchActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             addressName.setText(siteAddress);
             addressName.setTextColor(urlColor);
-            colorAdapter = new CustomAdapter(SearchActivity.this, colorArray);
-            colorList.setAdapter(colorAdapter);
+
+            // Create the list adapter and set the adapter
+            CustomAdapter colorAdapter = new CustomAdapter(SearchActivity.this, colorArray);
+            colorList.setAdapter(colorAdapter);  // Set list colors
 
             loadingBar.setVisibility(View.INVISIBLE);
             t1.cancel();
@@ -86,9 +85,9 @@ public class SearchActivity extends AppCompatActivity {
 
         mDatabaseHelper = new DatabaseHelper(this);
 
-        addressBar.setSelection(addressBar.getText().length()); //Set cursor position to end
+        addressBar.setSelection(addressBar.getText().length()); // Set cursor position to end
 
-        //On Keyboard Enter Click
+        // On Keyboard Enter Click
         addressBar.setOnKeyListener(
                 new View.OnKeyListener() {
                     @Override
@@ -99,6 +98,7 @@ public class SearchActivity extends AppCompatActivity {
                                 case KeyEvent.KEYCODE_ENTER:
                                     onSearch(v);
                                     InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                                    assert imm != null;  // Avoid Null Point Exception
                                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                                     return true;
                                 default:
@@ -110,7 +110,6 @@ public class SearchActivity extends AppCompatActivity {
                 }
         );
 
-
         colorList.setOnItemClickListener(new android.widget.AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
@@ -118,8 +117,13 @@ public class SearchActivity extends AppCompatActivity {
                     t2.cancel();
                 }
                 String item = colorList.getItemAtPosition(position).toString();
-                mDatabaseHelper.addColor(item);
-                t2 = Toast.makeText(SearchActivity.this, item + " " + getString(R.string.saved), Toast.LENGTH_SHORT);
+
+                boolean insertData = mDatabaseHelper.addColor(item);
+                if (insertData) {
+                    t2 = Toast.makeText(SearchActivity.this, item + " " + getString(R.string.saved), Toast.LENGTH_SHORT);
+                } else {
+                    t2 = Toast.makeText(SearchActivity.this, "Error Saving Data!", Toast.LENGTH_SHORT);
+                }
                 t2.show();
             }
         });
@@ -162,7 +166,6 @@ public class SearchActivity extends AppCompatActivity {
     }
 
     public void onSearch(View view){
-
         loadingBar.setVisibility(View.VISIBLE);
 
         Runnable r = new Runnable() {
@@ -170,28 +173,29 @@ public class SearchActivity extends AppCompatActivity {
             public void run() {
 
                 siteAddress = addressBar.getText().toString();
-                String formattedUrl = formatAddress(siteAddress); //replaced siteAddress
+                String formattedUrl = formatAddress(siteAddress);  // Replaced siteAddress
 
                 if (pingUrl(formattedUrl)){
                     urlColor = Color.parseColor("#00CC00");
                     String colors = getWebsite(formattedUrl);
-                    colorArray = colors.split(", ");
-                    if (colorArray.length == 1){
-                        message = getString(R.string.no_colors_found);//"No Colors Found";
-                    } else{
-                        message = getString(R.string.colors_found);//"Colors Found";
+                    if (colors.length() > 5) {
+                        colorArray = colors.split(", ");
+                        message = getString(R.string.colors_found);  // Colors Found
+                    } else {
+                        colorArray = new String[]{};  // Empty array
+                        message = getString(R.string.no_colors_found);  // No Colors Found
                     }
-
                 } else {
                     urlColor = Color.parseColor("#FF0000");
-                    colorArray = defaultColor;
-                    message = getString(R.string.enter_valid_url);//"Invalid URL";
+                    colorArray = new String[]{};  // Empty array
+                    message = getString(R.string.enter_valid_url);  // Invalid URL
                 }
                 handler.sendEmptyMessage(0);
             }
         };
 
         InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        assert imm != null;  // Avoid Null Point Exception
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         t1 = Toast.makeText(SearchActivity.this, getString(R.string.please_wait), Toast.LENGTH_LONG);
         t1.show();
@@ -208,11 +212,10 @@ public class SearchActivity extends AppCompatActivity {
         HttpGet httpget = new HttpGet(website);
 
         ArrayList<String> allColors = new ArrayList<>();
-        allColors.add("#FFFFFF");
         int index;
         int lineLength;
         String hexTest;
-        String sorted;
+        String sorted = "";
 
         try{
             HttpResponse response;
@@ -228,7 +231,7 @@ public class SearchActivity extends AppCompatActivity {
                 while (index >= 0) {
                     lineLength = inputLine.length();
                     if (index < lineLength-7){
-                        hexTest = inputLine.substring(index+1, index+7); //***check length validation ***
+                        hexTest = inputLine.substring(index+1, index+7);  // TODO: check length validation
                         hexTest = hexTest.toUpperCase();
 
                         if(hexTest.matches("[0-9a-fA-F]+")){
@@ -244,16 +247,18 @@ public class SearchActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(SearchActivity.this, "Error", Toast.LENGTH_SHORT).show();
         }
-        Set<String> hs = new HashSet<>(); //Create hash set
-        hs.addAll(allColors); //add all elements of array to hash set (removes duplicates)
-        allColors.clear(); //clear array
-        allColors.addAll(hs); //add all elements of hash set back to array
 
-        Collections.sort(allColors); //sort array
+        if (!allColors.isEmpty()) {
+            Set<String> hs = new HashSet<>(allColors);  // Add all elements to hash set (removes duplicates)
 
-        sorted = allColors.toString();
-        sorted = sorted.substring(1,sorted.length()-1); //Remove [] brackets
+            allColors.clear();  // Clear array
+            allColors.addAll(hs);  // Add all elements of hash set back to array
 
+            Collections.sort(allColors);  // Sort array
+
+            sorted = allColors.toString();
+            sorted = sorted.substring(1,sorted.length()-1);  // Remove [] brackets
+        }
         return sorted;
     }
 
@@ -265,7 +270,7 @@ public class SearchActivity extends AppCompatActivity {
             HttpGet httpget = new HttpGet(testUrl);
             HttpResponse response;
             response = httpclient.execute(httpget);
-            HttpEntity entity = response.getEntity();
+            response.getEntity();
             return true;
         } catch (Exception e) {
             return false;
