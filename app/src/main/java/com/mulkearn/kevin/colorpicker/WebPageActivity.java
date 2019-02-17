@@ -92,7 +92,7 @@ public class WebPageActivity extends AppCompatActivity {
                 }
                 Toast.makeText(WebPageActivity.this, getString(R.string.finished_loading), Toast.LENGTH_SHORT).show();
                 loaded = true;
-                invalidateOptionsMenu();//Recall menu create function
+                invalidateOptionsMenu();  // Recall menu create function
                 toggleScrollView.setVisibility(View.VISIBLE);
             }
         });
@@ -100,7 +100,7 @@ public class WebPageActivity extends AppCompatActivity {
         websiteView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                return true; //True if the listener has consumed the event, false otherwise.
+                return true;  // True if the listener has consumed the event, false otherwise.
             }
         });
 
