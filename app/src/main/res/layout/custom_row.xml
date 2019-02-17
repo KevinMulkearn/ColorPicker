@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/lyt_container">
+    android:layout_height="match_parent">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/hexText"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="15dp"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/hexText"
-            android:layout_width="match_parent"
+            android:id="@+id/rgbText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
             android:padding="15dp"
             android:textColor="#FFFFFF"
@@ -22,131 +34,22 @@
             android:shadowDx="2"
             android:shadowDy="2"
             android:shadowRadius="2"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/hsvText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/rgbText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="15dp"
-                android:textColor="#FFFFFF"
-                android:shadowColor="#000000"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="2"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/hsvText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal|center_vertical"
-                android:padding="15dp"
-                android:textColor="#FFFFFF"
-                android:shadowColor="#000000"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="2"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:weightSum="3">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/txt_delete"
-            android:gravity="center_vertical"
-            android:text="Deleted"
-            android:clickable="false"
-            android:layout_weight="2"
-            android:hapticFeedbackEnabled="true"
-            android:textColor="#FFFFFF"/>
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:id="@+id/txt_undo"
-            android:text="Undo"
-            android:clickable="false"
             android:layout_weight="1"
-            android:textColor="#FFFF00"/>
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="15dp"
+            android:textColor="#FFFFFF"
+            android:shadowColor="#000000"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:textSize="12sp" />
 
     </LinearLayout>
 
-</FrameLayout>
-
-
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:orientation="vertical"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/hexText"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:gravity="center_horizontal|center_vertical"-->
-        <!--android:padding="15dp"-->
-        <!--android:textColor="#FFFFFF"-->
-        <!--android:shadowColor="#000000"-->
-        <!--android:shadowDx="2"-->
-        <!--android:shadowDy="2"-->
-        <!--android:shadowRadius="2"-->
-        <!--android:textSize="18sp" />-->
-
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:orientation="horizontal">-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/rgbText"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:gravity="center_horizontal|center_vertical"-->
-            <!--android:padding="15dp"-->
-            <!--android:textColor="#FFFFFF"-->
-            <!--android:shadowColor="#000000"-->
-            <!--android:shadowDx="2"-->
-            <!--android:shadowDy="2"-->
-            <!--android:shadowRadius="2"-->
-            <!--android:textSize="12sp" />-->
-
-        <!--<TextView-->
-            <!--android:id="@+id/hsvText"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:gravity="center_horizontal|center_vertical"-->
-            <!--android:padding="15dp"-->
-            <!--android:textColor="#FFFFFF"-->
-            <!--android:shadowColor="#000000"-->
-            <!--android:shadowDx="2"-->
-            <!--android:shadowDy="2"-->
-            <!--android:shadowRadius="2"-->
-            <!--android:textSize="12sp" />-->
-
-    <!--</LinearLayout>-->
-
-
-
-<!--</LinearLayout>-->
+</LinearLayout>
