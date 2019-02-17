@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">"Pipette à Couleurs "</string>
+    <string name="saved_colors">"Couleurs Sauvegardées "</string>
+    <string name="about">Information</string>
+    <string name="save">Enregistrer</string>
+    <string name="random">"Au Hasard "</string>
+    <string name="clear_all">"Tout Effacer "</string>
+    <string name="rgb_picker">RGB Sélecteur</string>
+    <string name="hsv_picker">HSV Sélecteur</string>
+    <string name="hex_picker">Hex Sélecteur</string>
+    <string name="copied">"Copié Dans Le Presse-Papier "</string>
+    <string name="enter_valid">"Entrez Un Numéro Valide "</string>
+    <string name="not_valid">Pas Valide!</string>
+    <string name="delete_all">"Effacer Tout "</string>
+    <string name="are_you_sure">"Êtes-vous Sûr? "</string>
+    <string name="delete">Effacer</string>
+    <string name="cancel">Annuler</string>
+    <string name="all_colors_deleted">"Toutes Les Couleurs Supprimées "</string>
+    <string name="deleted">Supprimé</string>
+    <string name="saved">Enregistré</string>
+    <string name="enter_valid_url">"Entrer Une URL Valide "</string>
+    <string name="no_colors_found">"Aucune Couleur Trouvée "</string>
+    <string name="colors_found">"Couleurs Trouvées "</string>
+    <string name="please_wait">"S'il Vous Plaît, Attendez… "</string>
+    <string name="loading">Chargement…</string>
+    <string name="finished_loading">"Chargement Terminé "</string>
+    <string name="error_saving">"Sauvegarde D'erreur "</string>
+    <string name="enable_permissions">"S'il Vous Plaît Activer Les Autorisations "</string>
+    <string name="image_checker">"Sélecteur D'Image "</string>
+    <string name="source_code_check">"Vérification Du Code Source "</string>
+    <string name="page_view">Page Vue</string>
+    <string name="rotate">Tourner</string>
+    <string name="reload">Recharger</string>
+
+    <string name="overview_text">Pipette à Couleurs:\n
+        Les couleurs primaires appartiennent à un groupe de couleurs à partir
+        duquel toutes les autres couleurs peuvent être obtenues par mélange.
+        Dans les applications du monde réel, les couleurs les plus courantes sont le
+        rouge, le bleu et le jaune. Pour ce qui est de représenter numériquement les
+        couleurs, le modèle RGB24 (rouge, vert, bleu) est le plus populaire. Cette
+        application vous permet de jouer avec différents modèles et de générer vos
+        propres couleurs.
+    </string>
+    <string name="howToUse_text">
+        Comment utiliser:\n
+        RGB and HSV:\n
+        Déplacez le curseur pour sélectionner une valeur comprise
+        entre 0 et 255 (0 à 360 pour la teinte, 0 à 100 pour la
+        saturation et la valeur). Faites cela pour chaque curseur
+        pour obtenir votre couleur désirée.\n
+        Hex:\n
+        Appuyez sur le chiffre que vous souhaitez modifier dans la
+        vue hexadécimale, puis entrez la valeur souhaitée à l\'aide du clavier.\n
+        Lorsqu\'une couleur désirée est trouvée, vous pouvez copier la
+        valeur hexadécimale dans votre presse-papiers via l\'option \"Enregistrer\".
+        Cela permettra également d\'enregistrer la couleur dans
+        votre menu \"Couleurs enregistrées\".\n
+        Couleurs Sauvegardées:\n
+        Pour réenregistrer la valeur hexadécimale dans votre
+        presse-papiers, appuyez sur la couleur souhaitée dans votre
+        liste de couleurs. Si vous souhaitez supprimer une couleur
+        de votre menu de couleurs enregistrées, maintenez la touche enfoncée.\n
+        Sélecteur D\'Image:\n
+        1. Entrez l\'URL de votre choix. Appuyez sur le bouton de
+        recherche pour confirmer. Lorsque la liste de couleurs est renvoyée,
+        appuyez simplement sur n\'importe quelle couleur pour l\'enregistrer
+        dans votre application.\n
+        2. Si la couleur que vous recherchez ne figure pas
+        ici, sélectionnez l\'option Visionneuse de page dans le menu des options. Attendez
+        que la page soit complètement chargée. Une fois la page entièrement
+        chargée, vous pouvez faire défiler son contenu. Pour enregistrer une
+        couleur, vous devez d\'abord verrouiller la vue, puis appuyer simplement
+        n\'importe où sur la page Web pour choisir votre couleur. Si vous
+        êtes satisfait de la couleur, appuyez sur l’icône de sauvegarde
+        située dans le coin supérieur droit pour la sauvegarder.\n
+        3. Pour afficher toutes vos couleurs enregistrées,
+        sélectionnez l\'option Couleurs enregistrées de l\'écran
+        d\'accueil. Pour enregistrer la valeur hexadécimale dans votre
+        presse-papiers, tapez sur la couleur souhaitée. Si vous souhaitez
+        supprimer une couleur de votre menu de couleurs enregistrées,
+        maintenez la touche enfoncée.\n\n
+        (Remarque: assurez-vous d\'avoir une connexion Internet stable. Si un
+        message URL non valide est affiché, veuillez vous assurer que vous
+        avez entré le protocole, le domaine et la ressource appropriés.)
+    </string>
+    <string name="rgb_about_text">
+        (RGB)\n
+        Ce schéma limite le nombre de valeurs disponibles à 8 bits
+        dans trois canaux de couleur avec des valeurs de 0 à 255.
+        Cela signifie que n\'importe quelle couleur peut être l\'une
+        des 16 777 216 couleurs possibles.
+    </string>
+    <string name="hsv_about_text">
+        (HSV)\n
+        Teinte, Saturation, Valeur est une représentation alternative
+        du modèle de couleur RVB. Cela correspond plus étroitement à la
+        façon dont la vision humaine perçoit les attributs de production de
+        couleur. La représentation HSV modélise le mélange de peintures de
+        différentes couleurs, la dimension de saturation ressemblant à différentes
+        nuances de peinture de couleurs vives et la dimension de valeur ressemblant
+        au mélange de ces peintures avec des quantités variables de peinture noire ou blanche.
+    </string>
+    <string name="cymk_about_text">
+        (CMYK)\n
+        Cyan, Magenta, Jaune, Noir est un modèle de couleur soustractif,
+        utilisé en impression couleur. Le modèle CMJN fonctionne en masquant
+        partiellement ou totalement des couleurs sur un fond plus clair,
+        généralement blanc. L\'encre réduit la lumière qui serait autrement réfléchie.
+    </string>
+    <string name="hex_about_text">
+        (Hex)\n
+        Un triplet hexadécimal est un nombre hexadécimal à six chiffres et
+        trois octets, utilisé pour représenter les couleurs dans les
+        applications informatiques. Les représentent les composants rouge,
+        vert et bleu de la couleur. Un octet représente un nombre compris
+        entre 00 et FF (en notation hexadécimale) ou entre 0 et 255 en notation décimale.
+    </string>
+
+
+</resources>

@@ -21,14 +21,6 @@
     <string name="all_colors_deleted">Alle Farben Gelöscht</string>
     <string name="deleted">Gelöscht</string>
 
-    <string name="red_initial_val">R: 0</string>
-    <string name="green_initial_val">G: 0</string>
-    <string name="blue_initial_val">B: 0</string>
-    <string name="hex_value">Hex: #000000</string>
-    <string name="hur_initial_val">H: 0°</string>
-    <string name="sat_initial_val">S: 0%</string>
-    <string name="val_initial_val">V: 0%</string>
-
     <string name="saved">Gerettet</string>
     <string name="enter_valid_url">Geben Sie die gültige URL ein</string>
     <string name="no_colors_found">Keine Farben gefunden</string>
@@ -92,7 +84,7 @@
         (Hinweis: Bitte stellen Sie sicher, dass Sie einen Stall haben
         Internetverbindung. Wenn eine ungültige URL-Nachricht lautet
         angezeigt, stellen Sie bitte sicher, dass Sie die richtige eingegeben haben
-        Protokoll, Domäne und Ressource.
+        Protokoll, Domäne und Ressource.)
     </string>
     <string name="rgb_about_text">
         (RGB)\n

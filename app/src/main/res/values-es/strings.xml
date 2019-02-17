@@ -20,14 +20,6 @@
     <string name="all_colors_deleted">Todos Los Colores Eliminados</string>
     <string name="deleted">Borrado</string>
 
-    <string name="red_initial_val">R: 0</string>
-    <string name="green_initial_val">G: 0</string>
-    <string name="blue_initial_val">B: 0</string>
-    <string name="hex_value">Hex: #000000</string>
-    <string name="hur_initial_val">H: 0°</string>
-    <string name="sat_initial_val">S: 0%</string>
-    <string name="val_initial_val">V: 0%</string>
-
     <string name="saved">Salvado</string>
     <string name="enter_valid_url">Ingrese la URL válida</string>
     <string name="no_colors_found">No se encontraron colores</string>
@@ -91,7 +83,7 @@
         (Nota: asegúrese de tener un establo
         conexión a Internet. Si un mensaje URL inválido es
         mostrado, asegúrese de haber ingresado el
-        protocolo, dominio y recurso.
+        protocolo, dominio y recurso.)
     </string>
     <string name="rgb_about_text">
         (RGB)\n

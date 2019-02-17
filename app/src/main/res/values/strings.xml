@@ -19,13 +19,13 @@
     <string name="all_colors_deleted">All Colors Deleted</string>
     <string name="deleted">Deleted</string>
 
-    <string name="red_initial_val">R: 0</string>
-    <string name="green_initial_val">G: 0</string>
-    <string name="blue_initial_val">B: 0</string>
-    <string name="hex_value">Hex: #000000</string>
-    <string name="hur_initial_val">H: 0°</string>
-    <string name="sat_initial_val">S: 0%</string>
-    <string name="val_initial_val">V: 0%</string>
+    <string name="red_initial_val" translatable="false">R: 0</string>
+    <string name="green_initial_val" translatable="false">G: 0</string>
+    <string name="blue_initial_val" translatable="false">B: 0</string>
+    <string name="hex_value" translatable="false">Hex: #000000</string>
+    <string name="hur_initial_val" translatable="false">H: 0°</string>
+    <string name="sat_initial_val" translatable="false">S: 0%</string>
+    <string name="val_initial_val" translatable="false">V: 0%</string>
 
     <string name="saved">Saved</string>
     <string name="enter_valid_url">Enter Valid URL</string>
@@ -90,7 +90,7 @@
         (Note: Please make sure you have a stable
         internet connection. If an Invalid URL message is
         displayed, please make sure you have entered the correct
-        protocol, domain and resource.
+        protocol, domain and resource.)
     </string>
     <string name="rgb_about_text">
         (RGB)\n
@@ -125,5 +125,19 @@
         One byte represents a number in the range 00 to FF (in hexadecimal
         notation), or 0 to 255 in decimal notation.
     </string>
+    <string name="hsv" translatable="false">HSV</string>
+    <string name="hex" translatable="false">Hex</string>
+    <string name="rgb" translatable="false">RGB</string>
+    <string name="hash_symbol" translatable="false">#</string>
+    <string name="h_letter" translatable="false">H</string>
+    <string name="minus_sign" translatable="false">-</string>
+    <string name="plus_sign" translatable="false">+</string>
+    <string name="s_letter" translatable="false">S</string>
+    <string name="v_letter" translatable="false">V</string>
+    <string name="rgb_zeroed" translatable="false">rgb(0,0,0)</string>
+    <string name="hsv_zeroed" translatable="false">hsv(0°,0%,0%)</string>
+    <string name="www_dot" translatable="false">www.</string>
+    <string name="rgb_zeroed_v2" translatable="false">RGB (0, 0, 0)</string>
+    <string name="hsv_zeroed_v2" translatable="false">HSV (0°, 0%, 0%)</string>
 
 </resources>

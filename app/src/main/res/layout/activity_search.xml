@@ -14,7 +14,7 @@
         android:layout_toStartOf="@+id/searchButton"
         android:ems="10"
         android:inputType="text|textWebEmailAddress"
-        android:text="www." />
+        android:text="@string/www_dot" />
 
     <Button
         android:id="@+id/searchButton"

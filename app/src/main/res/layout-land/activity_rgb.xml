@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RGB"
+            android:text="@string/rgb"
             android:gravity="center_horizontal|center_vertical"
             android:textColor="#FFFFFF"
             android:background="#BB212121" />
@@ -29,7 +29,7 @@
             android:layout_weight="1"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
-            android:text="HSV"
+            android:text="@string/hsv"
             android:gravity="center_horizontal|center_vertical"
             android:textColor="#FFFFFF"
             android:background="#FF212121"
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Hex"
+            android:text="@string/hex"
             android:gravity="center_horizontal|center_vertical"
             android:textColor="#FFFFFF"
             android:background="#FF212121"
@@ -113,7 +113,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="-"
+            android:text="@string/minus_sign"
             android:background="#000000"
             android:textColor="#FFFFFF"
             android:onClick="redMinus"/>
@@ -131,7 +131,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="+"
+            android:text="@string/plus_sign"
             android:background="#FF0000"
             android:textColor="#FFFFFF"
             android:onClick="redPlus"/>
@@ -161,7 +161,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="-"
+            android:text="@string/minus_sign"
             android:background="#000000"
             android:textColor="#FFFFFF"
             android:onClick="greenMinus"/>
@@ -179,7 +179,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="+"
+            android:text="@string/plus_sign"
             android:background="#00FF00"
             android:textColor="#FFFFFF"
             android:onClick="greenPlus"/>
@@ -209,7 +209,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="-"
+            android:text="@string/minus_sign"
             android:background="#000000"
             android:textColor="#FFFFFF"
             android:onClick="blueMinus"/>
@@ -227,7 +227,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:gravity="center_vertical|center_horizontal"
-            android:text="+"
+            android:text="@string/plus_sign"
             android:background="#0000FF"
             android:textColor="#FFFFFF"
             android:onClick="bluePlus"/>

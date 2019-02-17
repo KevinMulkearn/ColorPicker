@@ -37,7 +37,7 @@
                 android:id="@+id/hexText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hex:#000000"
+                android:text="@string/hex_value"
                 android:textSize="15sp"
                 android:textColor="#000000"/>
 
@@ -45,7 +45,7 @@
                 android:id="@+id/rgbText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="rgb(0,0,0)"
+                android:text="@string/rgb_zeroed"
                 android:textSize="15sp"
                 android:textColor="#000000"/>
 
@@ -53,7 +53,7 @@
                 android:id="@+id/hsvText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="hsv(0°,0%,0%)"
+                android:text="@string/hsv_zeroed"
                 android:textSize="15sp"
                 android:textColor="#000000"/>
 
