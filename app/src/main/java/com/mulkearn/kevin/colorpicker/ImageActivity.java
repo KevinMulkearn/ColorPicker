@@ -52,13 +52,13 @@ public class ImageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
-        imageView = (ImageView) findViewById(R.id.imageView);
-        hexText = (TextView) findViewById(R.id.hexText);
-        rgbText = (TextView) findViewById(R.id.rgbText);
-        hsvText = (TextView) findViewById(R.id.hsvText);
-        colorDisplay = (TextView) findViewById(R.id.colorDisplay);
-        captureButton = (Button) findViewById(R.id.captureButton);
-        searchButton = (Button) findViewById(R.id.searchButton);
+        imageView = findViewById(R.id.imageView);
+        hexText = findViewById(R.id.hexText);
+        rgbText = findViewById(R.id.rgbText);
+        hsvText = findViewById(R.id.hsvText);
+        colorDisplay = findViewById(R.id.colorDisplay);
+        captureButton = findViewById(R.id.captureButton);
+        searchButton = findViewById(R.id.searchButton);
 
         mDatabaseHelper = new DatabaseHelper(this);
 
@@ -117,7 +117,7 @@ public class ImageActivity extends AppCompatActivity {
                 return true;
             case R.id.save:
                 String saveValue = hexText.getText().toString();
-                saveValue = saveValue.substring(saveValue.indexOf("#"),saveValue.length());
+                saveValue = saveValue.substring(saveValue.indexOf("#"));
                 AddData(saveValue);
                 return true;
             default:

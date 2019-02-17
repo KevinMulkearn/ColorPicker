@@ -231,7 +231,7 @@ public class SearchActivity extends AppCompatActivity {
                 while (index >= 0) {
                     lineLength = inputLine.length();
                     if (index < lineLength-7){
-                        hexTest = inputLine.substring(index+1, index+7);  // TODO: check length validation
+                        hexTest = inputLine.substring(index+1, index+7);
                         hexTest = hexTest.toUpperCase();
 
                         if(hexTest.matches("[0-9a-fA-F]+")){

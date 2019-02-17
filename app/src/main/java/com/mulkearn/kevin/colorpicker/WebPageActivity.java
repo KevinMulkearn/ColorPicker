@@ -174,7 +174,7 @@ public class WebPageActivity extends AppCompatActivity {
                 return true;
             case R.id.save:
                 String saveColor = hexText.getText().toString();
-                saveColor = saveColor.substring(saveColor.indexOf("#"),saveColor.length());
+                saveColor = saveColor.substring(saveColor.indexOf("#"));
                 mDatabaseHelper.addColor(saveColor);
                 Toast.makeText(WebPageActivity.this, saveColor + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
                 return true;

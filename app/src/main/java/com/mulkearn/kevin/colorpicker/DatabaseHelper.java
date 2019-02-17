@@ -3,7 +3,6 @@ package com.mulkearn.kevin.colorpicker;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -12,8 +11,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;  // Version needs to be update if DB is updated
     private static final String DATABASE_NAME = "colorpicker.db";  // File name on device
     private static final String TABLE_NAME = "SavedColors";
-    public static final String COLUMN_ID = "ID";
-    public static final String COLUMN_COLOR = "ColorHex";
+    private static final String COLUMN_ID = "ID";
+    private static final String COLUMN_COLOR = "ColorHex";
 
 
     public DatabaseHelper(Context context) {
@@ -50,10 +49,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         } else {
             // Limit number of color to 100
-//            db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " NOT IN " +
-//                    "(SELECT " + COLUMN_ID + " FROM " + TABLE_NAME + " ORDER BY " +
-//                    COLUMN_ID + " DESC LIMIT 100);");
-//            db.close();
+            db.execSQL("DELETE FROM " + TABLE_NAME + " WHERE " + COLUMN_ID + " NOT IN " +
+                    "(SELECT " + COLUMN_ID + " FROM " + TABLE_NAME + " ORDER BY " +
+                    COLUMN_ID + " DESC LIMIT 100);");
+            db.close();
             return true;
         }
     }

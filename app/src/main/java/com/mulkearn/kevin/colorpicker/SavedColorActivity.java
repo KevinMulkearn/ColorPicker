@@ -46,6 +46,7 @@ public class SavedColorActivity extends AppCompatActivity{
 
                 ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 ClipData clip = ClipData.newPlainText("Hex Value", hex_value);
+                assert clipboard != null;
                 clipboard.setPrimaryClip(clip);
                 t = Toast.makeText(SavedColorActivity.this, hex_value + " " + getString(R.string.copied), Toast.LENGTH_SHORT);
                 t.show();
