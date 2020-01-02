@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void hsvActivityStart(View view) {
-        Intent i_hsv = new Intent(this, hsvActivity.class);
+        Intent i_hsv = new Intent(this, HSVActivity.class);
         startActivity(i_hsv);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }

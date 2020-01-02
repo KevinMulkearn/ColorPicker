@@ -347,7 +347,7 @@ public class HexActivity  extends AppCompatActivity implements View.OnClickListe
     }
 
     public void hsvNavClick(View view) {
-        Intent i_hsv = new Intent(this, hsvActivity.class);
+        Intent i_hsv = new Intent(this, HSVActivity.class);
         i_hsv.putExtra("hue", hue);
         i_hsv.putExtra("sat", sat);
         i_hsv.putExtra("val", val);

@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import java.util.Random;
 
-public class hsvActivity extends AppCompatActivity{
+public class HSVActivity extends AppCompatActivity{
 
     RelativeLayout hsvLayout;
     SeekBar hueSeeker, satSeeker, valSeeker;
@@ -149,9 +149,9 @@ public class hsvActivity extends AppCompatActivity{
     public void AddData(String newEntry) {
         boolean insertData = mDatabaseHelper.addColor(newEntry);
         if (insertData) {
-            Toast.makeText(hsvActivity.this, newEntry + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
+            Toast.makeText(HSVActivity.this, newEntry + " " + getString(R.string.saved), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(hsvActivity.this, "Error Saving Data!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(HSVActivity.this, "Error Saving Data!", Toast.LENGTH_SHORT).show();
         }
     }
 

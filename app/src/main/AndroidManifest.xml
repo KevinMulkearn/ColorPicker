@@ -49,7 +49,7 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".hsvActivity"
+            android:name=".HSVActivity"
             android:label="@string/hsv_picker"
             android:parentActivityName=".MainActivity" >
             <meta-data
