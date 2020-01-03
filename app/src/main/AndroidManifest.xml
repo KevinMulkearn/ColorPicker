@@ -57,6 +57,14 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
+            android:name=".CMYKActivity"
+            android:label="HSV Picker"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
             android:name=".SavedColorActivity"
             android:label="@string/saved_colors"
             android:screenOrientation="portrait"

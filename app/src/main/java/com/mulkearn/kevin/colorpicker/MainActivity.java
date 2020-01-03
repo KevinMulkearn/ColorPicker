@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
+    public void cmykActivityStart(View view) {
+        Intent i_cmyk = new Intent(this, CMYKActivity.class);
+        startActivity(i_cmyk);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
     public void hexActivityStart(View view) {
         Intent i_hex = new Intent(this, HexActivity.class);
         startActivity(i_hex);

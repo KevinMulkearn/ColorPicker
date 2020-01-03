@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context="com.mulkearn.kevin.colorpicker.RGBActivity">
+
+    <LinearLayout
+        android:id="@+id/navButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/rgb"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#BB212121" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:text="@string/hsv"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#FF212121"
+            android:onClick="hsvNavClick"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:text="@string/hex"
+            android:gravity="center_horizontal|center_vertical"
+            android:textColor="#FFFFFF"
+            android:background="#FF212121"
+            android:onClick="hexNavClick"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/hexValue"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/navButtons"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#BB212121"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/hex_value"
+        android:textColor="#FFFFFF" />
+
+
+    <LinearLayout
+        android:id="@+id/hsvValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hexValue"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:background="#BB212121">
+
+        <TextView
+            android:id="@+id/hueValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/hur_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/satValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/sat_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/valValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/val_initial_val"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rgbValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hsvValues"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:background="#BB212121">
+
+        <TextView
+            android:id="@+id/redValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/red_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/greenValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/green_initial_val"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/blueValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/blue_initial_val"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cmykValues"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rgbValues"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal"
+        android:background="#BB212121">
+
+        <TextView
+            android:id="@+id/cyanValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#00FFFF"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="C: 0"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/magentaValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#FF00FF"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="M: 0"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/yellowValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#FFFF00"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Y: 0"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/blackValue"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="K: 0"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/cyan_stuff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/magenta_stuff"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/minus_sign"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:onClick="cyanMinus"/>
+        <SeekBar
+            android:id="@+id/cyanSeeker"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:max="100"
+            android:progressDrawable="@drawable/custom_val_seekbar"
+            android:thumb="@drawable/custom_thumb"/>
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/plus_sign"
+            android:background="#00FFFF"
+            android:textColor="#FFFFFF"
+            android:onClick="cyanPlus"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/magenta_stuff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/yellow_stuff"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/minus_sign"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:onClick="magentaMinus"/>
+        <SeekBar
+            android:id="@+id/magentaSeeker"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:max="100"
+            android:progressDrawable="@drawable/custom_val_seekbar"
+            android:thumb="@drawable/custom_thumb"/>
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/plus_sign"
+            android:background="#FF00FF"
+            android:textColor="#FFFFFF"
+            android:onClick="magentaPlus"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/yellow_stuff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/black_stuff"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/minus_sign"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:onClick="yellowMinus"/>
+        <SeekBar
+            android:id="@+id/yellowSeeker"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:max="100"
+            android:progressDrawable="@drawable/custom_val_seekbar"
+            android:thumb="@drawable/custom_thumb"/>
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/plus_sign"
+            android:background="#FFFF00"
+            android:textColor="#FFFFFF"
+            android:onClick="yellowPlus"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/black_stuff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/minus_sign"
+            android:background="#FFFFFF"
+            android:textColor="#000000"
+            android:onClick="blackMinus"/>
+        <SeekBar
+            android:id="@+id/blackSeeker"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:max="100"
+            android:progressDrawable="@drawable/custom_val_seekbar"
+            android:thumb="@drawable/custom_thumb" />
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/plus_sign"
+            android:background="#000000"
+            android:textColor="#FFFFFF"
+            android:onClick="blackPlus"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

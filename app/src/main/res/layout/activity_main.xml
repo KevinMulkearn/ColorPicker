@@ -50,6 +50,20 @@
         android:onClick="hsvActivityStart"/>
 
     <TextView
+        android:id="@+id/cmykActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="CMYK"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal|center_vertical"
+        android:background="@drawable/home_activity_button"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:onClick="cmykActivityStart"/>
+
+    <TextView
         android:id="@+id/hexActivity"
         android:layout_width="match_parent"
         android:layout_height="0dp"
